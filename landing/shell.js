@@ -14,6 +14,7 @@ const APPS = [
   { name: '00 Onion', url: 'onion.html' },
   { name: '00 Swap', url: 'swap.html' },
   { name: '00 Vault', url: 'vault.html' },
+  { name: '00 Fusion', url: 'fusion.html' },
   { name: '00 Config', url: 'config.html' },
 ];
 
@@ -22,13 +23,13 @@ const APP_ICONS = {
   'index.html': '00', 'wallet.html': '00', 'chat.html': '00', 'pay.html': '00',
   'swap.html': '00', 'dex.html': '00', 'loan.html': '00',
   'id.html': '00', 'mesh.html': '00',
-  'onion.html': '00', 'vault.html': '00', 'config.html': '⚙',
+  'onion.html': '00', 'vault.html': '00', 'fusion.html': '00', 'config.html': '⚙',
 };
 const APP_SECTIONS = {
   Overview: ['index.html'],
   Finance:  ['wallet.html','pay.html','swap.html','dex.html','loan.html'],
-  Privacy:  ['chat.html','onion.html'],
-  Identity: ['id.html','mesh.html','vault.html'],
+  Privacy:  ['chat.html','onion.html','vault.html','fusion.html'],
+  Identity: ['id.html','mesh.html'],
 };
 
 const _desktopMQ = window.matchMedia('(min-width: 900px)');

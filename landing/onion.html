@@ -533,14 +533,42 @@
     var dcnoi=document.getElementById('dt-cfg-nostr-info');
     if(cnoi&&dcnoi) dcnoi.textContent=cnoi.textContent;
 
-    // Mirror relay form values (once)
+    // Mirror relay form values (once) — load from localStorage first
     var rf=document.getElementById('relay-fee');
     var drf2=document.getElementById('dt-relay-fee');
-    if(rf&&drf2&&!drf2.dataset.init){drf2.value=rf.value;drf2.dataset.init='1';}
+    if(rf&&drf2&&!drf2.dataset.init){
+      var sf=localStorage.getItem('00_onion_relay_fee');
+      if(sf){rf.value=sf;drf2.value=sf;}else{drf2.value=rf.value;}
+      drf2.dataset.init='1';
+      drf2.addEventListener('change',function(){rf.value=drf2.value;localStorage.setItem('00_onion_relay_fee',drf2.value);});
+    }
 
     var rm=document.getElementById('relay-max');
     var drm=document.getElementById('dt-relay-max');
-    if(rm&&drm&&!drm.dataset.init){drm.value=rm.value;drm.dataset.init='1';}
+    if(rm&&drm&&!drm.dataset.init){
+      var sm=localStorage.getItem('00_onion_relay_max');
+      if(sm){rm.value=sm;drm.value=sm;}else{drm.value=rm.value;}
+      drm.dataset.init='1';
+      drm.addEventListener('change',function(){rm.value=drm.value;localStorage.setItem('00_onion_relay_max',drm.value);});
+    }
+
+    var rc=document.getElementById('relay-cltv');
+    var drc=document.getElementById('dt-relay-cltv');
+    if(rc&&drc&&!drc.dataset.init){
+      var sc=localStorage.getItem('00_onion_relay_cltv');
+      if(sc){rc.value=sc;drc.value=sc;}else{drc.value=rc.value;}
+      drc.dataset.init='1';
+      drc.addEventListener('change',function(){rc.value=drc.value;localStorage.setItem('00_onion_relay_cltv',drc.value);});
+    }
+
+    var rh=document.getElementById('relay-hops');
+    var drh=document.getElementById('dt-relay-hops');
+    if(rh&&drh&&!drh.dataset.init){
+      var sh=localStorage.getItem('00_onion_relay_hops');
+      if(sh){rh.value=sh;drh.value=sh;}else{drh.value=rh.value;}
+      drh.dataset.init='1';
+      drh.addEventListener('change',function(){rh.value=drh.value;localStorage.setItem('00_onion_relay_hops',drh.value);});
+    }
 
     // Mirror config net status
     var cns=document.getElementById('cfg-net-status');
@@ -839,7 +867,7 @@ let _fulcrumCallbacks = {};
 
 // Relay discovery
 let _knownRelays = [];   // [{pub, fee, max_htlc, cltv_delta, ts}]
-let _relayMode = false;
+let _relayMode = localStorage.getItem('00_onion_relay_mode') === '1';
 let _relayAnnInterval = null;
 
 // Pending HTLCs
@@ -1652,23 +1680,28 @@ function renderRelayList() {
    ══════════════════════════════════════════ */
 window.toggleRelay = async function() {
   _relayMode = !_relayMode;
-  const toggle = $('#relay-toggle');
-  toggle.classList.toggle('on', _relayMode);
+  localStorage.setItem('00_onion_relay_mode', _relayMode ? '1' : '0');
+  _updateRelayUI();
   if (_relayMode) {
     await announceRelay();
     _relayAnnInterval = setInterval(announceRelay, 60000);
-    $('#relay-status').textContent = 'ONLINE — ANNOUNCING';
-    $('#relay-status').style.color = 'var(--green)';
-    renderRelayForwards();
   } else {
     clearInterval(_relayAnnInterval);
-    // Remove self from known relays
     _knownRelays = _knownRelays.filter(r => r.pub !== _sessionPub);
     renderRelayList();
-    $('#relay-status').textContent = 'OFFLINE';
-    $('#relay-status').style.color = 'rgba(0,255,65,.4)';
   }
 };
+
+function _updateRelayUI() {
+  const toggle = $('#relay-toggle');
+  if (toggle) toggle.classList.toggle('on', _relayMode);
+  const status = $('#relay-status');
+  if (status) {
+    status.textContent = _relayMode ? 'ONLINE — ANNOUNCING' : 'OFFLINE';
+    status.style.color = _relayMode ? 'var(--green)' : 'rgba(0,255,65,.4)';
+  }
+  if (_relayMode) renderRelayForwards();
+}
 
 async function announceRelay() {
   const info = {
@@ -1767,6 +1800,29 @@ function initConfig() {
   // Populate Nostr relay textarea
   $('#cfg-relays').value = _RELAYS.join('\n');
   updateConfigInfo();
+
+  // Restore relay config from localStorage
+  const savedFee = localStorage.getItem('00_onion_relay_fee');
+  const savedMax = localStorage.getItem('00_onion_relay_max');
+  const savedCltv = localStorage.getItem('00_onion_relay_cltv');
+  const savedHops = localStorage.getItem('00_onion_relay_hops');
+  if (savedFee !== null) { $('#relay-fee').value = savedFee; }
+  if (savedMax !== null) { $('#relay-max').value = savedMax; }
+  if (savedCltv !== null) { $('#relay-cltv').value = savedCltv; }
+  if (savedHops !== null && $('#relay-hops')) { $('#relay-hops').value = savedHops; }
+
+  // Save relay config on input change
+  ['relay-fee','relay-max','relay-cltv','relay-hops'].forEach(id => {
+    const el = $('#' + id);
+    if (el) el.addEventListener('change', () => localStorage.setItem('00_onion_' + id.replace('relay-','relay_'), el.value));
+  });
+
+  // Restore relay toggle state
+  if (_relayMode) {
+    _updateRelayUI();
+    announceRelay();
+    _relayAnnInterval = setInterval(announceRelay, 60000);
+  }
 }
 
 function updateConfigInfo() {

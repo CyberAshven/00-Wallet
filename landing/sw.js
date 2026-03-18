@@ -1,5 +1,5 @@
 // 0penw0rld Service Worker
-const CACHE = '0penw0rld-v400';
+const CACHE = '0penw0rld-v402';
 
 const APP_SHELL = [
   '/',

@@ -447,7 +447,7 @@
         <div class="cd-as-info-btn" onclick="toggleAsInfoPopover(event)">i</div>
         <div class="cd-as-popover" id="cd-as-popover">
           <div class="cd-as-popover-title">How Auto Stealth Works</div>
-          <div class="cd-as-popover-body">Incoming BCH is automatically mixed through CoinJoin rounds with other participants, then sent to fresh stealth addresses. This breaks the on-chain link between sender and receiver, making your funds untraceable.</div>
+          <div class="cd-as-popover-body">When you receive BCH, Auto Stealth runs a multi-round CoinJoin pipeline: your UTXOs are pooled with other participants and outputs are shuffled via onion encryption — nobody (not even participants) can link inputs to outputs. Each round's output lands on a one-time stealth address derived via ECDH, so only you can detect and spend it. More rounds = deeper privacy.</div>
         </div>
       </div>
       <span class="cd-as-status" id="dt-as-status">OFF</span>
