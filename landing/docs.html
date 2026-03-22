@@ -1190,7 +1190,7 @@ utxos.sort((a,b) => b.value - a.value);
   <span class="key">return</span> { addr, priv, pub: stealthPub };
 }
 
-<span class="comment">// Keys derived from seed: m/44'/145'/0'/2/0 (scan) + m/44'/145'/0'/2/1 (spend)</span>
+<span class="comment">// Keys derived from seed: m/44'/145'/0'/2'/0 (scan) + m/44'/145'/0'/2'/1 (spend)</span>
 <span class="comment">// Each output gets unique ephemeral key → unique stealth address</span>
 <span class="comment">// Stealth UTXOs saved to localStorage for wallet spending:</span>
 localStorage.setItem(<span class="val">'00stealth_utxos'</span>, JSON.stringify([
@@ -1754,7 +1754,7 @@ localStorage.setItem(<span class="val">'00_session_auth'</span>, JSON.stringify(
       <p data-di18n="p-stealth-1"><strong>Stealth addresses</strong> provide maximum privacy for receiving payments. Each payment creates a <strong>unique one-time address</strong> that only the recipient can detect and spend from. Even if someone knows your public stealth key, they cannot link incoming payments to each other.</p>
 
       <ul class="steps">
-        <li><span class="step-num">01</span><div data-di18n="stealth-step1"><strong>Key pair</strong> — Two keys are derived from your seed: a <strong>scan key</strong> (<code>m/44'/145'/0'/2/0</code>) and a <strong>spend key</strong> (<code>m/44'/145'/0'/2/1</code>). The scan public key is shared; the spend private key never leaves your device.</div></li>
+        <li><span class="step-num">01</span><div data-di18n="stealth-step1"><strong>Key pair</strong> — Two keys are derived from your seed: a <strong>scan key</strong> (<code>m/44'/145'/0'/2'/0</code>) and a <strong>spend key</strong> (<code>m/44'/145'/0'/2'/1</code>). The scan public key is shared; the spend private key never leaves your device.</div></li>
         <li><span class="step-num">02</span><div data-di18n="stealth-step2"><strong>ECDH shared secret</strong> — The sender computes a shared secret using their private key and the recipient's scan public key: <code>shared = ECDH(sender_priv, recipient_scan_pub)</code>.</div></li>
         <li><span class="step-num">03</span><div data-di18n="stealth-step3"><strong>Tweak derivation</strong> — A tweak scalar is computed: <code>c = SHA256(SHA256(shared_x) || outpoint)</code>. This is unique for every transaction.</div></li>
         <li><span class="step-num">04</span><div data-di18n="stealth-step4"><strong>One-time address</strong> — The stealth public key is computed by point addition on the elliptic curve: <code>P = B_spend + c*G</code>. This creates a completely new address that only the owner of the spend key can derive the private key for.</div></li>

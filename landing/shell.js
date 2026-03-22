@@ -15,6 +15,8 @@ const APPS = [
   { name: '00 Swap', url: 'swap.html' },
   { name: '00 Vault', url: 'vault.html' },
   { name: '00 Fusion', url: 'fusion.html' },
+  { name: '00 Sub', url: 'sub.html' },
+  { name: '00 Analyse', url: 'analyse.html' },
   { name: '00 Config', url: 'config.html' },
 ];
 
@@ -23,12 +25,13 @@ const APP_ICONS = {
   'index.html': '00', 'wallet.html': '00', 'chat.html': '00', 'pay.html': '00',
   'swap.html': '00', 'dex.html': '00', 'loan.html': '00',
   'id.html': '00', 'mesh.html': '00',
-  'onion.html': '00', 'vault.html': '00', 'fusion.html': '00', 'config.html': '⚙',
+  'onion.html': '00', 'vault.html': '00', 'fusion.html': '00', 'sub.html': '00', 'analyse.html': '00', 'config.html': '⚙',
 };
 const APP_SECTIONS = {
   Overview: ['index.html'],
-  Finance:  ['wallet.html','pay.html','swap.html','dex.html','loan.html'],
+  Finance:  ['wallet.html','pay.html','swap.html','dex.html','loan.html','sub.html'],
   Privacy:  ['chat.html','onion.html','vault.html','fusion.html'],
+  Analytics: ['analyse.html'],
   Identity: ['id.html','mesh.html'],
 };
 
@@ -69,7 +72,7 @@ const T = {
 };
 
 function isConnected() {
-  return !!(localStorage.getItem('00_wif') || localStorage.getItem('00_pub') || localStorage.getItem('00_ledger') || localStorage.getItem('00wallet_vault') || localStorage.getItem('00_wc_session'));
+  return !!(localStorage.getItem('00_wif') || localStorage.getItem('00_pub') || localStorage.getItem('00_ledger') || localStorage.getItem('00wallet_vault') || localStorage.getItem('00_wc_session') || localStorage.getItem('00_session_auth'));
 }
 
 // ── Endpoint defaults & config ────────────────────────────────
@@ -78,6 +81,13 @@ const EP_DEFAULTS = {
   btc_electrum: ['wss://e2.keff.org:50004','wss://fulcrum.grey.pw:50004','wss://btc.electroncash.dk:50004','wss://electrum.petrkr.net:50004','wss://bitcoinserver.nl:50004','wss://mempool.8333.mobi:50004'],
   relays:       ['wss://relay.damus.io','wss://nos.lol','wss://relay.nostr.band','wss://relay.snort.social'],
   eth_rpc:  'https://ethereum-rpc.publicnode.com',
+  bnb_rpc:  'https://bsc-rpc.publicnode.com',
+  avax_rpc: 'https://api.avax.network/ext/bc/C/rpc',
+  sol_rpc:  'https://api.mainnet-beta.solana.com',
+  trx_rpc:  'https://api.trongrid.io',
+  xlm_rpc:  'https://horizon.stellar.org',
+  xrp_rpc:  'wss://xrplcluster.com',
+  ltc_rpc: 'https://litecoinspace.org/api',
   indexer: 'https://indexer.riften.net',
   midgard: 'https://midgard.ninerealms.com/v2',
   meta:    'https://meta.riften.net',
@@ -98,6 +108,13 @@ window._00ep = {
   get btc_electrum() { return _epRead('btc_electrum', EP_DEFAULTS.btc_electrum); },
   get relays()       { return _epRead('relays',       EP_DEFAULTS.relays); },
   get eth_rpc()      { return _epRead('eth_rpc',      EP_DEFAULTS.eth_rpc); },
+  get bnb_rpc()      { return _epRead('bnb_rpc',      EP_DEFAULTS.bnb_rpc); },
+  get avax_rpc()     { return _epRead('avax_rpc',     EP_DEFAULTS.avax_rpc); },
+  get sol_rpc()      { return _epRead('sol_rpc',      EP_DEFAULTS.sol_rpc); },
+  get trx_rpc()      { return _epRead('trx_rpc',      EP_DEFAULTS.trx_rpc); },
+  get xlm_rpc()      { return _epRead('xlm_rpc',      EP_DEFAULTS.xlm_rpc); },
+  get xrp_rpc()      { return _epRead('xrp_rpc',      EP_DEFAULTS.xrp_rpc); },
+  get ltc_rpc()      { return _epRead('ltc_rpc',       EP_DEFAULTS.ltc_rpc); },
   get indexer() { return _epRead('indexer', EP_DEFAULTS.indexer); },
   get midgard() { return _epRead('midgard', EP_DEFAULTS.midgard); },
   get meta()    { return _epRead('meta',    EP_DEFAULTS.meta); },
@@ -339,6 +356,7 @@ function buildSettingsModal() {
   const midgardVal = () => localStorage.getItem('00_ep_midgard') ? JSON.parse(localStorage.getItem('00_ep_midgard')) : EP_DEFAULTS.midgard;
   const metaVal    = () => localStorage.getItem('00_ep_meta')    ? JSON.parse(localStorage.getItem('00_ep_meta'))    : EP_DEFAULTS.meta;
   const ethRpcVal  = () => localStorage.getItem('00_ep_eth_rpc') ? JSON.parse(localStorage.getItem('00_ep_eth_rpc')) : EP_DEFAULTS.eth_rpc;
+  const rpcVal = (k) => localStorage.getItem('00_ep_' + k) ? JSON.parse(localStorage.getItem('00_ep_' + k)) : EP_DEFAULTS[k];
 
   overlay.innerHTML = `
     <div class="ep-modal">
@@ -360,6 +378,35 @@ function buildSettingsModal() {
         <div class="ep-label">ETH RPC ENDPOINT</div>
         <input class="ep-input" id="ep-eth-rpc" value="${ethRpcVal()}">
         <div class="ep-hint">Ethereum JSON-RPC URL</div>
+      </div>
+
+      <div class="ep-group">
+        <div class="ep-label">BNB RPC ENDPOINT</div>
+        <input class="ep-input" id="ep-bnb-rpc" value="${rpcVal('bnb_rpc')}">
+      </div>
+      <div class="ep-group">
+        <div class="ep-label">AVAX RPC ENDPOINT</div>
+        <input class="ep-input" id="ep-avax-rpc" value="${rpcVal('avax_rpc')}">
+      </div>
+      <div class="ep-group">
+        <div class="ep-label">SOL RPC ENDPOINT</div>
+        <input class="ep-input" id="ep-sol-rpc" value="${rpcVal('sol_rpc')}">
+      </div>
+      <div class="ep-group">
+        <div class="ep-label">TRX API ENDPOINT</div>
+        <input class="ep-input" id="ep-trx-rpc" value="${rpcVal('trx_rpc')}">
+      </div>
+      <div class="ep-group">
+        <div class="ep-label">XRP WSS ENDPOINT</div>
+        <input class="ep-input" id="ep-xrp-rpc" value="${rpcVal('xrp_rpc')}">
+      </div>
+      <div class="ep-group">
+        <div class="ep-label">XLM HORIZON ENDPOINT</div>
+        <input class="ep-input" id="ep-xlm-rpc" value="${rpcVal('xlm_rpc')}">
+      </div>
+      <div class="ep-group">
+        <div class="ep-label">LTC API ENDPOINT</div>
+        <input class="ep-input" id="ep-ltc-rpc" value="${rpcVal('ltc_electrum')}">
       </div>
 
       <div class="ep-group">
@@ -442,6 +489,11 @@ function buildSettingsModal() {
     else localStorage.removeItem('00_ep_relays');
     if (ethRpc) localStorage.setItem('00_ep_eth_rpc', JSON.stringify(ethRpc));
     else localStorage.removeItem('00_ep_eth_rpc');
+    // Save new chain RPCs
+    ['bnb_rpc','avax_rpc','sol_rpc','trx_rpc','xrp_rpc','xlm_rpc','ltc_rpc'].forEach(k => {
+      const el = overlay.querySelector('#ep-' + k.replace('_', '-'));
+      if (el) { const v = el.value.trim(); if (v) localStorage.setItem('00_ep_' + k, JSON.stringify(v)); else localStorage.removeItem('00_ep_' + k); }
+    });
     if (indexer) localStorage.setItem('00_ep_indexer', JSON.stringify(indexer));
     else localStorage.removeItem('00_ep_indexer');
     if (midgard) localStorage.setItem('00_ep_midgard', JSON.stringify(midgard));
@@ -452,7 +504,7 @@ function buildSettingsModal() {
   };
 
   overlay.querySelector('#ep-btn-reset').onclick = () => {
-    ['fulcrum','btc_electrum','relays','eth_rpc','indexer','midgard','meta'].forEach(k => localStorage.removeItem('00_ep_' + k));
+    ['fulcrum','btc_electrum','relays','eth_rpc','bnb_rpc','avax_rpc','sol_rpc','trx_rpc','xrp_rpc','xlm_rpc','ltc_rpc','indexer','midgard','meta'].forEach(k => localStorage.removeItem('00_ep_' + k));
     overlay.querySelector('#ep-fulcrum').value       = EP_DEFAULTS.fulcrum.join('\n');
     overlay.querySelector('#ep-btc-electrum').value  = EP_DEFAULTS.btc_electrum.join('\n');
     overlay.querySelector('#ep-relays').value         = EP_DEFAULTS.relays.join('\n');
@@ -460,6 +512,10 @@ function buildSettingsModal() {
     overlay.querySelector('#ep-indexer').value         = EP_DEFAULTS.indexer;
     overlay.querySelector('#ep-midgard').value         = EP_DEFAULTS.midgard;
     overlay.querySelector('#ep-meta').value            = EP_DEFAULTS.meta;
+    ['bnb_rpc','avax_rpc','sol_rpc','trx_rpc','xrp_rpc','xlm_rpc','ltc_rpc'].forEach(k => {
+      const el = overlay.querySelector('#ep-' + k.replace('_', '-'));
+      if (el) el.value = EP_DEFAULTS[k];
+    });
   };
 
   document.body.appendChild(overlay);
@@ -485,8 +541,15 @@ function openSettings() {
 const NET_CHAINS = [
   { id: 'bch', name: 'BCH', proto: 'Fulcrum WSS', color: '#0AC18E', ws: true },
   { id: 'btc', name: 'BTC', proto: 'Electrum WSS', color: '#f7931a', ws: true },
-  { id: 'eth', name: 'ETH', proto: 'JSON-RPC', color: '#627eea', ws: false },
+  { id: 'eth', name: 'ETH', proto: 'JSON-RPC', color: '#627eea', ws: false, rpcKey: 'eth_rpc' },
   { id: 'xmr', name: 'XMR', proto: 'Daemon RPC', color: '#ff6600', ws: false },
+  { id: 'ltc', name: 'LTC', proto: 'REST API', color: '#BFBBBB', ws: false, rpcKey: 'ltc_rpc' },
+  { id: 'bnb', name: 'BNB', proto: 'JSON-RPC', color: '#F0B90B', ws: false, rpcKey: 'bnb_rpc' },
+  { id: 'avax', name: 'AVAX', proto: 'JSON-RPC', color: '#E84142', ws: false, rpcKey: 'avax_rpc' },
+  { id: 'sol', name: 'SOL', proto: 'JSON-RPC', color: '#9945FF', ws: false, rpcKey: 'sol_rpc' },
+  { id: 'trx', name: 'TRX', proto: 'REST API', color: '#FF0013', ws: false, rpcKey: 'trx_rpc' },
+  { id: 'xrp', name: 'XRP', proto: 'WSS', color: '#0085C0', ws: false, rpcKey: 'xrp_rpc' },
+  { id: 'xlm', name: 'XLM', proto: 'Horizon REST', color: '#14B6E7', ws: false, rpcKey: 'xlm_rpc' },
 ];
 
 function _netServer(chain) {
@@ -498,9 +561,9 @@ function _netServer(chain) {
     }
     return { on: false, server: '—' };
   }
-  if (chain.id === 'eth') {
-    const v = _epRead('eth_rpc', EP_DEFAULTS.eth_rpc);
-    try { return { on: true, server: new URL(v).hostname }; } catch {}
+  if (chain.rpcKey) {
+    const v = _epRead(chain.rpcKey, EP_DEFAULTS[chain.rpcKey]);
+    try { return { on: true, server: new URL(v.replace('wss://', 'https://')).hostname }; } catch {}
     return { on: !!v, server: v || '—' };
   }
   if (chain.id === 'xmr') {

@@ -603,8 +603,8 @@ window.tryUnlock = async function(autoPass) {
       }
       console.log('[SUB] HD addresses scanned:', _hdAddresses.length);
     }
-    // Derive deterministic session key from seed: m/44'/145'/0'/2/0
-    const sessionChain = _bip32Child(_acctPriv, _acctChain, 2, false);
+    // Derive deterministic session key from seed: m/44'/145'/0'/2'/0
+    const sessionChain = _bip32Child(_acctPriv, _acctChain, 2, true);
     const sessionNode = _bip32Child(sessionChain.priv, sessionChain.chain, 0, false);
     _sessionPriv = sessionNode.priv;
     if (secp256k1.getPublicKey(_sessionPriv, true)[0] === 0x03) {

@@ -261,6 +261,13 @@
       <span class="wd-ov-price"><span class="wd-ov-dot" style="background:#F7931A"></span>BTC <span id="wd-p-btc">$—</span></span>
       <span class="wd-ov-price"><span class="wd-ov-dot" style="background:#627EEA"></span>ETH <span id="wd-p-eth">$—</span></span>
       <span class="wd-ov-price"><span class="wd-ov-dot" style="background:#FF6600"></span>XMR <span id="wd-p-xmr">$—</span></span>
+      <span class="wd-ov-price"><span class="wd-ov-dot" style="background:#345D9D"></span>LTC <span id="wd-p-ltc">$—</span></span>
+      <span class="wd-ov-price"><span class="wd-ov-dot" style="background:#F3BA2F"></span>BNB <span id="wd-p-bnb">$—</span></span>
+      <span class="wd-ov-price"><span class="wd-ov-dot" style="background:#E84142"></span>AVAX <span id="wd-p-avax">$—</span></span>
+      <span class="wd-ov-price"><span class="wd-ov-dot" style="background:#9945FF"></span>SOL <span id="wd-p-sol">$—</span></span>
+      <span class="wd-ov-price"><span class="wd-ov-dot" style="background:#FF0013"></span>TRX <span id="wd-p-trx">$—</span></span>
+      <span class="wd-ov-price"><span class="wd-ov-dot" style="background:#23292F"></span>XRP <span id="wd-p-xrp">$—</span></span>
+      <span class="wd-ov-price"><span class="wd-ov-dot" style="background:#14B6E7"></span>XLM <span id="wd-p-xlm">$—</span></span>
     </div>
   </div>
   <!-- Account Cards -->
@@ -317,6 +324,28 @@
         <span class="wd-acc-fiat" id="wd-fiat-eth">$0.00</span>
       </div>
     </div>
+    <div class="wd-token" id="wd-usdc-eth" onclick="openCoinDetail('usdc_eth')">
+      <div class="wd-acc-left">
+        <span class="wd-token-indent">└</span>
+        <img class="wd-acc-icon wd-token-icon" src="icons/usdc.png" alt="USDC">
+        <div><div class="wd-acc-name">USDC</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance" id="wd-bal-usdc-eth">0.00 USDC</span>
+        <span class="wd-acc-fiat" id="wd-fiat-usdc-eth">$0.00</span>
+      </div>
+    </div>
+    <div class="wd-token" id="wd-usdt-eth" onclick="openCoinDetail('usdt_eth')">
+      <div class="wd-acc-left">
+        <span class="wd-token-indent">└</span>
+        <img class="wd-acc-icon wd-token-icon" src="icons/usdt.png" alt="USDT">
+        <div><div class="wd-acc-name">USDT</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance" id="wd-bal-usdt-eth">0.00 USDT</span>
+        <span class="wd-acc-fiat" id="wd-fiat-usdt-eth">$0.00</span>
+      </div>
+    </div>
     <div class="wd-account" id="wd-xmr">
       <div class="wd-acc-left">
         <img class="wd-acc-icon" src="icons/xmr.png" alt="XMR">
@@ -330,30 +359,162 @@
         <span class="wd-acc-fiat" id="wd-fiat-xmr">$0.00</span>
       </div>
     </div>
-    <div class="wd-account" id="wd-usdc">
+    <div class="wd-account" id="wd-ltc">
       <div class="wd-acc-left">
-        <img class="wd-acc-icon" src="icons/usdc.png" alt="USDC">
-        <div>
-          <div class="wd-acc-chain">USD COIN</div>
-          <div class="wd-acc-name">USDC</div>
-        </div>
+        <img class="wd-acc-icon" src="icons/ltc.png" alt="LTC">
+        <div><div class="wd-acc-chain">LITECOIN</div><div class="wd-acc-name">Litecoin</div></div>
       </div>
       <div class="wd-acc-right">
-        <span class="wd-acc-balance cd-bal-loading" id="wd-bal-usdc">... USDC</span>
-        <span class="wd-acc-fiat" id="wd-fiat-usdc">$0.00</span>
+        <span class="wd-acc-balance cd-bal-loading" id="wd-bal-ltc">... LTC</span>
+        <span class="wd-acc-fiat" id="wd-fiat-ltc">$0,00</span>
       </div>
     </div>
-    <div class="wd-account" id="wd-usdt">
+    <div class="wd-account" id="wd-bnb">
       <div class="wd-acc-left">
-        <img class="wd-acc-icon" src="icons/usdt.png" alt="USDT">
-        <div>
-          <div class="wd-acc-chain">TETHER</div>
-          <div class="wd-acc-name">USDT</div>
-        </div>
+        <img class="wd-acc-icon" src="icons/bnb.png" alt="BNB">
+        <div><div class="wd-acc-chain">BNB SMART CHAIN</div><div class="wd-acc-name">BNB</div></div>
       </div>
       <div class="wd-acc-right">
-        <span class="wd-acc-balance cd-bal-loading" id="wd-bal-usdt">... USDT</span>
-        <span class="wd-acc-fiat" id="wd-fiat-usdt">$0.00</span>
+        <span class="wd-acc-balance cd-bal-loading" id="wd-bal-bnb">... BNB</span>
+        <span class="wd-acc-fiat" id="wd-fiat-bnb">$0,00</span>
+      </div>
+    </div>
+    <div class="wd-token" id="wd-usdc-bsc" onclick="openCoinDetail('usdc_bsc')">
+      <div class="wd-acc-left">
+        <span class="wd-token-indent">└</span>
+        <img class="wd-acc-icon wd-token-icon" src="icons/usdc.png" alt="USDC">
+        <div><div class="wd-acc-name">USDC</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance" id="wd-bal-usdc-bsc">0.00 USDC</span>
+        <span class="wd-acc-fiat" id="wd-fiat-usdc-bsc">$0.00</span>
+      </div>
+    </div>
+    <div class="wd-token" id="wd-usdt-bsc" onclick="openCoinDetail('usdt_bsc')">
+      <div class="wd-acc-left">
+        <span class="wd-token-indent">└</span>
+        <img class="wd-acc-icon wd-token-icon" src="icons/usdt.png" alt="USDT">
+        <div><div class="wd-acc-name">USDT</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance" id="wd-bal-usdt-bsc">0.00 USDT</span>
+        <span class="wd-acc-fiat" id="wd-fiat-usdt-bsc">$0.00</span>
+      </div>
+    </div>
+    <div class="wd-account" id="wd-avax">
+      <div class="wd-acc-left">
+        <img class="wd-acc-icon" src="icons/avax.png" alt="AVAX">
+        <div><div class="wd-acc-chain">AVALANCHE</div><div class="wd-acc-name">Avalanche</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance cd-bal-loading" id="wd-bal-avax">... AVAX</span>
+        <span class="wd-acc-fiat" id="wd-fiat-avax">$0,00</span>
+      </div>
+    </div>
+    <div class="wd-token" id="wd-usdc-avax" onclick="openCoinDetail('usdc_avax')">
+      <div class="wd-acc-left">
+        <span class="wd-token-indent">└</span>
+        <img class="wd-acc-icon wd-token-icon" src="icons/usdc.png" alt="USDC">
+        <div><div class="wd-acc-name">USDC</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance" id="wd-bal-usdc-avax">0.00 USDC</span>
+        <span class="wd-acc-fiat" id="wd-fiat-usdc-avax">$0.00</span>
+      </div>
+    </div>
+    <div class="wd-token" id="wd-usdt-avax" onclick="openCoinDetail('usdt_avax')">
+      <div class="wd-acc-left">
+        <span class="wd-token-indent">└</span>
+        <img class="wd-acc-icon wd-token-icon" src="icons/usdt.png" alt="USDT">
+        <div><div class="wd-acc-name">USDT</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance" id="wd-bal-usdt-avax">0.00 USDT</span>
+        <span class="wd-acc-fiat" id="wd-fiat-usdt-avax">$0.00</span>
+      </div>
+    </div>
+    <div class="wd-account" id="wd-sol">
+      <div class="wd-acc-left">
+        <img class="wd-acc-icon" src="icons/sol.png" alt="SOL">
+        <div><div class="wd-acc-chain">SOLANA</div><div class="wd-acc-name">Solana</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance cd-bal-loading" id="wd-bal-sol">... SOL</span>
+        <span class="wd-acc-fiat" id="wd-fiat-sol">$0,00</span>
+      </div>
+    </div>
+    <div class="wd-token" id="wd-usdc-sol" onclick="openCoinDetail('usdc_sol')">
+      <div class="wd-acc-left">
+        <span class="wd-token-indent">└</span>
+        <img class="wd-acc-icon wd-token-icon" src="icons/usdc.png" alt="USDC">
+        <div><div class="wd-acc-name">USDC</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance" id="wd-bal-usdc-sol">0.00 USDC</span>
+        <span class="wd-acc-fiat" id="wd-fiat-usdc-sol">$0.00</span>
+      </div>
+    </div>
+    <div class="wd-token" id="wd-usdt-sol" onclick="openCoinDetail('usdt_sol')">
+      <div class="wd-acc-left">
+        <span class="wd-token-indent">└</span>
+        <img class="wd-acc-icon wd-token-icon" src="icons/usdt.png" alt="USDT">
+        <div><div class="wd-acc-name">USDT</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance" id="wd-bal-usdt-sol">0.00 USDT</span>
+        <span class="wd-acc-fiat" id="wd-fiat-usdt-sol">$0.00</span>
+      </div>
+    </div>
+    <div class="wd-account" id="wd-trx">
+      <div class="wd-acc-left">
+        <img class="wd-acc-icon" src="icons/trx.png" alt="TRX">
+        <div><div class="wd-acc-chain">TRON</div><div class="wd-acc-name">Tron</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance cd-bal-loading" id="wd-bal-trx">... TRX</span>
+        <span class="wd-acc-fiat" id="wd-fiat-trx">$0,00</span>
+      </div>
+    </div>
+    <div class="wd-token" id="wd-usdt-trx" onclick="openCoinDetail('usdt_trx')">
+      <div class="wd-acc-left">
+        <span class="wd-token-indent">└</span>
+        <img class="wd-acc-icon wd-token-icon" src="icons/usdt.png" alt="USDT">
+        <div><div class="wd-acc-name">USDT</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance" id="wd-bal-usdt-trx">0.00 USDT</span>
+        <span class="wd-acc-fiat" id="wd-fiat-usdt-trx">$0.00</span>
+      </div>
+    </div>
+    <div class="wd-account" id="wd-xrp">
+      <div class="wd-acc-left">
+        <img class="wd-acc-icon" src="icons/xrp.png" alt="XRP">
+        <div><div class="wd-acc-chain">XRP LEDGER</div><div class="wd-acc-name">XRP</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance cd-bal-loading" id="wd-bal-xrp">... XRP</span>
+        <span class="wd-acc-fiat" id="wd-fiat-xrp">$0,00</span>
+      </div>
+    </div>
+    <div class="wd-token" id="wd-rlusd-xrp" onclick="openCoinDetail('rlusd_xrp')">
+      <div class="wd-acc-left">
+        <span class="wd-token-indent">└</span>
+        <img class="wd-acc-icon wd-token-icon" src="icons/xrp.png" alt="RLUSD">
+        <div><div class="wd-acc-name">RLUSD</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance" id="wd-bal-rlusd-xrp">0.00 RLUSD</span>
+        <span class="wd-acc-fiat" id="wd-fiat-rlusd-xrp">$0.00</span>
+      </div>
+    </div>
+    <div class="wd-account" id="wd-xlm">
+      <div class="wd-acc-left">
+        <img class="wd-acc-icon" src="icons/xlm.png" alt="XLM">
+        <div><div class="wd-acc-chain">STELLAR</div><div class="wd-acc-name">Stellar</div></div>
+      </div>
+      <div class="wd-acc-right">
+        <span class="wd-acc-balance cd-bal-loading" id="wd-bal-xlm">... XLM</span>
+        <span class="wd-acc-fiat" id="wd-fiat-xlm">$0,00</span>
       </div>
     </div>
   </div>
@@ -381,15 +542,76 @@
       </div>
       <div class="wd-auth-error" id="wd-import-error"></div>
       <button class="wd-auth-cta" id="wd-import-btn" onclick="wdImport()">Import Wallet →</button>
-      <button class="wd-auth-secondary" onclick="wdGenKey()">Generate New Key</button>
+      <button class="wd-auth-secondary" onclick="wdGenKey()">Generate New Wallet</button>
       <button class="wd-auth-secondary" onclick="document.getElementById('wd-backup-file').click()">Load Backup</button>
       <input type="file" id="wd-backup-file" accept=".0pw" style="display:none" onchange="if(this.files[0])importBackup(this.files[0])">
       <div class="wd-auth-divider"><span>OR</span></div>
       <div class="wd-auth-hw">
         <button class="wd-auth-hw-btn ledger" id="wd-ledger-btn" onclick="wdConnectLedger()">Ledger</button>
         <button class="wd-auth-hw-btn wc" id="wd-wc-btn" onclick="wdConnectWC()">WalletConnect</button>
+        <button class="wd-auth-hw-btn wiz" id="wd-wiz-btn" onclick="wdConnectWiz()" style="background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;border:none">WizardConnect</button>
       </div>
       <div class="wd-auth-error" id="wd-hw-error"></div>
+    </div>
+  </div>
+
+  <!-- WizardConnect Modal (Wallet side: show QR / Dapp side: paste URI) -->
+  <div id="wiz-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center">
+    <div style="background:var(--dt-card-bg,#1a1f2e);border:1px solid var(--dt-border,#2d3348);border-radius:16px;padding:28px;max-width:400px;width:90%;position:relative">
+      <button onclick="wizCloseModal()" style="position:absolute;top:12px;right:12px;background:none;border:none;color:var(--dt-text-secondary,#8b949e);font-size:20px;cursor:pointer">&times;</button>
+      <h3 style="margin:0 0 16px;font-size:17px;font-weight:700;color:var(--dt-text,#e6edf3)">WizardConnect</h3>
+
+      <!-- Tabs: Wallet / Dapp -->
+      <div style="display:flex;gap:8px;margin-bottom:16px">
+        <button id="wiz-tab-wallet" onclick="wizSwitchTab('wallet')" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--dt-border,#2d3348);background:var(--dt-accent,#1DD9A5);color:#000;font-weight:600;font-size:12px;cursor:pointer">Show QR (Wallet)</button>
+        <button id="wiz-tab-dapp" onclick="wizSwitchTab('dapp')" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--dt-border,#2d3348);background:transparent;color:var(--dt-text,#e6edf3);font-weight:600;font-size:12px;cursor:pointer">Connect (Dapp)</button>
+      </div>
+
+      <!-- Wallet Side: QR code -->
+      <div id="wiz-wallet-panel">
+        <p style="font-size:12px;color:var(--dt-text-secondary,#8b949e);margin:0 0 12px">Scan this QR from an external dapp to connect to your 00 Wallet</p>
+        <div id="wiz-qr-container" style="background:#fff;border-radius:12px;padding:16px;text-align:center;margin-bottom:12px">
+          <canvas id="wiz-qr-canvas" style="max-width:100%;image-rendering:pixelated"></canvas>
+        </div>
+        <div style="background:var(--dt-bg,#0d1117);border-radius:8px;padding:10px;margin-bottom:12px">
+          <div style="font-size:9px;color:var(--dt-text-secondary,#8b949e);word-break:break-all;font-family:monospace" id="wiz-uri-display">—</div>
+        </div>
+        <button onclick="wizCopyURI()" style="width:100%;padding:10px;border-radius:8px;border:none;background:var(--dt-accent,#1DD9A5);color:#000;font-weight:600;font-size:13px;cursor:pointer">Copy URI</button>
+        <div id="wiz-wallet-status" style="font-size:11px;color:var(--dt-text-secondary,#8b949e);margin-top:8px;text-align:center">Waiting for dapp to connect...</div>
+      </div>
+
+      <!-- Dapp Side: Paste URI -->
+      <div id="wiz-dapp-panel" style="display:none">
+        <p style="font-size:12px;color:var(--dt-text-secondary,#8b949e);margin:0 0 12px">Paste the wiz:// URI from an external wallet to connect</p>
+        <input id="wiz-dapp-uri-input" placeholder="wiz://?p=...&s=..." style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--dt-border,#2d3348);background:var(--dt-bg,#0d1117);color:var(--dt-text,#e6edf3);font-size:12px;font-family:monospace;margin-bottom:12px;box-sizing:border-box">
+        <button onclick="wizConnectDapp()" style="width:100%;padding:10px;border-radius:8px;border:none;background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;font-weight:600;font-size:13px;cursor:pointer">Connect →</button>
+        <div id="wiz-dapp-status" style="font-size:11px;color:var(--dt-text-secondary,#8b949e);margin-top:8px;text-align:center"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WizardConnect Sign Approval Modal -->
+  <div id="wiz-sign-modal" style="display:none;position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,.7);align-items:center;justify-content:center">
+    <div style="background:var(--dt-card-bg,#1a1f2e);border:1px solid var(--dt-border,#2d3348);border-radius:16px;padding:28px;max-width:420px;width:90%">
+      <h3 style="margin:0 0 4px;font-size:17px;font-weight:700;color:var(--dt-text,#e6edf3)">Sign Request</h3>
+      <p style="font-size:11px;color:var(--dt-text-secondary,#8b949e);margin:0 0 16px" id="wiz-sign-from">From: —</p>
+
+      <div style="background:var(--dt-bg,#0d1117);border-radius:10px;padding:14px;margin-bottom:16px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:11px;color:var(--dt-text-secondary,#8b949e)">Inputs</span><span style="font-size:13px;font-weight:600;color:var(--dt-text,#e6edf3)" id="wiz-sign-inputs">—</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:11px;color:var(--dt-text-secondary,#8b949e)">Outputs</span><span style="font-size:13px;font-weight:600;color:var(--dt-text,#e6edf3)" id="wiz-sign-outputs">—</span></div>
+        <div style="display:flex;justify-content:space-between"><span style="font-size:11px;color:var(--dt-text-secondary,#8b949e)">Sequence #</span><span style="font-size:13px;font-weight:600;color:var(--dt-text,#e6edf3)" id="wiz-sign-seq">—</span></div>
+      </div>
+
+      <div style="background:var(--dt-bg,#0d1117);border-radius:8px;padding:10px;margin-bottom:16px;max-height:120px;overflow-y:auto">
+        <div style="font-size:9px;color:var(--dt-text-secondary,#8b949e);word-break:break-all;font-family:monospace" id="wiz-sign-rawtx">—</div>
+      </div>
+
+      <div style="display:flex;gap:10px">
+        <button onclick="wizRejectSign()" style="flex:1;padding:12px;border-radius:8px;border:1px solid var(--dt-border,#2d3348);background:transparent;color:var(--dt-text,#e6edf3);font-weight:600;font-size:13px;cursor:pointer">Reject</button>
+        <button onclick="wizApproveSign()" style="flex:1;padding:12px;border-radius:8px;border:none;background:var(--dt-accent,#1DD9A5);color:#000;font-weight:600;font-size:13px;cursor:pointer">Approve ✓</button>
+      </div>
+
+      <div style="font-size:10px;color:var(--dt-text-secondary,#8b949e);margin-top:10px;text-align:center">Auto-reject in <span id="wiz-sign-countdown">300</span>s</div>
     </div>
   </div>
   <!-- Wallet exists but locked -->
@@ -464,7 +686,10 @@
   </div>
   <div class="cd-balance-card">
     <div class="cd-bal-top">
-      <div class="cd-bal-amount cd-bal-loading" id="cd-bal-amount">...</div>
+      <div style="display:flex;align-items:center;gap:8px;justify-content:center">
+        <div class="cd-bal-amount cd-bal-loading" id="cd-bal-amount">...</div>
+        <button id="cd-refresh-btn" onclick="cdRefreshCoin()" style="background:none;border:none;cursor:pointer;font-size:36px;opacity:0.4;padding:8px;transition:all .3s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'" title="Refresh balance">⟳</button>
+      </div>
       <div class="cd-bal-row">
         <span class="cd-bal-fiat" id="cd-bal-fiat">$0.00</span>
         <span class="cd-bal-price" id="cd-bal-price"></span>
@@ -512,6 +737,31 @@
       <div class="cd-tx-empty" id="cd-tx-empty">No transactions yet</div>
     </div>
     <div id="cd-utxo-list" class="cd-hidden"></div>
+  </div>
+
+  <!-- Advanced Stealth Scan (desktop, sbch only) -->
+  <div id="cd-adv-scan-section" class="cd-card" style="display:none;margin:16px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;cursor:pointer" onclick="var p=document.getElementById('cd-adv-scan-body');p.style.display=p.style.display==='none'?'block':'none'">
+      <span style="font-size:15px;font-weight:600;color:var(--cd-text-secondary)">Advanced Scan</span>
+      <span style="font-size:12px;color:var(--cd-text-tertiary)">— scan all blocks between two dates</span>
+    </div>
+    <div id="cd-adv-scan-body" style="display:none">
+      <div style="display:flex;gap:12px;margin-bottom:12px">
+        <div style="flex:1">
+          <div class="cd-form-lbl">FROM</div>
+          <input type="date" id="cd-adv-scan-from" class="cd-form-input" style="font-size:12px">
+        </div>
+        <div style="flex:1">
+          <div class="cd-form-lbl">TO</div>
+          <input type="date" id="cd-adv-scan-to" class="cd-form-input" style="font-size:12px">
+        </div>
+      </div>
+      <div style="width:100%;height:4px;background:var(--cd-bg-secondary);border-radius:2px;margin-bottom:8px;overflow:hidden;display:none" id="cd-adv-progress-wrap">
+        <div id="cd-adv-progress" style="height:100%;width:0%;background:var(--cd-accent);border-radius:2px;transition:width .3s"></div>
+      </div>
+      <div style="font-size:11px;color:var(--cd-accent);margin-bottom:8px;display:none;min-height:16px" id="cd-adv-status"></div>
+      <button class="cd-action-btn cd-primary" onclick="cdAdvancedStealthScan()" id="cd-adv-scan-btn" style="width:100%;justify-content:center">⚡ Start Deep Scan</button>
+    </div>
   </div>
 
   <!-- Send Modal -->
@@ -773,14 +1023,12 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
       });
     }
   };
-  window.wdGenKey=function(){
-    if(window.walletGenKey) window.walletGenKey();
+  window.wdGenKey=async function(){
+    if(window.walletGenKey) await window.walletGenKey();
     // Mirror the generated key back to desktop
-    setTimeout(function(){
-      var mi=document.getElementById('import-seed');
-      var di=document.getElementById('wd-import-seed');
-      if(mi&&di) di.value=mi.value;
-    },50);
+    var mi=document.getElementById('import-seed');
+    var di=document.getElementById('wd-import-seed');
+    if(mi&&di){ di.value=mi.value; di.style.fontSize='13px'; }
   };
   window.wdShowImport=function(){
     document.getElementById('wd-auth-unlock').style.display='none';
@@ -796,6 +1044,178 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     if(window.connectWalletConnect){
       window.connectWalletConnect().then(function(){ wdRefresh(); });
     }
+  };
+
+  /* ── WizardConnect UI ─── */
+  var _wizWalletMgr = null;
+  var _wizDappMgr = null;
+  var _wizPendingSeq = null;
+  var _wizCountdownTimer = null;
+
+  window.wdConnectWiz = function() {
+    var modal = document.getElementById('wiz-modal');
+    if (!modal) return;
+    modal.style.display = 'flex';
+    wizSwitchTab('wallet');
+  };
+
+  window.wizCloseModal = function() {
+    var modal = document.getElementById('wiz-modal');
+    if (modal) modal.style.display = 'none';
+  };
+
+  window.wizSwitchTab = function(tab) {
+    var walletPanel = document.getElementById('wiz-wallet-panel');
+    var dappPanel = document.getElementById('wiz-dapp-panel');
+    var walletTab = document.getElementById('wiz-tab-wallet');
+    var dappTab = document.getElementById('wiz-tab-dapp');
+    if (tab === 'wallet') {
+      walletPanel.style.display = 'block';
+      dappPanel.style.display = 'none';
+      walletTab.style.background = 'var(--dt-accent,#1DD9A5)';
+      walletTab.style.color = '#000';
+      dappTab.style.background = 'rgba(124,58,237,.15)';
+      dappTab.style.color = '#a78bfa';
+      dappTab.style.border = '1px solid #7c3aed';
+      // Generate QR if not already
+      wizGenerateQR();
+    } else {
+      walletPanel.style.display = 'none';
+      dappPanel.style.display = 'block';
+      dappTab.style.background = 'linear-gradient(135deg,#7c3aed,#2563eb)';
+      dappTab.style.color = '#fff';
+      walletTab.style.background = 'rgba(29,217,165,.15)';
+      walletTab.style.color = '#1DD9A5';
+      walletTab.style.border = '1px solid #1DD9A5';
+    }
+  };
+
+  window.wizGenerateQR = function() {
+    if (!window.WizardConnect) { console.error('WizardConnect not loaded'); return; }
+    if (!_wizWalletMgr) {
+      _wizWalletMgr = new window.WizardConnect.WalletManager();
+    }
+    var conn = _wizWalletMgr.generateConnection();
+    var uriEl = document.getElementById('wiz-uri-display');
+    if (uriEl) uriEl.textContent = conn.uri;
+
+    // Generate QR code
+    var canvas = document.getElementById('wiz-qr-canvas');
+    var QR = window._QRCode || window.QRCode;
+    if (canvas && QR) {
+      QR.toCanvas(canvas, conn.qrUri, { width: 256, margin: 2, color: { dark: '#000', light: '#fff' } });
+    } else if (canvas) {
+      // QR lib not loaded yet (module still booting) — retry
+      canvas.style.display = 'none';
+      var _wizQrUri = conn.qrUri;
+      var _wizQrRetry = setInterval(function() {
+        var QR2 = window._QRCode || window.QRCode;
+        if (QR2) {
+          clearInterval(_wizQrRetry);
+          canvas.style.display = 'block';
+          QR2.toCanvas(canvas, _wizQrUri, { width: 256, margin: 2, color: { dark: '#000', light: '#fff' } });
+        }
+      }, 500);
+    }
+
+    // Start listening
+    _wizWalletMgr.startListening();
+    _wizWalletMgr.onConnect(function(dappName, dappIcon) {
+      var statusEl = document.getElementById('wiz-wallet-status');
+      if (statusEl) statusEl.innerHTML = '<span style="color:var(--dt-accent)">✓ Connected to ' + (dappName || 'Dapp') + '</span>';
+    });
+    _wizWalletMgr.onSignRequest(function(req) {
+      wizShowSignModal(req);
+    });
+    _wizWalletMgr.onDisconnect(function() {
+      var statusEl = document.getElementById('wiz-wallet-status');
+      if (statusEl) statusEl.textContent = 'Disconnected';
+    });
+  };
+
+  window.wizCopyURI = function() {
+    var uriEl = document.getElementById('wiz-uri-display');
+    if (uriEl) {
+      navigator.clipboard.writeText(uriEl.textContent).then(function() {
+        var btn = event.target;
+        btn.textContent = 'Copied ✓';
+        setTimeout(function() { btn.textContent = 'Copy URI'; }, 2000);
+      });
+    }
+  };
+
+  window.wizConnectDapp = function() {
+    var input = document.getElementById('wiz-dapp-uri-input');
+    var statusEl = document.getElementById('wiz-dapp-status');
+    if (!input || !input.value.trim()) { if (statusEl) statusEl.textContent = 'Paste a wiz:// URI'; return; }
+
+    try {
+      if (!window.WizardConnect) throw new Error('WizardConnect not loaded');
+      _wizDappMgr = new window.WizardConnect.DappManager('00 Protocol', 'https://0penw0rld.com/icons/00.png');
+
+      _wizDappMgr.onConnect(function(walletName, walletIcon, paths) {
+        if (statusEl) statusEl.innerHTML = '<span style="color:var(--dt-accent)">✓ Connected to ' + walletName + ' — ' + paths.length + ' paths</span>';
+        // If stealth path available, log it
+        var sp = _wizDappMgr.getStealthScanPub();
+        if (sp) console.log('[WIZ-DAPP] Stealth scan pub available:', sp.length, 'bytes');
+      });
+
+      _wizDappMgr.onDisconnect(function(reason) {
+        if (statusEl) statusEl.textContent = 'Disconnected: ' + reason;
+      });
+
+      _wizDappMgr.connect(input.value.trim());
+      if (statusEl) statusEl.textContent = 'Connecting...';
+    } catch (e) {
+      if (statusEl) statusEl.textContent = 'Error: ' + e.message;
+    }
+  };
+
+  window.wizShowSignModal = function(req) {
+    var modal = document.getElementById('wiz-sign-modal');
+    if (!modal) return;
+    _wizPendingSeq = req.sequence;
+
+    document.getElementById('wiz-sign-from').textContent = 'From: ' + (_wizWalletMgr ? _wizWalletMgr.getDappName() || 'Unknown Dapp' : '—');
+    document.getElementById('wiz-sign-seq').textContent = '#' + req.sequence;
+    document.getElementById('wiz-sign-inputs').textContent = req.inputPaths ? req.inputPaths.length + ' inputs' : '—';
+    document.getElementById('wiz-sign-outputs').textContent = req.transaction ? 'TX' : '—';
+    document.getElementById('wiz-sign-rawtx').textContent = JSON.stringify(req.transaction || {}).slice(0, 500);
+
+    modal.style.display = 'flex';
+
+    // Countdown
+    var countdown = 300;
+    var countdownEl = document.getElementById('wiz-sign-countdown');
+    if (_wizCountdownTimer) clearInterval(_wizCountdownTimer);
+    _wizCountdownTimer = setInterval(function() {
+      countdown--;
+      if (countdownEl) countdownEl.textContent = countdown;
+      if (countdown <= 0) {
+        clearInterval(_wizCountdownTimer);
+        wizRejectSign();
+      }
+    }, 1000);
+  };
+
+  window.wizApproveSign = function() {
+    if (_wizPendingSeq !== null && _wizWalletMgr) {
+      // TODO: actually sign the transaction with the appropriate keys
+      // For now, send back a placeholder — real signing requires TX parsing
+      _wizWalletMgr.approveSign(_wizPendingSeq, ''); // empty = wallet needs to implement signing
+    }
+    _wizPendingSeq = null;
+    if (_wizCountdownTimer) clearInterval(_wizCountdownTimer);
+    document.getElementById('wiz-sign-modal').style.display = 'none';
+  };
+
+  window.wizRejectSign = function() {
+    if (_wizPendingSeq !== null && _wizWalletMgr) {
+      _wizWalletMgr.rejectSign(_wizPendingSeq, 'User rejected');
+    }
+    _wizPendingSeq = null;
+    if (_wizCountdownTimer) clearInterval(_wizCountdownTimer);
+    document.getElementById('wiz-sign-modal').style.display = 'none';
   };
 
   function wdRefresh(){
@@ -827,21 +1247,40 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
       document.getElementById('wd-accounts').style.display=hasWallet?'':'none';
       document.getElementById('wd-overview').style.display=hasWallet?'':'none';
     }
-    // Prices (reuse dashboard cache)
+    // Prices: READ ONLY from cache — no fetch here
     var prices={};
-    try{var c=JSON.parse(localStorage.getItem('00_dash_prices')||'{}');if(c.ts&&Date.now()-c.ts<300000){prices=c}else{throw 0}}catch(e){
-      fetch('https://api.kraken.com/0/public/Ticker?pair=BCHUSD,XBTUSD,ETHUSD,XMRUSD,USDCUSD,USDTUSD')
-        .then(function(r){return r.json()}).then(function(resp){
-          var res=resp.result||{};
-          var map={BCHUSD:'bch',XXBTZUSD:'btc',XETHZUSD:'eth',XXMRZUSD:'xmr',USDCUSD:'usdc',USDTZUSD:'usdt'};
-          prices={ts:Date.now()};
-          Object.keys(map).forEach(function(k){var v=res[k];if(v)prices[map[k]]={price:parseFloat(v.c[0])||0,change24h:parseFloat(v.p[1])?((parseFloat(v.c[0])-parseFloat(v.p[1]))/parseFloat(v.p[1])*100):0};});
-          if(!prices.usdc)prices.usdc={price:1,change24h:0};if(!prices.usdt)prices.usdt={price:1,change24h:0};
-          try{localStorage.setItem('00_dash_prices',JSON.stringify(prices))}catch(e){}
-          wdRender(bal,stealthBal,prices);
-        }).catch(function(){});
-    }
+    try{prices=JSON.parse(localStorage.getItem('00_dash_prices')||'{}')}catch(e){}
     wdRender(bal,stealthBal,prices);
+  }
+
+  // ── Unified Price Fetcher (single source of truth) ──
+  var _pricesFetching=false;
+  function fetchAllPrices(){
+    if(_pricesFetching)return;
+    _pricesFetching=true;
+    var prices={};
+    try{prices=JSON.parse(localStorage.getItem('00_dash_prices')||'{}')}catch(e){}
+    // Kraken: BCH,BTC,ETH,XMR,USDC,USDT,LTC,SOL,XRP,TRX,XLM
+    fetch('https://api.kraken.com/0/public/Ticker?pair=BCHUSD,XBTUSD,ETHUSD,XMRUSD,USDCUSD,USDTUSD,LTCUSD,SOLUSD,XRPUSD,TRXUSD,XLMUSD')
+      .then(function(r){return r.json()}).then(function(resp){
+        var res=resp.result||{};
+        var map={BCHUSD:'bch',XXBTZUSD:'btc',XETHZUSD:'eth',XXMRZUSD:'xmr',USDCUSD:'usdc',USDTZUSD:'usdt',XLTCZUSD:'ltc',SOLUSD:'sol',XXRPZUSD:'xrp',TRXUSD:'trx',XXLMZUSD:'xlm'};
+        Object.keys(map).forEach(function(k){var v=res[k];if(v)prices[map[k]]={price:parseFloat(v.c[0])||0,change24h:parseFloat(v.p[1])?((parseFloat(v.c[0])-parseFloat(v.p[1]))/parseFloat(v.p[1])*100):0};});
+        if(!prices.usdc)prices.usdc={price:1,change24h:0};if(!prices.usdt)prices.usdt={price:1,change24h:0};
+      }).catch(function(){}).finally(function(){
+        // CryptoCompare: BNB + AVAX (not on Kraken)
+        fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BNB,AVAX&tsyms=USD')
+          .then(function(r){return r.json()}).then(function(d){
+            var raw=d.RAW||{};
+            if(raw.BNB&&raw.BNB.USD)prices.bnb={price:raw.BNB.USD.PRICE||0,change24h:raw.BNB.USD.CHANGEPCT24HOUR||0};
+            if(raw.AVAX&&raw.AVAX.USD)prices.avax={price:raw.AVAX.USD.PRICE||0,change24h:raw.AVAX.USD.CHANGEPCT24HOUR||0};
+          }).catch(function(){}).finally(function(){
+            prices.ts=Date.now();
+            try{localStorage.setItem('00_dash_prices',JSON.stringify(prices))}catch(e){}
+            _pricesFetching=false;
+            wdRefresh();
+          });
+      });
   }
 
   function wdRender(bal,stealthBal,prices){
@@ -851,38 +1290,123 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     var pXmr=prices.xmr&&prices.xmr.price||0;
     var pUsdc=prices.usdc&&prices.usdc.price||1;
     var pUsdt=prices.usdt&&prices.usdt.price||1;
+    var pLtc=prices.ltc&&prices.ltc.price||0;
+    var pBnb=prices.bnb&&prices.bnb.price||0;
+    var pAvax=prices.avax&&prices.avax.price||0;
+    var pSol=prices.sol&&prices.sol.price||0;
+    var pTrx=prices.trx&&prices.trx.price||0;
+    var pXrp=prices.xrp&&prices.xrp.price||0;
+    var pXlm=prices.xlm&&prices.xlm.price||0;
 
-    function wdBal(id,txt,fiatId,fiatTxt){var e=document.getElementById(id);e.textContent=txt;e.classList.remove('cd-bal-loading');document.getElementById(fiatId).textContent=fiatTxt;}
+    var _hasPrices=!!(pBch||pBtc||pEth||pLtc);
+    function wdBal(id,txt,fiatId,fiatTxt){
+      var e=document.getElementById(id);if(!e)return;
+      e.textContent=txt;e.classList.remove('cd-bal-loading');
+      var f=document.getElementById(fiatId);if(!f)return;
+      // Skip fiat update ONLY if prices aren't loaded yet (not if balance is genuinely 0)
+      var isZero=fiatTxt==='$0,00'||fiatTxt==='$0.00'||fiatTxt==='$0';
+      var hadValue=f.textContent&&f.textContent!=='$0,00'&&f.textContent!=='$0.00'&&f.textContent!=='$0';
+      if(isZero&&hadValue&&!_hasPrices)return;
+      f.textContent=fiatTxt;
+    }
+    // Unified loading: use runtime flags for coins that have them, bal.ts for others
+    var _bR = window._balanceLoaded;
+    var _btR = window._btcBalanceLoaded;
+    var _eR = window._ethBalanceLoaded;
+    var _xR = window._xmrConnected;
+    // Fallback: if module flags unavailable, use localStorage timestamp
+    var _tsOk = bal.ts && (Date.now() - bal.ts < 30000); // fresh within 30s = just loaded
+    var _tsCache = bal.ts && (Date.now() - bal.ts < 600000); // cached within 10min = returning user
+    // For returning users (cached data exists), show cached values immediately
+    if (_tsCache && !_bR) _bR = true;
+    if (_tsCache && !_btR) _btR = true;
+    if (_tsCache && !_eR) _eR = true;
+    // XMR: only show if module connected (needs scan)
+    var _anyTs = !!bal.ts;
+
     var bchCoins=(bal.bch||0)/1e8;
-    if(window._balanceLoaded) wdBal('wd-bal-bch',bchCoins.toFixed(8)+' BCH','wd-fiat-bch',fmt(bchCoins*pBch));
+    if(_bR) wdBal('wd-bal-bch',bchCoins.toFixed(8)+' BCH','wd-fiat-bch',fmt(bchCoins*pBch));
     var sbchCoins=stealthBal/1e8;
-    if(window._balanceLoaded) wdBal('wd-bal-sbch',sbchCoins.toFixed(8)+' BCH','wd-fiat-sbch',fmt(sbchCoins*pBch));
+    if(_bR) wdBal('wd-bal-sbch',sbchCoins.toFixed(8)+' BCH','wd-fiat-sbch',fmt(sbchCoins*pBch));
     var btcCoins=(bal.btc||0)/1e8;
-    if(window._btcBalanceLoaded) wdBal('wd-bal-btc',btcCoins.toFixed(8)+' BTC','wd-fiat-btc',fmt(btcCoins*pBtc));
+    if(_btR) wdBal('wd-bal-btc',btcCoins.toFixed(8)+' BTC','wd-fiat-btc',fmt(btcCoins*pBtc));
     var ethWei=Number(bal.eth)||0;
     var ethCoins=ethWei>1e15?ethWei/1e18:ethWei;
-    if(window._ethBalanceLoaded) wdBal('wd-bal-eth',ethCoins.toFixed(8)+' ETH','wd-fiat-eth',fmt(ethCoins*pEth));
+    if(_eR) wdBal('wd-bal-eth',ethCoins.toFixed(8)+' ETH','wd-fiat-eth',fmt(ethCoins*pEth));
     // XMR (12 decimals, piconeros)
     var xmrPico=Number(bal.xmr)||0;
     var xmrCoins=xmrPico>1e9?xmrPico/1e12:xmrPico;
-    if(window._xmrConnected) wdBal('wd-bal-xmr',xmrCoins.toFixed(8)+' XMR','wd-fiat-xmr',fmt(xmrCoins*pXmr));
-    // USDC (ERC-20, 6 decimals)
-    var usdcRaw=bal.usdc||0;
-    var usdcCoins=usdcRaw>1e4?usdcRaw/1e6:usdcRaw;
-    if(window._ethBalanceLoaded) wdBal('wd-bal-usdc',usdcCoins.toFixed(2)+' USDC','wd-fiat-usdc',fmt(usdcCoins*pUsdc));
-    // USDT (ERC-20, 6 decimals)
-    var usdtRaw=bal.usdt||0;
-    var usdtCoins=usdtRaw>1e4?usdtRaw/1e6:usdtRaw;
-    if(window._ethBalanceLoaded) wdBal('wd-bal-usdt',usdtCoins.toFixed(2)+' USDT','wd-fiat-usdt',fmt(usdtCoins*pUsdt));
+    if(_xR||_tsCache) wdBal('wd-bal-xmr',xmrCoins.toFixed(8)+' XMR','wd-fiat-xmr',fmt(xmrCoins*pXmr));
+    // Stablecoins multi-chain (sub-accounts under each EVM chain)
+    // USDC per chain
+    var usdcEth=((bal.usdc_eth||0)>1e4?(bal.usdc_eth||0)/1e6:(bal.usdc_eth||0));
+    var usdcBsc=((bal.usdc_bsc||0)>1e4?(bal.usdc_bsc||0)/1e6:(bal.usdc_bsc||0));
+    var usdcAvax=((bal.usdc_avax||0)>1e4?(bal.usdc_avax||0)/1e6:(bal.usdc_avax||0));
+    // USDT per chain
+    var usdtEth=((bal.usdt_eth||0)>1e4?(bal.usdt_eth||0)/1e6:(bal.usdt_eth||0));
+    var usdtBsc=((bal.usdt_bsc||0)>1e4?(bal.usdt_bsc||0)/1e6:(bal.usdt_bsc||0));
+    var usdtAvax=((bal.usdt_avax||0)>1e4?(bal.usdt_avax||0)/1e6:(bal.usdt_avax||0));
+    var usdtTrx=((bal.usdt_trx||0)>1e4?(bal.usdt_trx||0)/1e6:(bal.usdt_trx||0));
+    // Backward compat: old standalone usdc/usdt → treat as ETH chain
+    if(!bal.usdc_eth && bal.usdc) { var _u=bal.usdc||0; usdcEth=_u>1e4?_u/1e6:_u; }
+    if(!bal.usdt_eth && bal.usdt) { var _t=bal.usdt||0; usdtEth=_t>1e4?_t/1e6:_t; }
+    // Solana SPL tokens (6 decimals)
+    var usdcSol=((bal.usdc_sol||0)>1e4?(bal.usdc_sol||0)/1e6:(bal.usdc_sol||0));
+    var usdtSol=((bal.usdt_sol||0)>1e4?(bal.usdt_sol||0)/1e6:(bal.usdt_sol||0));
+    // XRP RLUSD (6 decimals)
+    var rlusdXrp=((bal.rlusd_xrp||0)>1e4?(bal.rlusd_xrp||0)/1e6:(bal.rlusd_xrp||0));
+    if(_eR||_anyTs) {
+      wdBal('wd-bal-usdc-eth',usdcEth.toFixed(2)+' USDC','wd-fiat-usdc-eth',fmt(usdcEth*pUsdc));
+      wdBal('wd-bal-usdt-eth',usdtEth.toFixed(2)+' USDT','wd-fiat-usdt-eth',fmt(usdtEth*pUsdt));
+      wdBal('wd-bal-usdc-bsc',usdcBsc.toFixed(2)+' USDC','wd-fiat-usdc-bsc',fmt(usdcBsc*pUsdc));
+      wdBal('wd-bal-usdt-bsc',usdtBsc.toFixed(2)+' USDT','wd-fiat-usdt-bsc',fmt(usdtBsc*pUsdt));
+      wdBal('wd-bal-usdc-avax',usdcAvax.toFixed(2)+' USDC','wd-fiat-usdc-avax',fmt(usdcAvax*pUsdc));
+      wdBal('wd-bal-usdt-avax',usdtAvax.toFixed(2)+' USDT','wd-fiat-usdt-avax',fmt(usdtAvax*pUsdt));
+      wdBal('wd-bal-usdt-trx',usdtTrx.toFixed(2)+' USDT','wd-fiat-usdt-trx',fmt(usdtTrx*pUsdt));
+      wdBal('wd-bal-usdc-sol',usdcSol.toFixed(2)+' USDC','wd-fiat-usdc-sol',fmt(usdcSol*pUsdc));
+      wdBal('wd-bal-usdt-sol',usdtSol.toFixed(2)+' USDT','wd-fiat-usdt-sol',fmt(usdtSol*pUsdt));
+      wdBal('wd-bal-rlusd-xrp',rlusdXrp.toFixed(2)+' RLUSD','wd-fiat-rlusd-xrp',fmt(rlusdXrp));
+    }
+    // LTC (8 decimals, satoshis)
+    var ltcCoins=(bal.ltc||0)/1e8;
+    if(_anyTs) wdBal('wd-bal-ltc',ltcCoins.toFixed(8)+' LTC','wd-fiat-ltc',fmt(ltcCoins*pLtc));
+    // BNB (18 decimals, wei)
+    var bnbWei=Number(bal.bnb)||0; var bnbCoins=bnbWei>1e15?bnbWei/1e18:bnbWei;
+    if(_anyTs) wdBal('wd-bal-bnb',bnbCoins.toFixed(8)+' BNB','wd-fiat-bnb',fmt(bnbCoins*pBnb));
+    // AVAX (18 decimals, wei)
+    var avaxWei=Number(bal.avax)||0; var avaxCoins=avaxWei>1e15?avaxWei/1e18:avaxWei;
+    if(_anyTs) wdBal('wd-bal-avax',avaxCoins.toFixed(8)+' AVAX','wd-fiat-avax',fmt(avaxCoins*pAvax));
+    // SOL (9 decimals, lamports)
+    var solLamps=bal.sol||0; var solCoins=solLamps>1e7?solLamps/1e9:solLamps;
+    if(_anyTs) wdBal('wd-bal-sol',solCoins.toFixed(9)+' SOL','wd-fiat-sol',fmt(solCoins*pSol));
+    // TRX (6 decimals, sun)
+    var trxSun=bal.trx||0; var trxCoins=trxSun>1e4?trxSun/1e6:trxSun;
+    if(_anyTs) wdBal('wd-bal-trx',trxCoins.toFixed(6)+' TRX','wd-fiat-trx',fmt(trxCoins*pTrx));
+    // XRP (6 decimals, drops)
+    var xrpDrops=bal.xrp||0; var xrpCoins=xrpDrops>1e4?xrpDrops/1e6:xrpDrops;
+    if(_anyTs) wdBal('wd-bal-xrp',xrpCoins.toFixed(6)+' XRP','wd-fiat-xrp',fmt(xrpCoins*pXrp));
+    // XLM (7 decimals, stroops)
+    var xlmStroops=bal.xlm||0; var xlmCoins=xlmStroops>1e5?xlmStroops/1e7:xlmStroops;
+    if(_anyTs) wdBal('wd-bal-xlm',xlmCoins.toFixed(7)+' XLM','wd-fiat-xlm',fmt(xlmCoins*pXlm));
 
     // ── Portfolio overview hero ──
-    var total=(bchCoins+sbchCoins)*pBch + btcCoins*pBtc + ethCoins*pEth + xmrCoins*pXmr + usdcCoins*pUsdc + usdtCoins*pUsdt;
-    document.getElementById('wd-total').textContent=fmt(total);
+    var totalStable=(usdcEth+usdcBsc+usdcAvax+usdcSol)*pUsdc + (usdtEth+usdtBsc+usdtAvax+usdtTrx+usdtSol)*pUsdt + rlusdXrp;
+    var total=(bchCoins+sbchCoins)*pBch + btcCoins*pBtc + ethCoins*pEth + xmrCoins*pXmr + totalStable
+      + ltcCoins*pLtc + bnbCoins*pBnb + avaxCoins*pAvax + solCoins*pSol + trxCoins*pTrx + xrpCoins*pXrp + xlmCoins*pXlm;
+    var totalEl=document.getElementById('wd-total');
+    if(total>0||_hasPrices||!totalEl.textContent||totalEl.textContent==='$0.00'||totalEl.textContent==='$0,00') totalEl.textContent=fmt(total);
     // Live price tickers
     if(pBch) document.getElementById('wd-p-bch').textContent=fmt(pBch);
     if(pBtc) document.getElementById('wd-p-btc').textContent=fmt(pBtc);
     if(pEth) document.getElementById('wd-p-eth').textContent=fmt(pEth);
     if(pXmr) document.getElementById('wd-p-xmr').textContent=fmt(pXmr);
+    if(pLtc) document.getElementById('wd-p-ltc').textContent=fmt(pLtc);
+    if(pBnb) document.getElementById('wd-p-bnb').textContent=fmt(pBnb);
+    if(pAvax) document.getElementById('wd-p-avax').textContent=fmt(pAvax);
+    if(pSol) document.getElementById('wd-p-sol').textContent=fmt(pSol);
+    if(pTrx) document.getElementById('wd-p-trx').textContent=fmt(pTrx);
+    if(pXrp) document.getElementById('wd-p-xrp').textContent=fmt(pXrp);
+    if(pXlm) document.getElementById('wd-p-xlm').textContent=fmt(pXlm);
   }
 
   window.wdForceRefresh=function(){
@@ -894,7 +1418,8 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
   };
 
   wdRefresh();
-  // Fast poll for first 5s to catch mobile auto-unlock, then slow poll
+  fetchAllPrices(); // Initial price fetch
+  // Fast poll for first 5s to catch mobile auto-unlock
   var _bootPolls=0;
   var _bootInterval=setInterval(function(){_bootPolls++;wdRefresh();if(_bootPolls>=10)clearInterval(_bootInterval);},500);
   // Lightweight widget poll — only re-render when balances actually change
@@ -906,15 +1431,16 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
       var snap=raw+'|'+st.length;
       if(snap!==_wdLastSnap){_wdLastSnap=snap;wdRefresh();}
     }catch(e){}
-  },8000);
-  // Full widget refresh every 30s (re-fetch prices)
-  setInterval(wdRefresh,30000);
+  },5000);
+  // Price refresh every 20s (single unified fetch — Kraken + CryptoCompare)
+  setInterval(fetchAllPrices,20000);
+  // Cross-tab sync
   window.addEventListener('storage',function(e){
-    if(e.key==='00_balances'||e.key==='00stealth_utxos'||e.key==='00_session_auth') wdRefresh();
+    if(e.key==='00_balances'||e.key==='00stealth_utxos'||e.key==='00_session_auth'||e.key==='00_dash_prices') wdRefresh();
   });
-  // Re-render immediately when tab gets focus
+  // Re-render + refresh prices when tab gets focus
   document.addEventListener('visibilitychange',function(){
-    if(!document.hidden) wdRefresh();
+    if(!document.hidden){wdRefresh();fetchAllPrices();}
   });
 
   /* ── Status chip polling ── */
@@ -972,7 +1498,14 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     eth:  { chain:'ETHEREUM',              name:'Ethereum',             ticker:'ETH',  kraken:'ETHUSD',  icon:'icons/eth.png', color:'#627EEA', decimals:18 },
     xmr:  { chain:'MONERO',               name:'Monero',               ticker:'XMR',  kraken:'XMRUSD',  icon:'icons/xmr.png', color:'#FF6600', decimals:12 },
     usdc: { chain:'USD COIN',              name:'USDC',                 ticker:'USDC', kraken:'USDCUSD', icon:'icons/usdc.png', color:'#2775CA', decimals:6 },
-    usdt: { chain:'TETHER',                name:'USDT',                 ticker:'USDT', kraken:'USDTUSD', icon:'icons/usdt.png', color:'#26A17B', decimals:6 }
+    usdt: { chain:'TETHER',                name:'USDT',                 ticker:'USDT', kraken:'USDTUSD', icon:'icons/usdt.png', color:'#26A17B', decimals:6 },
+    ltc:  { chain:'LITECOIN',              name:'Litecoin',             ticker:'LTC',  kraken:'LTCUSD',  icon:'icons/ltc.png',  color:'#BFBBBB', decimals:8 },
+    bnb:  { chain:'BNB SMART CHAIN',       name:'BNB',                  ticker:'BNB',  kraken:null,      icon:'icons/bnb.png',  color:'#F0B90B', decimals:18 },
+    avax: { chain:'AVALANCHE',             name:'Avalanche',            ticker:'AVAX', kraken:null,      icon:'icons/avax.png', color:'#E84142', decimals:18 },
+    sol:  { chain:'SOLANA',                name:'Solana',               ticker:'SOL',  kraken:'SOLUSD',  icon:'icons/sol.png',  color:'#9945FF', decimals:9 },
+    trx:  { chain:'TRON',                  name:'Tron',                 ticker:'TRX',  kraken:'TRXUSD',  icon:'icons/trx.png',  color:'#FF0013', decimals:6 },
+    xrp:  { chain:'XRP LEDGER',            name:'XRP',                  ticker:'XRP',  kraken:'XRPUSD',  icon:'icons/xrp.png',  color:'#0085C0', decimals:6 },
+    xlm:  { chain:'STELLAR',               name:'Stellar',              ticker:'XLM',  kraken:'XLMUSD',  icon:'icons/xlm.png',  color:'#14B6E7', decimals:7 }
   };
 
   var _cdCoin = null;
@@ -980,9 +1513,40 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
   var _cdChartPts = null;
   var _cdChartVals = null;
 
+  window.cdRefreshCoin = function(){
+    if(!_cdCoin) return;
+    var btn = document.getElementById('cd-refresh-btn');
+    if(btn){ btn.style.animation='wd-spin .8s linear infinite'; setTimeout(function(){btn.style.animation='';},2000); }
+    // Trigger balance refresh for current coin
+    var c = _cdCoin;
+    if(c==='bch'||c==='sbch') { if(window._refreshBalance) window._refreshBalance(); }
+    else if(c==='btc') { if(window._refreshBtcBalance) window._refreshBtcBalance(); }
+    else if(c==='eth'||c==='usdc'||c==='usdt') { if(window._refreshEthBalance) window._refreshEthBalance(); }
+    else if(c==='xmr') { if(window._refreshXmrBalance) window._refreshXmrBalance(); }
+    else if(c==='ltc') { if(window._refreshLtcBalance) window._refreshLtcBalance(); }
+    else if(c==='bnb') { if(window._refreshBnbBalance) window._refreshBnbBalance(); }
+    else if(c==='avax') { if(window._refreshAvaxBalance) window._refreshAvaxBalance(); }
+    else if(c==='sol') { if(window._refreshSolBalance) window._refreshSolBalance(); }
+    else if(c==='trx') { if(window._refreshTrxBalance) window._refreshTrxBalance(); }
+    else if(c==='xrp') { if(window._refreshXrpBalance) window._refreshXrpBalance(); }
+    else if(c==='xlm') { if(window._refreshXlmBalance) window._refreshXlmBalance(); }
+    // Re-render balance after short delay
+    setTimeout(function(){ cdRefreshBalance(_cdCoin, COIN_META[_cdCoin]); }, 2000);
+  };
+
   function openCoinDetail(coin){
     var meta = COIN_META[coin];
     if(!meta) return;
+    // Block stealth if keys not yet derived (boot still loading)
+    if(coin==='sbch' && !window._stealthReady){
+      // Show inline toast instead of blocking alert
+      var toast = document.createElement('div');
+      toast.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--dt-surface,#1a1a2e);color:var(--dt-text,#e0e0e0);border:1px solid var(--dt-border,#333);border-radius:12px;padding:14px 24px;z-index:9999;font-size:13px;box-shadow:0 4px 20px rgba(0,0,0,.4);text-align:center';
+      toast.innerHTML='<div style="font-weight:600;margin-bottom:4px">Stealth loading...</div><div style="font-size:11px;opacity:.7">Keys are being derived, please wait a moment</div>';
+      document.body.appendChild(toast);
+      setTimeout(function(){ toast.remove(); }, 3000);
+      return;
+    }
     _cdCoin = coin;
     document.getElementById('wallet-desktop').classList.add('cd-hidden');
     document.getElementById('coin-detail').classList.add('active');
@@ -1020,6 +1584,9 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     if (coin === 'sbch') { scanBtn.style.display = ''; scanBtn.innerHTML = '<span>⟳</span> Scan Chain'; scanBtn.onclick = function(){ if(window.cdStealthScan) window.cdStealthScan(); }; }
     else if (coin === 'xmr') { scanBtn.style.display = ''; scanBtn.innerHTML = '<span>⟳</span> Rescan'; scanBtn.onclick = function(){ if(window.xmrFullRescan) window.xmrFullRescan(); }; }
     else { scanBtn.style.display = 'none'; }
+    // Advanced Scan section (sbch only)
+    var advScanEl = document.getElementById('cd-adv-scan-section');
+    if (advScanEl) advScanEl.style.display = coin === 'sbch' ? 'block' : 'none';
     document.getElementById('cd-info-btn').style.display = (coin==='xmr'||coin==='sbch') ? '' : 'none';
     window._cdInfoType = coin==='sbch' ? 'stealth' : (coin==='xmr' ? 'xmr' : null);
     // Auto Stealth toggle (BCH only)
@@ -1030,20 +1597,22 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
       var dtSt = document.getElementById('dt-as-status');
       if (dtSt) dtSt.textContent = asOn ? 'Watching for deposits...' : 'OFF';
     }
-    // Disable Send/Receive when not connected to backend
+    // Receive: always enabled — modal shows "Deriving address..." if not ready
+    // Send: disabled until backend connected (need network to broadcast)
     var sendBtn = document.getElementById('cd-send-btn');
     var recvBtn = document.getElementById('cd-receive-btn');
-    var notReady = false;
-    if (coin==='xmr' && !window._xmrConnected) notReady = true;
+    recvBtn.classList.remove('cd-disabled');
+    var sendNotReady = false;
+    if (coin==='xmr' && !window._xmrConnected) sendNotReady = true;
     if ((coin==='bch'||coin==='sbch')) {
       var bchOn = window._wsStatus ? window._wsStatus('bch').connected : (window._fvWs && window._fvWs.readyState === WebSocket.OPEN);
-      if (!bchOn) notReady = true;
+      if (!bchOn) sendNotReady = true;
     }
-    if (coin==='btc' && !window._btcConnected) notReady = true;
-    if (notReady) {
-      sendBtn.classList.add('cd-disabled'); recvBtn.classList.add('cd-disabled');
+    if (coin==='btc' && !window._btcConnected) sendNotReady = true;
+    if (sendNotReady) {
+      sendBtn.classList.add('cd-disabled');
     } else {
-      sendBtn.classList.remove('cd-disabled'); recvBtn.classList.remove('cd-disabled');
+      sendBtn.classList.remove('cd-disabled');
     }
     // Status bar removed — now handled by sidebar Networks panel
     // Chart hover
@@ -1269,15 +1838,39 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
       var dirIcon=tx.dir==='stealth'?'↓':tx.dir==='in'?'↓':tx.dir==='fusion'?'⇄':'↑';
       var dirClass=tx.dir==='stealth'?'stealth':tx.dir==='in'?'in':tx.dir==='fusion'?'fusion':'out';
       var sign=tx.dir==='out'?'-':'+';
-      // blockchain.com explorer links
+      // Explorer links per chain
       var explorerUrl;
       if(coin==='xmr') explorerUrl='https://xmrchain.net/tx/'+tx.txid;
-      else { var exp=coin==='btc'?'btc':coin==='eth'?'eth':'bch'; explorerUrl='https://www.blockchain.com/explorer/transactions/'+exp+'/'+tx.txid; }
+      else if(coin==='ltc') explorerUrl='https://litecoinspace.org/tx/'+tx.txid;
+      else if(coin==='trx') explorerUrl='https://tronscan.org/#/transaction/'+tx.txid;
+      else if(coin==='sol') explorerUrl='https://solscan.io/tx/'+tx.txid;
+      else if(coin==='xlm') explorerUrl='https://stellarchain.io/tx/'+tx.txid;
+      else if(coin==='xrp') explorerUrl='https://xrpscan.com/tx/'+tx.txid;
+      else if(coin==='bnb') explorerUrl='https://bscscan.com/tx/'+tx.txid;
+      else if(coin==='avax') explorerUrl='https://snowtrace.io/tx/'+tx.txid;
+      else if(coin==='eth') explorerUrl='https://etherscan.io/tx/'+tx.txid;
+      else { var exp=coin==='btc'?'btc':'bch'; explorerUrl='https://www.blockchain.com/explorer/transactions/'+exp+'/'+tx.txid; }
       var decPlaces=coin==='usdc'||coin==='usdt'?2:coin==='xmr'?12:8;
       var timeStr = cdRelativeTime(tsMs);
       var isRecent = (now - tsMs) < 600000; // < 10 min
       var isPending = tx.height === 0;
-      var pendingBadge = isPending ? '<span class="cd-tx-pending">Pending</span>' : '';
+      var confBadge = '';
+      if (isPending) {
+        confBadge = '<span class="cd-tx-pending">Pending</span>';
+      } else if ((coin==='bch'||coin==='sbch') && window._bchTipHeight && tx.height > 0) {
+        var confs = window._bchTipHeight - tx.height + 1;
+        if (confs < 6) confBadge = '<span class="cd-tx-conf">' + confs + ' confirmation' + (confs>1?'s':'') + '</span>';
+        else confBadge = '<span class="cd-tx-conf confirmed">confirmed</span>';
+      } else if (coin==='btc' && window._btcTipHeight && tx.height > 0) {
+        var confs = window._btcTipHeight - tx.height + 1;
+        if (confs < 6) confBadge = '<span class="cd-tx-conf">' + confs + ' confirmation' + (confs>1?'s':'') + '</span>';
+        else confBadge = '<span class="cd-tx-conf confirmed">confirmed</span>';
+      } else if (coin==='ltc' && window._ltcTipHeight && tx.height > 0) {
+        var confs = window._ltcTipHeight - tx.height + 1;
+        if (confs < 6) confBadge = '<span class="cd-tx-conf">' + confs + ' confirmation' + (confs>1?'s':'') + '</span>';
+        else confBadge = '<span class="cd-tx-conf confirmed">confirmed</span>';
+      }
+      var pendingBadge = confBadge;
       var rowClass = 'cd-tx-row' + (isRecent ? ' cd-tx-recent' : '');
       var usdVal = coinPrice > 0 ? (Math.abs(coins) * coinPrice) : 0;
       var usdStr = usdVal > 0 ? '≈ $' + usdVal.toFixed(2) : '';
@@ -1315,11 +1908,16 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
   // Add click handlers to account rows
   var accountMap = {
     'wd-bch':'bch','wd-sbch':'sbch','wd-btc':'btc',
-    'wd-eth':'eth','wd-xmr':'xmr','wd-usdc':'usdc','wd-usdt':'usdt'
+    'wd-eth':'eth','wd-xmr':'xmr','wd-usdc':'usdc','wd-usdt':'usdt',
+    'wd-ltc':'ltc','wd-bnb':'bnb','wd-avax':'avax','wd-sol':'sol',
+    'wd-trx':'trx','wd-xrp':'xrp','wd-xlm':'xlm'
   };
   Object.keys(accountMap).forEach(function(id){
     var el=document.getElementById(id);
-    if(el) el.onclick=function(){ window.location='wallet.html?coin='+accountMap[id]; };
+    if(el) el.onclick=function(){
+      history.replaceState(null,'','wallet.html?coin='+accountMap[id]);
+      openCoinDetail(accountMap[id]);
+    };
   });
 
   /* ── UTXO / Transactions Tab Switching ── */
@@ -1357,7 +1955,7 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     var coin = _cdCoin;
     if(!coin) return;
     // ETH/USDC/USDT/SBCH don't use UTXOs
-    if(coin==='eth'||coin==='usdc'||coin==='usdt'||coin==='sbch'){
+    if(['eth','usdc','usdt','sbch','bnb','avax','sol','trx','xrp','xlm'].includes(coin)){
       listEl.innerHTML='<div class="cd-utxo-empty">'+COIN_META[coin].name+' does not use UTXOs</div>';
       return;
     }
@@ -1384,7 +1982,13 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
       listEl.innerHTML=xhtml;
       return;
     }
-    var utxos = coin==='bch' ? (window.cdUtxos||[]) : coin==='btc' ? (window.cdBtcUtxos||[]) : [];
+    var utxos;
+    if(coin==='sbch') {
+      var su = window.cdStealthUtxos||[];
+      utxos = su.map(function(u){ return {txid:u.txid,vout:u.vout,value:u.value,_priv:window._h2b(u.priv),_pubKey:window._h2b(u.pub),_stealth:true}; });
+    } else {
+      utxos = coin==='bch' ? (window.cdUtxos||[]) : coin==='btc' ? (window.cdBtcUtxos||[]) : coin==='ltc' ? (window.cdLtcUtxos||[]) : [];
+    }
     if(!utxos.length){
       var scanning = window._refreshing || !window._balanceLoaded || (coin==='btc' && !window._btcBalanceLoaded);
       if(scanning){
@@ -1522,7 +2126,7 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
   };
 
   window.cdCcSelectAll = function(){
-    var utxos = _cdCoin==='bch' ? (window.cdUtxos||[]) : (window.cdBtcUtxos||[]);
+    var utxos = _cdCoin==='sbch' ? _cdGetStealthUtxoList() : _cdCoin==='bch' ? (window.cdUtxos||[]) : (window.cdBtcUtxos||[]);
     utxos.forEach(function(u){ _cdCcSel.add(_cdCcId(u)); });
     cdRenderCcList();
     cdUpdateSendSummaryInner();
@@ -1534,9 +2138,14 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     cdUpdateSendSummaryInner();
   };
 
+  function _cdGetStealthUtxoList(){
+    var su = window.cdStealthUtxos||[];
+    return su.map(function(u){ return {txid:u.txid,vout:u.vout,value:u.value,_priv:window._h2b(u.priv),_pubKey:window._h2b(u.pub),_stealth:true}; });
+  }
+
   function cdGetSelectedUtxos(){
     if(!_cdCcActive || !_cdCcSel.size) return null;
-    var utxos = _cdCoin==='bch' ? (window.cdUtxos||[]) : (window.cdBtcUtxos||[]);
+    var utxos = _cdCoin==='sbch' ? _cdGetStealthUtxoList() : _cdCoin==='bch' ? (window.cdUtxos||[]) : (window.cdBtcUtxos||[]);
     return utxos.filter(function(u){ return _cdCcSel.has(_cdCcId(u)); });
   }
 
@@ -1544,7 +2153,7 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     var els = _ccEls();
     var listEl = els.list;
     if(!listEl) return;
-    var utxos = _cdCoin==='bch' ? (window.cdUtxos||[]) : (window.cdBtcUtxos||[]);
+    var utxos = _cdCoin==='sbch' ? _cdGetStealthUtxoList() : _cdCoin==='bch' ? (window.cdUtxos||[]) : (window.cdBtcUtxos||[]);
     var meta = COIN_META[_cdCoin];
     var stealthTxids = new Set();
     try { var su=window.cdStealthUtxos||[]; for(var i=0;i<su.length;i++) if(su[i].txid) stealthTxids.add(su[i].txid); } catch(e){}
@@ -1594,14 +2203,16 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     _cdFeeRate = 1.0;
     _cdCcActive = false;
     _cdCcSel.clear();
-    // Mode toggle: BCH shows toggle, SBCH forces stealth, others normal only
+    // Mode toggle: BCH and SBCH show Normal/Stealth toggle, others normal only
     var isBch = _cdCoin==='bch';
     var isSbch = _cdCoin==='sbch';
-    document.getElementById('cd-send-mode').style.display = isBch ? 'flex' : 'none';
+    document.getElementById('cd-send-mode').style.display = (isBch||isSbch) ? 'flex' : 'none';
     if(isSbch){
-      _cdSendMode = 'stealth';
-      document.getElementById('cd-send-normal').style.display = 'none';
-      document.getElementById('cd-send-stealth').style.display = 'flex';
+      // Default to normal for stealth BCH (send to regular address)
+      _cdSendMode = 'normal';
+      document.querySelectorAll('#cd-send-mode .cd-send-mode-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.mode==='normal'); });
+      document.getElementById('cd-send-normal').style.display = 'flex';
+      document.getElementById('cd-send-stealth').style.display = 'none';
     } else {
       _cdSendMode = 'normal';
       document.querySelectorAll('#cd-send-mode .cd-send-mode-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.mode==='normal'); });
@@ -1613,7 +2224,12 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     if(_cdCoin==='bch'||_cdCoin==='sbch') addrInput.placeholder='bitcoincash:q...';
     else if(_cdCoin==='btc') addrInput.placeholder='1... or bc1...';
     else if(_cdCoin==='xmr') addrInput.placeholder='4... or 8...';
-    else if(_cdCoin==='eth'||_cdCoin==='usdc'||_cdCoin==='usdt') addrInput.placeholder='0x...';
+    else if(_cdCoin==='eth'||_cdCoin==='usdc'||_cdCoin==='usdt'||_cdCoin==='bnb'||_cdCoin==='avax') addrInput.placeholder='0x...';
+    else if(_cdCoin==='ltc') addrInput.placeholder='L... or M...';
+    else if(_cdCoin==='xrp') addrInput.placeholder='r...';
+    else if(_cdCoin==='sol') addrInput.placeholder='base58...';
+    else if(_cdCoin==='trx') addrInput.placeholder='T...';
+    else if(_cdCoin==='xlm') addrInput.placeholder='G...';
     // Fee section: BCH/BTC/SBCH only
     document.getElementById('cd-fee-section').style.display = (_cdCoin==='bch'||_cdCoin==='btc'||_cdCoin==='sbch') ? '' : 'none';
     // Coin control: BCH/BTC/SBCH only
@@ -1682,10 +2298,12 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
   window.cdSetMax = function(){
     if(!_cdCoin) return;
     var utxos;
-    if(_cdCoin==='bch'||_cdCoin==='btc'){
+    if(_cdCoin==='bch'||_cdCoin==='btc'||_cdCoin==='sbch'||_cdCoin==='ltc'){
       // Respect coin control
       var ccUtxos = cdGetSelectedUtxos();
-      utxos = ccUtxos || (_cdCoin==='bch' ? (window.cdUtxos||[]) : (window.cdBtcUtxos||[]));
+      if(_cdCoin==='sbch') utxos = ccUtxos || _cdGetStealthUtxoList();
+      else if(_cdCoin==='ltc') utxos = ccUtxos || (window.cdLtcUtxos||[]);
+      else utxos = ccUtxos || (_cdCoin==='bch' ? (window.cdUtxos||[]) : (window.cdBtcUtxos||[]));
       var total = utxos.reduce(function(s,u){return s+u.value;},0);
       var fee = Math.ceil(window._estimateTxSize(utxos.length, 1) * _cdFeeRate);
       document.getElementById('cd-send-amount').value = (Math.max(0,total-fee)/1e8).toFixed(8);
@@ -1735,13 +2353,19 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     if(!addr){ errEl.textContent='Recipient address required'; return; }
     if(amt<=0){ errEl.textContent='Enter a valid amount'; return; }
 
-    if(_cdCoin==='bch'){
+    if(_cdCoin==='bch'||(_cdCoin==='sbch'&&_cdSendMode==='normal')){
       try { window._cashAddrToHash20(addr); } catch(e){ errEl.textContent='Invalid BCH address'; return; }
       var amtSats = Math.round(amt*1e8);
       if(amtSats<546){ errEl.textContent='Minimum 546 sats (dust limit)'; return; }
-      // Coin control or auto
+      // Coin control or auto — for stealth BCH, use stealth UTXOs with their keys
       var ccUtxos = cdGetSelectedUtxos();
-      var utxos = ccUtxos || (window.cdUtxos||[]);
+      var utxos;
+      if(_cdCoin==='sbch'){
+        var su = window.cdStealthUtxos||[];
+        utxos = su.map(function(u){ return {txid:u.txid,vout:u.vout,value:u.value,_priv:window._h2b(u.priv),_pubKey:window._h2b(u.pub)}; });
+      } else {
+        utxos = ccUtxos || (window.cdUtxos||[]);
+      }
       if(!utxos.length){ errEl.textContent='No UTXOs — refresh balance'; return; }
       _cdSending = true;
       btn.disabled=true; btn.textContent='// BROADCASTING...';
@@ -1771,6 +2395,25 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
         var rawHex = cdBuildSignedBchTx(selected, outputs);
         var result = await window._bcBroadcast(rawHex);
         if(result && result.success!==false){
+          // Tag stealth sends in TX history
+          if(_cdCoin==='sbch'){
+            var txid = typeof result==='string' ? result : (result.txid||result.tx_hash||'');
+            if(txid){
+              try {
+                var hist = JSON.parse(localStorage.getItem('00_tx_history')||'[]');
+                hist.unshift({txid:txid, chain:'bch', dir:'stealth', amount:amtSats, height:0, timestamp:Math.floor(Date.now()/1000)});
+                localStorage.setItem('00_tx_history', JSON.stringify(hist));
+              } catch(e){}
+            }
+            // Remove spent stealth UTXOs from the list
+            if(window._stealthUtxos){
+              var spentTxids = new Set(selected.map(function(u){return u.txid+':'+u.vout;}));
+              var remaining = window._stealthUtxos.filter(function(u){return !spentTxids.has(u.txid+':'+u.vout);});
+              window._stealthUtxos.length = 0;
+              remaining.forEach(function(u){window._stealthUtxos.push(u);});
+              if(window._saveStealthUtxos) window._saveStealthUtxos();
+            }
+          }
           btn.textContent='✓ SENT'; setTimeout(function(){ cdCloseSend(); },1500);
         } else {
           errEl.textContent='Broadcast failed: '+(result.error||'unknown');
@@ -1812,6 +2455,56 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
         var txid = await window._btcCallFn('blockchain.transaction.broadcast', [rawHex]);
         if(txid && typeof txid==='string' && txid.length===64){
           btn.textContent='✓ SENT'; setTimeout(function(){ cdCloseSend(); },1500);
+        } else {
+          errEl.textContent='Broadcast failed: '+(txid||'unknown');
+          btn.disabled=false; btn.textContent='⚡ BROADCAST →';
+        }
+      } catch(e){
+        errEl.textContent='Error: '+e.message;
+        btn.disabled=false; btn.textContent='⚡ BROADCAST →';
+      }
+      _cdSending=false;
+    } else if(_cdCoin==='ltc'){
+      var amtSats = Math.round(amt*1e8);
+      if(amtSats<546){ errEl.textContent='Minimum 546 sats'; return; }
+      var ccUtxos = cdGetSelectedUtxos();
+      var utxos = ccUtxos || (window.cdLtcUtxos||[]);
+      if(!utxos.length){ errEl.textContent='No UTXOs — refresh balance'; return; }
+      // Validate LTC address (L or M or 3 prefix for mainnet)
+      if(!/^[LM3][a-km-zA-HJ-NP-Z1-9]{25,34}$/.test(addr)){ errEl.textContent='Invalid LTC address'; return; }
+      _cdSending=true;
+      btn.disabled=true; btn.textContent='// BROADCASTING...';
+      try {
+        var selected, total;
+        if(ccUtxos){
+          selected = ccUtxos; total = selected.reduce(function(s,u){return s+u.value;},0);
+        } else {
+          var sorted=utxos.slice().sort(function(a,b){return b.value-a.value;});
+          selected=[]; total=0;
+          for(var i=0;i<sorted.length;i++){
+            selected.push(sorted[i]); total+=sorted[i].value;
+            var fee=Math.ceil(window._estimateTxSize(selected.length,2)*_cdFeeRate);
+            if(total>=amtSats+fee) break;
+          }
+        }
+        var feeNoChg=Math.ceil(window._estimateTxSize(selected.length,1)*_cdFeeRate);
+        var fee2Out=Math.ceil(window._estimateTxSize(selected.length,2)*_cdFeeRate);
+        var changeWith2=total-amtSats-fee2Out;
+        var fee=changeWith2>=546?fee2Out:feeNoChg;
+        if(total<amtSats+fee){ errEl.textContent='Insufficient balance'; _cdSending=false; btn.disabled=false; btn.textContent='⚡ BROADCAST →'; return; }
+        var change=total-amtSats-fee;
+        var rawHex = cdBuildSignedLtcTx(selected, addr, amtSats, change);
+        // Broadcast via litecoinspace API
+        var bResp = await fetch('https://litecoinspace.org/api/tx', { method:'POST', body: rawHex });
+        var txid = await bResp.text();
+        if(txid && /^[0-9a-f]{64}$/.test(txid)){
+          btn.textContent='✓ SENT'; setTimeout(function(){ cdCloseSend(); },1500);
+          // Persist TX
+          try {
+            var hist=[]; try { hist=JSON.parse(localStorage.getItem('00_tx_history')||'[]'); } catch(e){}
+            hist.push({txid:txid,chain:'ltc',dir:'out',amount:amtSats,height:0,timestamp:Math.floor(Date.now()/1000)});
+            localStorage.setItem('00_tx_history',JSON.stringify(hist));
+          } catch(e){}
         } else {
           errEl.textContent='Broadcast failed: '+(txid||'unknown');
           btn.disabled=false; btn.textContent='⚡ BROADCAST →';
@@ -1918,6 +2611,15 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
         var ev = await window._makeNostrEvent(ephPriv, 4, encrypted, [['p', recipScanXOnly]]);
         window._nostrPublish(ev);
       } catch(e){ console.error('[STEALTH] Nostr notify error:', e); }
+      // Save stealth send in TX history
+      var stTxid = typeof result==='string' ? result : (result.txid||result.tx_hash||'');
+      if(stTxid){
+        try {
+          var hist = JSON.parse(localStorage.getItem('00_tx_history')||'[]');
+          hist.unshift({txid:stTxid, chain:'bch', dir:'stealth', amount:amtSats, height:0, timestamp:Math.floor(Date.now()/1000)});
+          localStorage.setItem('00_tx_history', JSON.stringify(hist));
+        } catch(e){}
+      }
       btn.textContent='✓ STEALTH SENT';
       setTimeout(function(){ cdCloseSend(); },1500);
     } catch(e){
@@ -1943,13 +2645,17 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     rawParts.push(writeVI(inputs.length));
     for(var i=0;i<inputs.length;i++){
       var u=inputs[i];
-      var scriptCode=window._p2pkhScript(window.cdBchHash160);
+      // Use per-UTXO key if available (HD wallet), fallback to main key
+      var iPriv=u._priv||priv;
+      var iPub=u._pubKey||pub33;
+      var iHash160=window._ripemd160(sha256(iPub));
+      var scriptCode=window._p2pkhScript(iHash160);
       var preimage=concat(writeU32LE(2),hashPrevouts,hashSequence,h2b(u.txid).reverse(),writeU32LE(u.vout),writeVI(scriptCode.length),scriptCode,writeU64LE(u.value),writeU32LE(0xffffffff),hashOutputs,writeU32LE(0),writeU32LE(0x41));
       var sighash=sha256(sha256(preimage));
-      var sig=secp.sign(sighash,priv);
+      var sig=secp.sign(sighash,iPriv);
       var derSig=sig.toDERRawBytes();
       var sigWithHash=concat(derSig,new Uint8Array([0x41]));
-      var scriptSig=concat(writeVI(sigWithHash.length),sigWithHash,writeVI(pub33.length),pub33);
+      var scriptSig=concat(writeVI(sigWithHash.length),sigWithHash,writeVI(iPub.length),iPub);
       rawParts.push(h2b(u.txid).reverse());
       rawParts.push(writeU32LE(u.vout));
       rawParts.push(writeVI(scriptSig.length));
@@ -2039,6 +2745,75 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     return b2h(concat.apply(null,rawParts));
   }
 
+  // LTC TX builder — identical to BTC but uses LTC priv/pub
+  function cdBuildSignedLtcTx(inputs, toAddr, amtSats, change){
+    var b2h=window._b2h, h2b=window._h2b, concat=window._concat;
+    var priv=window.cdLtcPriv, pub33=window._secp256k1.getPublicKey(priv,true);
+    var secp=window._secp256k1, sha256=window._sha256, ripemd160=window._ripemd160;
+    function writeU32LE(v){var b=new Uint8Array(4);b[0]=v&0xff;b[1]=(v>>8)&0xff;b[2]=(v>>16)&0xff;b[3]=(v>>24)&0xff;return b;}
+    function writeU64LE(v){var b=new Uint8Array(8);var lo=v&0xffffffff,hi=Math.floor(v/0x100000000);b[0]=lo&0xff;b[1]=(lo>>8)&0xff;b[2]=(lo>>16)&0xff;b[3]=(lo>>24)&0xff;b[4]=hi&0xff;b[5]=(hi>>8)&0xff;b[6]=(hi>>16)&0xff;b[7]=(hi>>24)&0xff;return b;}
+    function writeVI(v){if(v<0xfd)return new Uint8Array([v]);var b=new Uint8Array(3);b[0]=0xfd;b[1]=v&0xff;b[2]=(v>>8)&0xff;return b;}
+    function base58Decode(s){
+      var ALPH='123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+      var n=BigInt(0);for(var i=0;i<s.length;i++){n=n*58n+BigInt(ALPH.indexOf(s[i]));}
+      var hex=n.toString(16);if(hex.length%2)hex='0'+hex;while(hex.length<50)hex='0'+hex;
+      return h2b(hex.slice(2,42));
+    }
+    var toHash160=base58Decode(toAddr);
+    var toScript=window._p2pkhScript(toHash160);
+    var myHash160=ripemd160(sha256(pub33));
+    var myScript=window._p2pkhScript(myHash160);
+    var outputs=[{value:amtSats,script:toScript}];
+    if(change>=546) outputs.push({value:change,script:window._p2pkhScript(myHash160)});
+    var sigParts=[];
+    for(var idx=0;idx<inputs.length;idx++){
+      var txForSign=[writeU32LE(2)]; // LTC version 2
+      txForSign.push(writeVI(inputs.length));
+      for(var j=0;j<inputs.length;j++){
+        txForSign.push(h2b(inputs[j].txid).reverse());
+        txForSign.push(writeU32LE(inputs[j].vout));
+        if(j===idx){
+          txForSign.push(writeVI(myScript.length));
+          txForSign.push(myScript);
+        } else {
+          txForSign.push(writeVI(0));
+        }
+        txForSign.push(writeU32LE(0xffffffff));
+      }
+      txForSign.push(writeVI(outputs.length));
+      for(var j=0;j<outputs.length;j++){
+        txForSign.push(writeU64LE(outputs[j].value));
+        txForSign.push(writeVI(outputs[j].script.length));
+        txForSign.push(outputs[j].script);
+      }
+      txForSign.push(writeU32LE(0));
+      txForSign.push(writeU32LE(1)); // SIGHASH_ALL
+      var preimage=concat.apply(null,txForSign);
+      var sighash=sha256(sha256(preimage));
+      var sig=secp.sign(sighash,priv);
+      var derSig=sig.toDERRawBytes();
+      sigParts.push(concat(derSig,new Uint8Array([0x01])));
+    }
+    var rawParts=[writeU32LE(2)]; // LTC version 2
+    rawParts.push(writeVI(inputs.length));
+    for(var i=0;i<inputs.length;i++){
+      var scriptSig=concat(writeVI(sigParts[i].length),sigParts[i],writeVI(pub33.length),pub33);
+      rawParts.push(h2b(inputs[i].txid).reverse());
+      rawParts.push(writeU32LE(inputs[i].vout));
+      rawParts.push(writeVI(scriptSig.length));
+      rawParts.push(scriptSig);
+      rawParts.push(writeU32LE(0xffffffff));
+    }
+    rawParts.push(writeVI(outputs.length));
+    for(var i=0;i<outputs.length;i++){
+      rawParts.push(writeU64LE(outputs[i].value));
+      rawParts.push(writeVI(outputs[i].script.length));
+      rawParts.push(outputs[i].script);
+    }
+    rawParts.push(writeU32LE(0));
+    return b2h(concat.apply(null,rawParts));
+  }
+
   /* ── Receive Modal ── */
   var _cdRecvMode = 'normal';
 
@@ -2100,6 +2875,12 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     if(_cdCoin==='btc') return window.cdBtcAddr||'';
     if(_cdCoin==='eth'||_cdCoin==='usdc'||_cdCoin==='usdt') return window.cdEthAddr||'';
     if(_cdCoin==='xmr') return window.cdXmrAddr||'';
+    if(_cdCoin==='ltc') return window.cdLtcAddr||'';
+    if(_cdCoin==='xrp') return window.cdXrpAddr||'';
+    if(_cdCoin==='sol') return window.cdSolAddr||'';
+    if(_cdCoin==='trx') return window.cdTrxAddr||'';
+    if(_cdCoin==='xlm') return window.cdXlmAddr||'';
+    if(_cdCoin==='bnb'||_cdCoin==='avax') return window.cdEthAddr||'';
     return '';
   }
 
@@ -2122,16 +2903,54 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
     else if(_cdCoin==='btc') pathInfo="// m/44'/145'/0'/3/0";
     else if(_cdCoin==='eth'||_cdCoin==='usdc'||_cdCoin==='usdt') pathInfo="// m/44'/145'/0'/4/0";
     else if(_cdCoin==='xmr') pathInfo="// m/44'/145'/0'/5/0";
+    else if(_cdCoin==='ltc') pathInfo="// m/44'/145'/0'/6/0";
+    else if(_cdCoin==='xrp') pathInfo="// m/44'/145'/0'/7/0";
+    else if(_cdCoin==='sol') pathInfo="// m/44'/145'/0'/8/0";
+    else if(_cdCoin==='trx') pathInfo="// m/44'/145'/0'/9/0";
+    else if(_cdCoin==='xlm') pathInfo="// m/44'/145'/0'/10/0";
+    else if(_cdCoin==='bnb'||_cdCoin==='avax') pathInfo="// m/44'/145'/0'/4/0 (=ETH key)";
     document.getElementById('cd-receive-label').textContent = label;
-    document.getElementById('cd-receive-addr').textContent = addr||'—';
     document.getElementById('cd-path-info').innerHTML = pathInfo;
-    cdRenderQR('cd-qr-canvas', addr, meta.color);
+    if (!addr) {
+      // Address not yet derived — show loading state
+      document.getElementById('cd-receive-addr').textContent = 'Deriving address...';
+      document.getElementById('cd-receive-addr').style.opacity = '0.4';
+      var canvas = document.getElementById('cd-qr-canvas');
+      if (canvas) { var ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); }
+      // Poll until address is available
+      var _recvPoll = setInterval(function() {
+        var a = cdGetAddr();
+        if (a) { clearInterval(_recvPoll); document.getElementById('cd-receive-addr').style.opacity = '1'; cdRenderReceiveInner(); }
+      }, 300);
+      // Clear poll if modal closed
+      var modal = document.getElementById('cd-receive-modal');
+      var _origClose = window.cdCloseReceive;
+      window.cdCloseReceive = function() { clearInterval(_recvPoll); if(_origClose) _origClose(); };
+    } else {
+      document.getElementById('cd-receive-addr').textContent = addr;
+      document.getElementById('cd-receive-addr').style.opacity = '1';
+      cdRenderQR('cd-qr-canvas', addr, meta.color);
+    }
   }
 
   function cdRenderReceiveStealth(){
     var code = cdGetStealthCode();
-    document.getElementById('cd-receive-stealth-code').textContent = code||'—';
     var meta = COIN_META[_cdCoin];
+    if (!code) {
+      document.getElementById('cd-receive-stealth-code').textContent = 'Deriving stealth keys...';
+      document.getElementById('cd-receive-stealth-code').style.opacity = '0.4';
+      var canvas = document.getElementById('cd-qr-canvas-st');
+      if (canvas) { var ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); }
+      var _stPoll = setInterval(function() {
+        var c = cdGetStealthCode();
+        if (c) { clearInterval(_stPoll); cdRenderReceiveStealth(); }
+      }, 300);
+      var _origClose2 = window.cdCloseReceive;
+      window.cdCloseReceive = function() { clearInterval(_stPoll); if(_origClose2) _origClose2(); };
+      return;
+    }
+    document.getElementById('cd-receive-stealth-code').textContent = code;
+    document.getElementById('cd-receive-stealth-code').style.opacity = '1';
     cdRenderQR('cd-qr-canvas-st', code, meta.color);
   }
 
@@ -2162,9 +2981,9 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
         <div class="auth-lbl">SEED PHRASE OR HEX KEY</div>
         <textarea class="auth-input" id="import-seed" rows="3" placeholder="12 words or 64-char hex..." style="resize:none;line-height:1.6"></textarea>
         <div class="auth-lbl">PASSWORD</div>
-        <input class="auth-input" id="import-pass" type="password" placeholder="min 8 chars...">
+        <input class="auth-input" id="import-pass" type="password" placeholder="min 8 chars..." onkeydown="if(event.key==='Enter')document.getElementById('import-pass2').focus()">
         <div class="auth-lbl">CONFIRM</div>
-        <input class="auth-input" id="import-pass2" type="password" placeholder="confirm...">
+        <input class="auth-input" id="import-pass2" type="password" placeholder="confirm..." onkeydown="if(event.key==='Enter')walletImport()">
         <div class="auth-error" id="import-error"></div>
         <button class="auth-btn" onclick="walletImport()">UNLOCK WALLET →</button>
         <div class="auth-divider"></div>
@@ -2359,6 +3178,28 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
             <div class="empty-state" style="padding:16px">// NO STEALTH PAYMENTS RECEIVED YET</div>
           </div>
           <button class="stealth-scan-btn" onclick="stealthScanChain()">SCAN CHAIN (FALLBACK)</button>
+          <div style="margin-top:12px">
+            <button class="stealth-scan-btn" onclick="document.getElementById('adv-scan-panel').style.display=document.getElementById('adv-scan-panel').style.display==='none'?'block':'none'" style="color:rgba(var(--accent-rgb),.35);font-size:9px;letter-spacing:3px">▸ ADVANCED SCAN</button>
+            <div id="adv-scan-panel" style="display:none;margin-top:8px;padding:12px;background:rgba(0,0,0,.15);border-radius:8px;border:1px solid rgba(var(--accent-rgb),.08)">
+              <div style="font-size:9px;letter-spacing:2px;color:rgba(var(--accent-rgb),.4);margin-bottom:8px">SCAN ALL BLOCKS BETWEEN TWO DATES</div>
+              <div style="display:flex;gap:8px;margin-bottom:8px">
+                <div style="flex:1">
+                  <label style="font-size:9px;letter-spacing:1px;color:rgba(var(--accent-rgb),.3)">FROM</label>
+                  <input type="date" id="adv-scan-from" style="width:100%;padding:6px 8px;background:rgba(0,0,0,.2);border:1px solid rgba(var(--accent-rgb),.1);border-radius:6px;color:var(--green);font-family:'Share Tech Mono',monospace;font-size:11px">
+                </div>
+                <div style="flex:1">
+                  <label style="font-size:9px;letter-spacing:1px;color:rgba(var(--accent-rgb),.3)">TO</label>
+                  <input type="date" id="adv-scan-to" style="width:100%;padding:6px 8px;background:rgba(0,0,0,.2);border:1px solid rgba(var(--accent-rgb),.1);border-radius:6px;color:var(--green);font-family:'Share Tech Mono',monospace;font-size:11px">
+                </div>
+              </div>
+              <div style="font-size:9px;color:rgba(var(--accent-rgb),.25);margin-bottom:8px" id="adv-scan-info">≈ scans all P2PKH inputs in every block within range</div>
+              <div style="width:100%;height:3px;background:rgba(var(--accent-rgb),.06);border-radius:2px;margin-bottom:8px;overflow:hidden;display:none" id="adv-scan-progress-wrap">
+                <div id="adv-scan-progress" style="height:100%;width:0%;background:var(--green);border-radius:2px;transition:width .3s"></div>
+              </div>
+              <div style="font-size:10px;color:var(--green);margin-bottom:8px;display:none" id="adv-scan-status"></div>
+              <button class="stealth-scan-btn" onclick="advancedStealthScan()" id="adv-scan-btn" style="color:var(--green);border-color:rgba(var(--accent-rgb),.3)">⚡ START DEEP SCAN</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2384,7 +3225,9 @@ window.cdOpenReceive = window.cdOpenReceive || function(){};
 </div>
 
 <script src="ledger.js"></script>
+<script src="wizardconnect.js"></script>
 <script src="/ws-bridge.js"></script>
+<script src="/chains.js"></script>
 <script>
 (function() {
   const statuses = ['BOOT 0penw0rld OS...','CONNECTING FULCRUM...','LOADING BCH KEYS...','WALLET READY'];
@@ -2593,12 +3436,49 @@ function deriveAccountNode(seed64) {
   n = _bip32Child(n.priv, n.chain, 0x80000000, true);  // 0' (account)
   return n;
 }
+function deriveBip352Node(seed64) {
+  // m/352'/145'/0' — BIP352 Silent Payments stealth node
+  // Separate tree from BIP44 — scan and spend are isolated behind hardened gates
+  let n = bip32Master(seed64);
+  n = _bip32Child(n.priv, n.chain, 0x80000160, true);  // 352' (0x160 = 352)
+  n = _bip32Child(n.priv, n.chain, 0x80000091, true);  // 145' (BCH)
+  n = _bip32Child(n.priv, n.chain, 0x80000000, true);  // 0' (account)
+  return n;
+}
 function deriveBchPriv(seed64) {
   // m/44'/145'/0'/0/0
   const acct = deriveAccountNode(seed64);
   let n = _bip32Child(acct.priv, acct.chain, 0, false);  // 0 (external)
   n = _bip32Child(n.priv, n.chain, 0, false);             // 0 (address index)
   return { priv: n.priv, acctPriv: acct.priv, acctChain: acct.chain };
+}
+
+// ── BIP39 mnemonic generation ──────────────────────
+// BIP39 English wordlist (2048 words) — loaded on demand
+let _bip39Words = null;
+async function _loadBip39Wordlist() {
+  if (_bip39Words) return _bip39Words;
+  const resp = await fetch('https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt');
+  const text = await resp.text();
+  _bip39Words = text.trim().split('\n');
+  if (_bip39Words.length !== 2048) throw new Error('BIP39 wordlist invalid: ' + _bip39Words.length);
+  return _bip39Words;
+}
+
+async function generateMnemonic(strength = 128) {
+  // strength: 128 bits = 12 words, 256 bits = 24 words
+  const words = await _loadBip39Wordlist();
+  const entropy = rand(strength / 8); // 16 bytes for 12 words
+  // Checksum: first (strength/32) bits of SHA-256(entropy)
+  const hash = sha256(entropy);
+  const checksumBits = strength / 32; // 4 bits for 128-bit entropy
+  // Convert entropy + checksum to 11-bit groups → word indices
+  let bits = '';
+  for (const b of entropy) bits += b.toString(2).padStart(8, '0');
+  for (let i = 0; i < checksumBits; i++) bits += ((hash[0] >> (7 - i)) & 1).toString();
+  const indices = [];
+  for (let i = 0; i < bits.length; i += 11) indices.push(parseInt(bits.slice(i, i + 11), 2));
+  return indices.map(i => words[i]).join(' ');
 }
 
 // ── BIP39 mnemonic → seed ──────────────────────────
@@ -2692,6 +3572,70 @@ function ethAddr(pubkey33) {
   let cs = '0x';
   for (let i = 0; i < 40; i++) cs += parseInt(hashHex[i], 16) >= 8 ? hexLower[i].toUpperCase() : hexLower[i];
   return cs;
+}
+
+// ── LTC Address (P2PKH, version 0x30) ─────────────
+function ltcP2pkhAddr(pubkey33) {
+  const hash = ripemd160(sha256(pubkey33));
+  return base58Check(concat(new Uint8Array([0x30]), hash));
+}
+
+// ── TRX Address (keccak + base58check 0x41) ───────
+function tronAddr(pubkey33) {
+  const uncompressed = secp256k1.ProjectivePoint.fromHex(pubkey33).toRawBytes(false).slice(1);
+  const hash = keccak_256(uncompressed);
+  const raw = hash.slice(12);
+  return base58Check(concat(new Uint8Array([0x41]), raw));
+}
+
+// ── XRP Address (custom base58 alphabet) ──────────
+const XRP_ALPHABET = 'rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz';
+function xrpBase58Check(payload) {
+  const input = concat(payload, dsha256(payload).slice(0, 4));
+  let n = BigInt('0x' + b2h(input));
+  let str = '';
+  while (n > 0n) { str = XRP_ALPHABET[Number(n % 58n)] + str; n = n / 58n; }
+  for (const b of input) { if (b === 0) str = XRP_ALPHABET[0] + str; else break; }
+  return str;
+}
+function xrpAddr(pubkey33) {
+  const hash = ripemd160(sha256(pubkey33));
+  return xrpBase58Check(concat(new Uint8Array([0x00]), hash));
+}
+
+// ── SOL Address (ed25519 pubkey → base58) ─────────
+function solAddr(priv32) {
+  const pubKey = ed25519.getPublicKey(priv32.slice(0, 32));
+  let n = BigInt('0x' + b2h(pubKey));
+  let str = '';
+  while (n > 0n) { str = B58_ALPHABET[Number(n % 58n)] + str; n = n / 58n; }
+  for (const b of pubKey) { if (b === 0) str = '1' + str; else break; }
+  return str;
+}
+
+// ── XLM Address (ed25519 → StrKey base32 + CRC16) ─
+const XLM_B32 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+function _crc16xmodem(data) {
+  let crc = 0;
+  for (let i = 0; i < data.length; i++) {
+    crc ^= data[i] << 8;
+    for (let j = 0; j < 8; j++) crc = (crc & 0x8000) ? (crc << 1) ^ 0x1021 : crc << 1;
+    crc &= 0xFFFF;
+  }
+  return crc;
+}
+function _base32Encode(data) {
+  let bits = 0, value = 0, out = '';
+  for (let i = 0; i < data.length; i++) { value = (value << 8) | data[i]; bits += 8; while (bits >= 5) { bits -= 5; out += XLM_B32[(value >> bits) & 31]; } }
+  if (bits > 0) out += XLM_B32[(value << (5 - bits)) & 31];
+  return out;
+}
+function xlmAddr(priv32) {
+  const pubKey = ed25519.getPublicKey(priv32.slice(0, 32));
+  const payload = concat(new Uint8Array([6 << 3]), pubKey); // 0x30 = ED25519 public key
+  const crc = _crc16xmodem(payload);
+  const checksumBytes = new Uint8Array([crc & 0xFF, (crc >> 8) & 0xFF]);
+  return _base32Encode(concat(payload, checksumBytes));
 }
 
 // BIP32 unhardened child derivation (for xpub scanning)
@@ -2821,6 +3765,15 @@ async function bcGetHistory(addr) {
 async function bcGetTxHex(txid) {
   try { return await _fvCall('blockchain.transaction.get', [txid]); } catch { return null; }
 }
+// Chain tip heights for confirmation counting
+let _bchTipHeight = 0, _btcTipHeight = 0;
+async function _fetchBchTip() {
+  try { const h = await _fvCall('blockchain.headers.subscribe', []); _bchTipHeight = h.height || 0; } catch {}
+}
+async function _fetchBtcTip() {
+  try { const h = await _btcCall('blockchain.headers.subscribe', []); _btcTipHeight = h.height || 0; } catch {}
+}
+
 // Cache of block height → unix timestamp (BCH)
 const _bchBlockTsCache = {};
 async function bcGetBlockTimestamp(height) {
@@ -2936,6 +3889,26 @@ let _xmrConnected = false;
 let _xmrHeight = 0;
 let _xmrOutputs = []; // [{txHash, blockHeight, index, amount, outputKey, txPubKey, keyImage, spent}]
 
+// LTC
+let _ltcPriv = null, _ltcPub33 = null, _ltcAddr = '';
+let _ltcBalance = 0, _ltcUtxos = [], _ltcBalanceLoaded = false;
+// XRP
+let _xrpPriv = null, _xrpPub33 = null, _xrpAddr = '';
+let _xrpBalance = 0, _xrpBalanceLoaded = false;
+// SOL
+let _solPriv = null, _solAddr = '';
+let _solBalance = 0, _solBalanceLoaded = false;
+// TRX
+let _trxPriv = null, _trxPub33 = null, _trxAddr = '';
+let _trxBalance = 0, _trxBalanceLoaded = false;
+// XLM
+let _xlmPriv = null, _xlmAddr = '';
+let _xlmBalance = 0, _xlmBalanceLoaded = false;
+// BNB (shares ETH key)
+let _bnbBalance = '0', _bnbBalanceLoaded = false;
+// AVAX (shares ETH key)
+let _avaxBalance = '0', _avaxBalanceLoaded = false;
+
 function _loadXmrOutputs() {
   try { const r = localStorage.getItem('00_xmr_outputs'); if (r) _xmrOutputs = JSON.parse(r); } catch(e) { _xmrOutputs = []; }
 }
@@ -2949,10 +3922,33 @@ function _xmrPrivToBigInt(privLE) {
   return n;
 }
 
+// ── WizardConnect State ───────────────────────────
+let _acctPubHex = null, _acctChainHex = null;
+
+// Public-key-only BIP32 child derivation (for WizardConnect xpub exposure)
+function _bip32ChildPub(parentPub, parentChain, index) {
+  if (!parentPub || !parentChain) return null;
+  const pub = parentPub instanceof Uint8Array ? parentPub : h2b(parentPub);
+  const chain = parentChain instanceof Uint8Array ? parentChain : h2b(parentChain);
+  const idxBuf = new Uint8Array(4);
+  idxBuf[0] = (index >> 24) & 0xff; idxBuf[1] = (index >> 16) & 0xff;
+  idxBuf[2] = (index >> 8) & 0xff; idxBuf[3] = index & 0xff;
+  const data = concat(pub, idxBuf);
+  const I = hmacSha512(chain, data);
+  const IL = I.slice(0, 32);
+  const IR = I.slice(32);
+  const ILn = BigInt('0x' + b2h(IL));
+  if (ILn >= secp256k1.CURVE.n) return null;
+  const parentPoint = secp256k1.ProjectivePoint.fromHex(pub);
+  const childPoint = parentPoint.add(secp256k1.ProjectivePoint.BASE.multiply(ILn));
+  return { pub: childPoint.toRawBytes(true), chain: IR };
+}
+
 // ── Stealth State ─────────────────────────────────
 let _stealthScanPriv = null, _stealthScanPub = null;
 let _stealthSpendPriv = null, _stealthSpendPub = null;
 let _stealthNostrPub = null; // x-only 32-byte hex for Nostr DMs
+let _stealthScanXpub = null, _stealthSpendXpub = null; // BIP352 branch xpubs for WizardConnect
 let _stealthUtxos = [];      // [{txid, vout, value, priv, pub, addr, from, ts}]
 
 // ── Auto Stealth Mode (CoinJoin pipeline) ────────
@@ -3054,10 +4050,13 @@ function _connectRelay(url) {
   ws.onopen = () => {
     entry.connected = true; _nostrConnected = true;
     const names = _nostrSockets.filter(s => s.connected).map(s => new URL(s.url).hostname);
-    document.getElementById('nostr-dot').classList.add('on');
-    document.getElementById('nostr-label').textContent = 'NOSTR: ' + names.join(', ');
+    const dot = document.getElementById('nostr-dot');
+    const lbl = document.getElementById('nostr-label');
+    if (dot) dot.classList.add('on');
+    if (lbl) lbl.textContent = 'NOSTR: ' + names.join(', ');
     _subscribeStealthDMs(ws);
     if (_cjSessionPub) _cjSubscribe(ws);
+    console.log('[NOSTR] connected to', url);
   };
   ws.onmessage = e => {
     try {
@@ -3075,12 +4074,14 @@ function _connectRelay(url) {
   ws.onclose = () => {
     entry.connected = false;
     _nostrConnected = _nostrSockets.some(s => s.connected);
+    const dot = document.getElementById('nostr-dot');
+    const lbl = document.getElementById('nostr-label');
     if (_nostrConnected) {
       const names = _nostrSockets.filter(s => s.connected).map(s => new URL(s.url).hostname);
-      document.getElementById('nostr-label').textContent = 'NOSTR: ' + names.join(', ');
+      if (lbl) lbl.textContent = 'NOSTR: ' + names.join(', ');
     } else {
-      document.getElementById('nostr-dot').classList.remove('on');
-      document.getElementById('nostr-label').textContent = 'NOSTR: disconnected';
+      if (dot) dot.classList.remove('on');
+      if (lbl) lbl.textContent = 'NOSTR: disconnected';
     }
     const idx = _nostrSockets.indexOf(entry);
     if (idx !== -1) _nostrSockets.splice(idx, 1);
@@ -3089,7 +4090,11 @@ function _connectRelay(url) {
   ws.onerror = () => ws.close();
 }
 function _subscribeStealthDMs(ws) {
-  if (!ws || ws.readyState !== 1 || !_stealthNostrPub) return;
+  if (!ws || ws.readyState !== 1 || !_stealthNostrPub) {
+    console.warn('[NOSTR] _subscribeStealthDMs SKIPPED — ws:', !!ws, 'readyState:', ws?.readyState, 'nostrPub:', _stealthNostrPub ? _stealthNostrPub.slice(0,16)+'...' : 'NULL');
+    return;
+  }
+  console.log('[NOSTR] subscribing stealth DMs for:', _stealthNostrPub.slice(0,16) + '...');
   const now = Math.floor(Date.now() / 1000);
   ws.send(JSON.stringify(['REQ', 'stealth-dm', {
     kinds: [4],
@@ -3216,40 +4221,49 @@ function parseTxAllInputPubkeys(hex) {
 
 // Handle incoming stealth Nostr DM
 async function handleStealthEvent(ev) {
+  console.log('[STEALTH-DM] event received, kind:', ev.kind, 'from:', ev.pubkey?.slice(0,16));
   if (ev.kind !== 4) return;
-  const pt = await nip04Decrypt(_stealthScanPriv, ev.pubkey, ev.content);
-  if (!pt) return;
   try {
+    const pt = await nip04Decrypt(_stealthScanPriv, ev.pubkey, ev.content);
+    console.log('[STEALTH-DM] decrypted:', pt ? pt.slice(0, 60) : 'FAILED');
+    if (!pt) return;
     const data = JSON.parse(pt);
-    if (data.type !== 'stealth' || !data.txid) return;
+    console.log('[STEALTH-DM] parsed:', JSON.stringify(data));
+    if (!data.txid) return; // Accept both {type:'stealth',txid} and legacy {txid,sender}
     // Check if already known
     if (_stealthUtxos.some(u => u.txid === data.txid)) return;
     // Fetch TX from Fulcrum
     const rawHex = await bcGetTxHex(data.txid);
     if (!rawHex) return;
-    const input = parseTxInputPubkey(rawHex);
-    if (!input) return;
-    // Derive stealth address
-    const { addr, pub, cBig } = stealthDerive(null, input.pubkey, _stealthScanPub, _stealthSpendPub, input.outpoint);
-    // Check outputs for match
+    // Try ALL input pubkeys (not just the first) for robustness
+    const inputs = parseTxAllInputPubkeys(rawHex);
+    if (!inputs.length) return;
     const outputs = parseTxHex(rawHex);
     if (!outputs) return;
-    const expectedScript = b2h(p2pkhScript(ripemd160(sha256(pub))));
-    const matchIdx = outputs.findIndex(o => o.script === expectedScript);
-    if (matchIdx === -1) return;
-    // Derive spending key
-    const priv = stealthSpendingKey(_stealthSpendPriv, cBig);
-    const stealthEntry = {
-      txid: data.txid, vout: matchIdx, value: outputs[matchIdx].value,
-      priv: b2h(priv), pub: b2h(pub), addr,
-      from: ev.pubkey.slice(0, 12) + '...', ts: ev.created_at,
-    };
-    _stealthUtxos.push(stealthEntry);
-    _saveStealthUtxos();
-    _registerStealthAddresses();
-    refreshBalance();
-    renderStealth();
-    console.log('[Stealth] received', (stealthEntry.value / 1e8).toFixed(8), 'BCH at', addr);
+    let found = false;
+    for (const input of inputs) {
+      // Derive stealth address for this input's pubkey
+      const { addr, pub, cBig } = stealthDerive(null, input.pubkey, _stealthScanPub, _stealthSpendPub, input.outpoint);
+      const expectedScript = b2h(p2pkhScript(ripemd160(sha256(pub))));
+      const matchIdx = outputs.findIndex(o => o.script === expectedScript);
+      if (matchIdx === -1) continue;
+      if (_stealthUtxos.some(u => u.txid === data.txid && u.vout === matchIdx)) continue;
+      // Derive spending key
+      const priv = stealthSpendingKey(_stealthSpendPriv, cBig);
+      _stealthUtxos.push({
+        txid: data.txid, vout: matchIdx, value: outputs[matchIdx].value,
+        priv: b2h(priv), pub: b2h(pub), addr,
+        from: ev.pubkey.slice(0, 12) + '...', ts: ev.created_at,
+      });
+      found = true;
+      console.log('[Stealth] received', (outputs[matchIdx].value / 1e8).toFixed(8), 'BCH at', addr);
+    }
+    if (found) {
+      _saveStealthUtxos();
+      _registerStealthAddresses();
+      refreshBalance();
+      renderStealth();
+    }
   } catch (e) { console.error('[Stealth] event error:', e); }
 }
 
@@ -3259,6 +4273,25 @@ function _saveStealthUtxos() {
 }
 function _loadStealthUtxos() {
   try { _stealthUtxos = JSON.parse(localStorage.getItem('00stealth_utxos') || '[]'); } catch { _stealthUtxos = []; }
+}
+async function _pruneSpentStealthUtxos() {
+  if (!_stealthUtxos.length) return;
+  const live = [];
+  for (const u of _stealthUtxos) {
+    try {
+      if (!u.addr) { live.push(u); continue; }
+      const hash = cashAddrToHash20(u.addr);
+      const script = p2pkhScript(hash);
+      const sh = b2h(sha256(script).reverse());
+      const utxos = await _fvCall('blockchain.scripthash.listunspent', [sh]);
+      if (utxos.some(x => x.tx_hash === u.txid && x.tx_pos === u.vout)) live.push(u);
+    } catch { live.push(u); } // keep on error (don't delete if unsure)
+  }
+  if (live.length !== _stealthUtxos.length) {
+    console.log('[STEALTH] Pruned', _stealthUtxos.length - live.length, 'spent UTXOs');
+    _stealthUtxos = live;
+    localStorage.setItem('00stealth_utxos', JSON.stringify(_stealthUtxos));
+  }
 }
 // Register stealth addresses into _hdAddresses so they're spendable via normal send
 function _registerStealthAddresses() {
@@ -3272,14 +4305,22 @@ function _registerStealthAddresses() {
 
 // ── Stealth Send ──────────────────────────────────
 function stealthMax() {
-  const total = _utxos.reduce((s, u) => s + u.value, 0);
-  const fee = Math.ceil(estimateTxSize(_utxos.length, 1) * _feeRate);
+  // Only use regular (non-stealth) UTXOs for stealth send
+  const stealthAddrSet = new Set(_stealthUtxos.map(su => su.addr));
+  const regularUtxos = _utxos.filter(u => !stealthAddrSet.has(u._addr));
+  const total = regularUtxos.reduce((s, u) => s + u.value, 0);
+  const fee = Math.ceil(estimateTxSize(regularUtxos.length, 1) * _feeRate);
   const max = Math.max(0, total - fee);
   document.getElementById('stealth-send-amount').value = (max / 1e8).toFixed(8);
 }
 
 async function sendStealth() {
   if (_sendInProgress) return;
+  if (!_stealthScanPub || !_stealthSpendPub) {
+    const errEl = document.getElementById('stealth-send-error');
+    errEl.textContent = '// stealth requires a 12-word seed phrase wallet';
+    return;
+  }
   const codeRaw = document.getElementById('stealth-send-code').value.trim().replace(/^stealth:/i, '');
   const amtBCH = parseFloat(document.getElementById('stealth-send-amount').value) || 0;
   const amtSats = Math.round(amtBCH * 1e8);
@@ -3298,10 +4339,13 @@ async function sendStealth() {
   } catch { errEl.textContent = '// invalid stealth code (bad pubkeys)'; return; }
 
   if (amtSats < 546) { errEl.textContent = '// minimum 546 sats'; return; }
-  if (!_utxos.length) { errEl.textContent = '// no UTXOs — refresh balance'; return; }
+  // Filter out stealth UTXOs — only use regular UTXOs for stealth send
+  const stealthAddrSet = new Set(_stealthUtxos.map(su => su.addr));
+  const regularUtxos = _utxos.filter(u => !stealthAddrSet.has(u._addr));
+  if (!regularUtxos.length) { errEl.textContent = '// no regular UTXOs — refresh balance'; return; }
 
   // Select UTXOs (greedy)
-  const sorted = [..._utxos].sort((a, b) => b.value - a.value);
+  const sorted = [...regularUtxos].sort((a, b) => b.value - a.value);
   let selected = [], total = 0;
   for (const u of sorted) {
     selected.push(u); total += u.value;
@@ -3381,6 +4425,14 @@ async function sendStealth() {
   }
 }
 
+// ── Stealth Scan State (incremental) ──────────────
+function _getStealthScanState() {
+  try { return JSON.parse(localStorage.getItem('00stealth_scan_state') || '{}'); } catch { return {}; }
+}
+function _saveStealthScanState(scannedSet) {
+  localStorage.setItem('00stealth_scan_state', JSON.stringify({ t: [...scannedSet].slice(-1000), ts: Date.now() }));
+}
+
 // ── Stealth Chain Scan (fallback) ─────────────────
 async function stealthScanChain() {
   const btn = document.querySelector('.stealth-scan-btn');
@@ -3395,8 +4447,15 @@ async function stealthScanChain() {
       const hist = await bcGetHistory(addr);
       allHist.push(...hist.map(h => h.tx_hash));
     }
-    // Also scan mempool TXs
-    const unique = [...new Set(allHist)];
+    // Incremental: skip already-scanned TXs
+    const scanState = _getStealthScanState();
+    const alreadyScanned = new Set(scanState.t || []);
+    const unique = [...new Set(allHist)].filter(t => !alreadyScanned.has(t));
+    if (unique.length === 0) {
+      btn.textContent = '// ALL TXS ALREADY SCANNED';
+      setTimeout(() => { btn.textContent = 'SCAN CHAIN (FALLBACK)'; btn.disabled = false; }, 3000);
+      return;
+    }
     let found = 0;
     for (const txid of unique) {
       const rawHex = await bcGetTxHex(txid);
@@ -3439,8 +4498,11 @@ async function stealthScanChain() {
         }
       }
     }
-    if (found > 0) { _saveStealthUtxos(); renderStealth(); }
-    btn.textContent = found > 0 ? `// FOUND ${found} STEALTH TXS` : '// NO NEW STEALTH TXS FOUND';
+    // Save incremental scan state
+    for (const t of unique) alreadyScanned.add(t);
+    _saveStealthScanState(alreadyScanned);
+    if (found > 0) { _saveStealthUtxos(); _registerStealthAddresses(); renderStealth(); refreshBalance(); }
+    btn.textContent = found > 0 ? `// FOUND ${found} STEALTH TXS` : `// SCANNED ${unique.length} TXS — NO NEW`;
     setTimeout(() => { btn.textContent = 'SCAN CHAIN (FALLBACK)'; btn.disabled = false; }, 4000);
   } catch (e) {
     btn.textContent = '// SCAN ERROR: ' + e.message;
@@ -3448,7 +4510,221 @@ async function stealthScanChain() {
   }
 }
 
+// ── Periodic Stealth Scan (background, every 60s) ─
+let _stealthScanRunning = false;
+async function _stealthPeriodicScan() {
+  if (!_stealthScanPub || !_stealthSpendPub || _stealthScanRunning) return;
+  // Check Fulcrum is connected
+  const bchOn = window._wsStatus ? window._wsStatus('bch').connected : (window._fvWs && window._fvWs.readyState === WebSocket.OPEN);
+  if (!bchOn) return;
+  _stealthScanRunning = true;
+  try {
+    // Scan ALL HD addresses (not just _bchAddr)
+    const allAddrs = _hdAddresses.length > 0 ? _hdAddresses.map(a => a.addr) : [_bchAddr];
+    const allHist = [];
+    for (const addr of allAddrs) {
+      try { const h = await bcGetHistory(addr); allHist.push(...h.map(h2 => h2.tx_hash)); } catch {}
+    }
+    const scanState = _getStealthScanState();
+    const alreadyScanned = new Set(scanState.t || []);
+    const newTxids = [...new Set(allHist)].filter(t => !alreadyScanned.has(t));
+    if (!newTxids.length) { _stealthScanRunning = false; return; }
+    let found = 0;
+    for (const txid of newTxids) {
+      const rawHex = await bcGetTxHex(txid);
+      if (!rawHex) continue;
+      const inputs = parseTxAllInputPubkeys(rawHex);
+      if (!inputs.length) continue;
+      const outputs = parseTxHex(rawHex);
+      if (!outputs) continue;
+      for (const inp of inputs) {
+        // 1) Standard stealth: nonce = outpoint
+        const { addr, pub, cBig } = stealthDerive(null, inp.pubkey, _stealthScanPub, _stealthSpendPub, inp.outpoint);
+        const expectedScript = b2h(p2pkhScript(ripemd160(sha256(pub))));
+        const matchIdx = outputs.findIndex(o => o.script === expectedScript);
+        if (matchIdx !== -1 && !_stealthUtxos.some(u => u.txid === txid && u.vout === matchIdx)) {
+          const priv = stealthSpendingKey(_stealthSpendPriv, cBig);
+          _stealthUtxos.push({ txid, vout: matchIdx, value: outputs[matchIdx].value, priv: b2h(priv), pub: b2h(pub), addr, from: 'auto', ts: Math.floor(Date.now() / 1000) });
+          found++;
+        }
+        // 2) Fusion stealth: nonce = concat(outpoint, u32LE(idx)), try idx 0-3
+        for (let _fi = 0; _fi < 4; _fi++) {
+          const fusionOp = concat(inp.outpoint, u32LE(_fi));
+          const fd = stealthDerive(null, inp.pubkey, _stealthScanPub, _stealthSpendPub, fusionOp);
+          const fScript = b2h(p2pkhScript(ripemd160(sha256(fd.pub))));
+          const fIdx = outputs.findIndex(o => o.script === fScript);
+          if (fIdx === -1) continue;
+          if (_stealthUtxos.some(u => u.txid === txid && u.vout === fIdx)) continue;
+          const fPriv = stealthSpendingKey(_stealthSpendPriv, fd.cBig);
+          _stealthUtxos.push({ txid, vout: fIdx, value: outputs[fIdx].value, priv: b2h(fPriv), pub: b2h(fd.pub), addr: fd.addr, from: 'auto-fusion', ts: Math.floor(Date.now() / 1000) });
+          found++;
+        }
+      }
+      alreadyScanned.add(txid);
+    }
+    _saveStealthScanState(alreadyScanned);
+    if (found > 0) {
+      console.log('[STEALTH] auto-scan found', found, 'new stealth UTXOs');
+      _saveStealthUtxos(); _registerStealthAddresses(); renderStealth(); refreshBalance();
+    }
+  } catch (e) { console.warn('[STEALTH] periodic scan error:', e); }
+  _stealthScanRunning = false;
+}
+
+// ── Advanced Stealth Scan (date range, all blocks) ──────────────────────
+async function advancedStealthScan(prefix) {
+  const p = prefix || 'adv-';
+  if (!_stealthScanPub || !_stealthSpendPub) { console.warn('[STEALTH] scan aborted — stealth keys not available'); return; }
+  const fromDate = document.getElementById(p + 'scan-from').value;
+  const toDate = document.getElementById(p + 'scan-to').value;
+  if (!fromDate || !toDate) { alert('Select both dates'); return; }
+
+  const btn = document.getElementById(p + 'scan-btn');
+  const status = document.getElementById(p + 'status') || document.getElementById(p + 'scan-status');
+  const progressWrap = document.getElementById(p + 'progress-wrap') || document.getElementById(p + 'scan-progress-wrap');
+  const progressBar = document.getElementById(p + 'progress') || document.getElementById(p + 'scan-progress');
+  btn.disabled = true; btn.textContent = '⚡ SCANNING...';
+  status.style.display = 'block';
+  progressWrap.style.display = 'block';
+  progressBar.style.width = '0%';
+
+  try {
+    // 1) Convert dates to block heights via Blockchair
+    status.textContent = 'Resolving block heights...';
+    const fromTs = Math.floor(new Date(fromDate).getTime() / 1000);
+    const toTs = Math.floor(new Date(toDate + 'T23:59:59').getTime() / 1000);
+
+    // Get current block height
+    const tipResp = await fetch('https://api.blockchair.com/bitcoin-cash/stats');
+    const tipData = await tipResp.json();
+    const currentHeight = tipData.data.best_block_height;
+    const currentTs = Math.floor(Date.now() / 1000);
+
+    // Approximate: BCH ~600s per block
+    const fromHeight = Math.max(1, currentHeight - Math.floor((currentTs - fromTs) / 600));
+    const toHeight = Math.min(currentHeight, currentHeight - Math.floor((currentTs - toTs) / 600));
+
+    if (fromHeight >= toHeight) { status.textContent = 'Invalid date range'; btn.disabled = false; btn.textContent = '⚡ START DEEP SCAN'; return; }
+
+    const totalBlocks = toHeight - fromHeight;
+    status.textContent = `Scanning blocks ${fromHeight} → ${toHeight} (${totalBlocks} blocks)`;
+
+    // 2) Scan blocks in batches
+    let totalFound = 0;
+    let totalTxScanned = 0;
+    const BATCH_SIZE = 10; // blocks per Blockchair call
+
+    for (let bStart = fromHeight; bStart < toHeight; bStart += BATCH_SIZE) {
+      const bEnd = Math.min(bStart + BATCH_SIZE - 1, toHeight);
+      const pct = Math.floor(((bStart - fromHeight) / totalBlocks) * 100);
+      progressBar.style.width = pct + '%';
+      status.textContent = `Block ${bStart}–${bEnd} / ${toHeight} | Found: ${totalFound} | Scanned: ${totalTxScanned} TXs`;
+
+      // Fetch block txids via Blockchair
+      let txids = [];
+      try {
+        const bResp = await fetch(`https://api.blockchair.com/bitcoin-cash/blocks?q=id(${bStart}..${bEnd})&fields=id,transaction_count&limit=${BATCH_SIZE}`);
+        const bData = await bResp.json();
+        const blocks = bData.data || [];
+
+        for (const block of blocks) {
+          const height = block.id;
+          try {
+            const dResp = await fetch(`https://api.blockchair.com/bitcoin-cash/dashboards/block/${height}`);
+            const dData = await dResp.json();
+            const blockTxids = dData.data?.[String(height)]?.transactions || [];
+            txids.push(...blockTxids);
+          } catch { /* skip failed block */ }
+          // Small delay to avoid rate limiting
+          await new Promise(r => setTimeout(r, 200));
+        }
+      } catch (e) {
+        status.textContent = `Blockchair error at ${bStart}: ${e.message}. Retrying in 5s...`;
+        await new Promise(r => setTimeout(r, 5000));
+        continue;
+      }
+
+      // 3) For each TX, fetch raw hex via Fulcrum and test ECDH
+      for (const txid of txids) {
+        try {
+          const rawHex = await bcGetTxHex(txid);
+          if (!rawHex) { console.log('[ADV-SCAN] skip', txid.slice(0,12), 'no rawHex'); continue; }
+          totalTxScanned++;
+
+          const inputs = parseTxAllInputPubkeys(rawHex);
+          if (!inputs.length) { console.log('[ADV-SCAN] skip', txid.slice(0,12), 'no inputs'); continue; }
+          const outputs = parseTxHex(rawHex);
+          if (!outputs) { console.log('[ADV-SCAN] skip', txid.slice(0,12), 'no outputs'); continue; }
+          // Debug: log target TX
+          if (txid.startsWith('b7d73e7043')) {
+            console.log('[ADV-SCAN] TARGET TX found!', txid, 'inputs:', inputs.length, 'outputs:', outputs.length);
+            for (const inp of inputs) {
+              const dr = stealthDerive(null, inp.pubkey, _stealthScanPub, _stealthSpendPub, inp.outpoint);
+              const es = b2h(p2pkhScript(ripemd160(sha256(dr.pub))));
+              const mi = outputs.findIndex(o => o.script === es);
+              console.log('[ADV-SCAN] TARGET derivation:', dr.addr.slice(12,30), 'matchIdx:', mi, 'expected:', es.slice(6,46), 'out0:', outputs[0]?.script?.slice(6,46));
+            }
+          }
+
+          for (const inp of inputs) {
+            // Standard stealth
+            const { addr, pub, cBig } = stealthDerive(null, inp.pubkey, _stealthScanPub, _stealthSpendPub, inp.outpoint);
+            const expectedScript = b2h(p2pkhScript(ripemd160(sha256(pub))));
+            const matchIdx = outputs.findIndex(o => o.script === expectedScript);
+            if (matchIdx !== -1) {
+              if (!_stealthUtxos.some(u => u.txid === txid && u.vout === matchIdx)) {
+                const priv = stealthSpendingKey(_stealthSpendPriv, cBig);
+                _stealthUtxos.push({
+                  txid, vout: matchIdx, value: outputs[matchIdx].value,
+                  priv: b2h(priv), pub: b2h(pub), addr,
+                  from: 'deep-scan', ts: Math.floor(Date.now() / 1000),
+                });
+                totalFound++;
+              }
+            }
+            // Fusion stealth (idx 0-3)
+            for (let _fi = 0; _fi < 4; _fi++) {
+              const fusionOutpoint = concat(inp.outpoint, u32LE(_fi));
+              const fd = stealthDerive(null, inp.pubkey, _stealthScanPub, _stealthSpendPub, fusionOutpoint);
+              const fScript = b2h(p2pkhScript(ripemd160(sha256(fd.pub))));
+              const fIdx = outputs.findIndex(o => o.script === fScript);
+              if (fIdx === -1) continue;
+              if (_stealthUtxos.some(u => u.txid === txid && u.vout === fIdx)) continue;
+              const fPriv = stealthSpendingKey(_stealthSpendPriv, fd.cBig);
+              _stealthUtxos.push({
+                txid, vout: fIdx, value: outputs[fIdx].value,
+                priv: b2h(fPriv), pub: b2h(fd.pub), addr: fd.addr,
+                from: 'deep-scan', ts: Math.floor(Date.now() / 1000),
+              });
+              totalFound++;
+            }
+          }
+        } catch(scanErr) { console.warn('[ADV-SCAN] TX error:', txid.slice(0,16), scanErr.message); }
+      }
+
+      // Rate limit protection
+      await new Promise(r => setTimeout(r, 500));
+    }
+
+    // 4) Save results
+    progressBar.style.width = '100%';
+    if (totalFound > 0) { _saveStealthUtxos(); _registerStealthAddresses(); renderStealth(); refreshBalance(); }
+    status.textContent = `✓ Done — Scanned ${totalTxScanned} TXs across ${totalBlocks} blocks — Found ${totalFound} stealth UTXOs`;
+
+  } catch (e) {
+    status.textContent = '✗ Error: ' + e.message;
+    console.error('[ADV-SCAN]', e);
+  }
+
+  btn.disabled = false; btn.textContent = '⚡ START DEEP SCAN';
+}
+
 // ── Coin-Detail Stealth Scan ──────────────────────
+// Desktop Advanced Stealth Scan wrapper
+async function cdAdvancedStealthScan() {
+  await advancedStealthScan('cd-adv-');
+}
+
 async function cdStealthScan(){
   var btn = document.getElementById('cd-scan-btn');
   // Check Fulcrum connection (SharedWorker or direct WS)
@@ -3667,11 +4943,11 @@ async function _refreshBtcBalance() {
     _btcBalance = _btcUtxos.reduce((s, u) => s + u.value, 0);
     _btcBalanceLoaded = true;
     if (_activeChain === 'btc') renderChainBalance();
-    try { localStorage.setItem('00_balances', JSON.stringify({ bch: _balance, btc: _btcBalance, eth: _ethBalance, xmr: _xmrBalance, ts: Date.now() })); } catch(e){}
+    _persistAllBalances();
     // Update coin-detail if viewing BTC
-    if (_cdCoin === 'btc' && document.getElementById('coin-detail')?.classList.contains('active')) {
-      cdRenderUtxos();
-      cdRefreshBalance('btc', COIN_META.btc);
+    if (window._cdCoin === 'btc' && document.getElementById('coin-detail')?.classList.contains('active')) {
+      if (typeof cdRenderUtxos === 'function') cdRenderUtxos();
+      if (typeof cdRefreshBalance === 'function') cdRefreshBalance('btc', COIN_META?.btc);
     }
   } catch (e) { console.error('[WALLET] BTC balance:', e); }
 }
@@ -3727,6 +5003,24 @@ async function _ethCall(method, params = []) {
   return j.result;
 }
 
+function _persistAllBalances() {
+  try {
+    const prev = JSON.parse(localStorage.getItem('00_balances') || '{}');
+    // Spread prev first to keep all existing values, then overwrite loaded ones
+    const obj = { ...prev, bch: _balance, btc: _btcBalance, eth: _ethBalance, xmr: _xmrBalance, ts: Date.now() };
+    if (_ltcBalanceLoaded) obj.ltc = _ltcBalance;
+    if (_xrpBalanceLoaded) obj.xrp = _xrpBalance;
+    if (_solBalanceLoaded) obj.sol = _solBalance;
+    if (_trxBalanceLoaded) obj.trx = _trxBalance;
+    if (_xlmBalanceLoaded) obj.xlm = _xlmBalance;
+    if (_bnbBalanceLoaded) obj.bnb = _bnbBalance;
+    if (_avaxBalanceLoaded) obj.avax = _avaxBalance;
+    // Stablecoin balances per chain
+    for (const [k, v] of Object.entries(_stableBals)) { obj[k] = v; }
+    localStorage.setItem('00_balances', JSON.stringify(obj));
+  } catch(e) {}
+}
+
 async function _refreshEthBalance() {
   if (!_ethAddr) return;
   try {
@@ -3734,7 +5028,7 @@ async function _refreshEthBalance() {
     _ethBalance = BigInt(hex).toString();
     _ethBalanceLoaded = true;
     if (_activeChain === 'eth') renderChainBalance();
-    try { localStorage.setItem('00_balances', JSON.stringify({ bch: _balance, btc: _btcBalance, eth: _ethBalance, xmr: _xmrBalance, ts: Date.now() })); } catch(e){}
+    _persistAllBalances();
     const d = $('eth-dot'); if (d) d.classList.add('on');
     const l = $('eth-label'); if (l) l.textContent = 'ETH: ' + new URL(window._00ep?.eth_rpc || 'https://ethereum-rpc.publicnode.com').hostname;
   } catch (e) {
@@ -3742,6 +5036,153 @@ async function _refreshEthBalance() {
     const d = $('eth-dot'); if (d) { d.classList.remove('on'); d.classList.add('err'); }
     const l = $('eth-label'); if (l) l.textContent = 'ETH: error';
   }
+}
+
+// ══════════════════════════════════════════════════
+//  NEW COIN BALANCE + HISTORY via chains.js
+// ══════════════════════════════════════════════════
+async function _chainsRefreshNewCoins() {
+  if (!window.chainsRefreshOne) { console.warn('[WALLET] chains.js not loaded'); return; }
+  const tasks = [];
+  const chainAddrs = {
+    ltc: _ltcAddr, bnb: _ethAddr, avax: _ethAddr,
+    sol: _solAddr, trx: _trxAddr, xrp: _xrpAddr, xlm: _xlmAddr,
+    eth: _ethAddr,
+  };
+  for (const [chain, addr] of Object.entries(chainAddrs)) {
+    if (!addr) continue;
+    tasks.push((async () => {
+      try {
+        const res = await window.chainsRefreshOne(chain, addr);
+        if (res.loaded) {
+          // Update module-scoped balance variables
+          switch (chain) {
+            case 'ltc':  _ltcBalance = res.balance;  _ltcBalanceLoaded = true;  _ltcUtxos = res.utxos || _ltcUtxos; break;
+            case 'bnb':  _bnbBalance = res.balance;  _bnbBalanceLoaded = true;  break;
+            case 'avax': _avaxBalance = res.balance;  _avaxBalanceLoaded = true; break;
+            case 'sol':  _solBalance = res.balance;   _solBalanceLoaded = true;  break;
+            case 'trx':  _trxBalance = res.balance;   _trxBalanceLoaded = true;  break;
+            case 'xrp':  _xrpBalance = res.balance;   _xrpBalanceLoaded = true;  break;
+            case 'xlm':  _xlmBalance = res.balance;   _xlmBalanceLoaded = true;  break;
+            case 'eth':  _ethBalance = res.balance;   _ethBalanceLoaded = true;  break;
+          }
+        }
+        // Fetch TX history via chains.js
+        if (window.chainsGetHistory) {
+          const txs = await window.chainsGetHistory(chain, addr, 20);
+          if (txs.length) window.chainsPersistHistory(chain, txs);
+        }
+      } catch (e) { console.warn(`[WALLET] ${chain} refresh:`, e.message); }
+    })());
+  }
+  await Promise.allSettled(tasks);
+  _persistAllBalances();
+  if (window.cdRefreshTx) window.cdRefreshTx();
+  console.log('[WALLET] All new coin balances refreshed via chains.js');
+}
+
+// Keep old function names as aliases for coin detail refresh
+function _refreshLtcBalance()  { _chainsRefreshNewCoins(); }
+function _refreshBnbBalance()  { if (!_ethAddr) return; window.chainsRefreshOne?.('bnb', _ethAddr).then(r => { if(r.loaded) { _bnbBalance=r.balance; _bnbBalanceLoaded=true; _persistAllBalances(); }}); }
+function _refreshAvaxBalance() { if (!_ethAddr) return; window.chainsRefreshOne?.('avax', _ethAddr).then(r => { if(r.loaded) { _avaxBalance=r.balance; _avaxBalanceLoaded=true; _persistAllBalances(); }}); }
+function _refreshSolBalance()  { if (!_solAddr) return; window.chainsRefreshOne?.('sol', _solAddr).then(r => { if(r.loaded) { _solBalance=r.balance; _solBalanceLoaded=true; _persistAllBalances(); }}); }
+function _refreshTrxBalance()  { if (!_trxAddr) return; window.chainsRefreshOne?.('trx', _trxAddr).then(r => { if(r.loaded) { _trxBalance=r.balance; _trxBalanceLoaded=true; _persistAllBalances(); }}); }
+function _refreshXrpBalance()  { if (!_xrpAddr) return; window.chainsRefreshOne?.('xrp', _xrpAddr).then(r => { if(r.loaded) { _xrpBalance=r.balance; _xrpBalanceLoaded=true; _persistAllBalances(); }}); }
+function _refreshXlmBalance()  { if (!_xlmAddr) return; window.chainsRefreshOne?.('xlm', _xlmAddr).then(r => { if(r.loaded) { _xlmBalance=r.balance; _xlmBalanceLoaded=true; _persistAllBalances(); }}); }
+
+// ── ERC-20 Stablecoin balances (multi-chain) ──
+const _ERC20_TOKENS = {
+  usdc_eth:  { rpc: 'https://ethereum-rpc.publicnode.com',          contract: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48' },
+  usdt_eth:  { rpc: 'https://ethereum-rpc.publicnode.com',          contract: '0xdAC17F958D2ee523a2206206994597C13D831ec7' },
+  usdc_bsc:  { rpc: 'https://bsc-rpc.publicnode.com',               contract: '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d' },
+  usdt_bsc:  { rpc: 'https://bsc-rpc.publicnode.com',               contract: '0x55d398326f99059fF775485246999027B3197955' },
+  usdc_avax: { rpc: 'https://avalanche-c-chain-rpc.publicnode.com', contract: '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E' },
+  usdt_avax: { rpc: 'https://avalanche-c-chain-rpc.publicnode.com', contract: '0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7' },
+  usdt_trx:  { rpc: 'https://api.trongrid.io',                      contract: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t', trc20: true },
+};
+let _stableBals = {};
+
+async function _erc20BalanceOf(rpc, contract, addr) {
+  const addrPad = '000000000000000000000000' + addr.slice(2).toLowerCase();
+  const data = '0x70a08231' + addrPad;
+  const r = await fetch(rpc, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_call', params: [{ to: contract, data }, 'latest'] }),
+  });
+  const j = await r.json();
+  if (j.error) return 0;
+  return Number(BigInt(j.result || '0x0'));
+}
+
+async function _trc20BalanceOf(contract, addr) {
+  try {
+    const r = await fetch(`https://api.trongrid.io/v1/accounts/${addr}/tokens/trc20?contract_address=${contract}&limit=1`);
+    const j = await r.json();
+    const tok = j.data?.[0];
+    return tok ? Number(tok.balance || 0) : 0;
+  } catch { return 0; }
+}
+
+// SPL token balance (Solana)
+async function _splBalanceOf(mint, ownerAddr) {
+  try {
+    const r = await fetch('https://solana-rpc.publicnode.com', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'getTokenAccountsByOwner',
+        params: [ownerAddr, { mint }, { encoding: 'jsonParsed' }] }),
+    });
+    const j = await r.json();
+    const acc = j.result?.value?.[0];
+    if (!acc) return 0;
+    return Number(acc.account.data.parsed.info.tokenAmount.amount || 0);
+  } catch { return 0; }
+}
+
+// RLUSD balance (XRP trust line)
+async function _xrpRlusdBalance(addr) {
+  try {
+    const r = await fetch('https://xrplcluster.com', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ method: 'account_lines', params: [{ account: addr, peer: 'rMxWzrFMyEEB3wTnXMbMpd9B4gjEsiDsC6' }] }),
+    });
+    const j = await r.json();
+    const line = j.result?.lines?.find(l => l.currency === 'RLUSD' || l.currency === '524C555344000000000000000000000000000000');
+    return line ? Math.round(Number(line.balance) * 1e6) : 0;
+  } catch { return 0; }
+}
+
+async function _refreshStableBalances() {
+  if (!_ethAddr) return;
+  const tasks = [];
+  // EVM chains (ERC-20)
+  for (const [key, cfg] of Object.entries(_ERC20_TOKENS)) {
+    tasks.push((async () => {
+      try {
+        let bal;
+        if (cfg.trc20) bal = await _trc20BalanceOf(cfg.contract, _trxAddr);
+        else bal = await _erc20BalanceOf(cfg.rpc, cfg.contract, _ethAddr);
+        _stableBals[key] = bal;
+      } catch (e) { console.warn('[STABLE]', key, e.message); }
+    })());
+  }
+  // Solana SPL tokens
+  if (_solAddr) {
+    tasks.push((async () => {
+      try { _stableBals.usdc_sol = await _splBalanceOf('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', _solAddr); } catch {}
+    })());
+    tasks.push((async () => {
+      try { _stableBals.usdt_sol = await _splBalanceOf('Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', _solAddr); } catch {}
+    })());
+  }
+  // XRP RLUSD
+  if (_xrpAddr) {
+    tasks.push((async () => {
+      try { _stableBals.rlusd_xrp = await _xrpRlusdBalance(_xrpAddr); } catch {}
+    })());
+  }
+  await Promise.allSettled(tasks);
+  _persistAllBalances();
+  console.log('[WALLET] Stablecoin balances:', _stableBals);
 }
 
 // ══════════════════════════════════════════════════
@@ -4525,7 +5966,7 @@ async function _checkXmrKeyImages() {
     let bal = 0n;
     for (const o of _xmrOutputs) { if (!o.spent) bal += BigInt(o.amount || 0); }
     _xmrBalance = bal.toString();
-    try { localStorage.setItem('00_balances', JSON.stringify({ bch: _balance, btc: _btcBalance, eth: _ethBalance, xmr: _xmrBalance, ts: Date.now() })); } catch(e){}
+    _persistAllBalances();
     // Also update cached scan balance so next load starts from corrected value
     try { const sc = JSON.parse(localStorage.getItem('00_xmr_scan') || 'null'); if (sc) { sc.balance = _xmrBalance; localStorage.setItem('00_xmr_scan', JSON.stringify(sc)); } } catch(e){}
     console.log('[XMR] key image check done, unspent balance:', _xmrBalance);
@@ -4634,7 +6075,7 @@ async function _refreshXmrBalance() {
         _xmrBalance = cached.balance || '0';
         if (_activeChain === 'xmr') renderChainBalance();
         if (window._cdCoin === 'xmr' && window.cdRefreshBalance && window.COIN_META) {
-          try { localStorage.setItem('00_balances', JSON.stringify({ bch: _balance, btc: _btcBalance, eth: _ethBalance, xmr: _xmrBalance, ts: Date.now() })); } catch(e){}
+          _persistAllBalances();
           window.cdRefreshBalance('xmr', window.COIN_META.xmr);
         }
       }
@@ -4697,7 +6138,7 @@ async function _refreshXmrBalance() {
       renderChainBalance();
       if ($('pane-txs') && $('pane-txs').classList.contains('active')) _renderXmrHistory();
     }
-    try { localStorage.setItem('00_balances', JSON.stringify({ bch: _balance, btc: _btcBalance, eth: _ethBalance, xmr: _xmrBalance, ts: Date.now() })); } catch(e){}
+    _persistAllBalances();
     // Refresh desktop UI if viewing XMR
     if (window._cdCoin === 'xmr') {
       if (window.cdRefreshBalance && window.COIN_META) window.cdRefreshBalance('xmr', window.COIN_META.xmr);
@@ -4867,8 +6308,11 @@ async function refreshBalance() {
     } else {
       _utxos = await bcGetUTXOs(_bchAddr);
     }
-    _balance = _utxos.reduce((s, u) => s + u.value, 0);
-    const confirmed = _utxos.filter(u => u.height > 0).reduce((s,u) => s+u.value, 0);
+    // Separate stealth UTXOs from regular BCH balance
+    const _stealthAddrSet = new Set(_stealthUtxos.map(su => su.addr));
+    const _regularUtxos = _utxos.filter(u => !_stealthAddrSet.has(u._addr));
+    _balance = _regularUtxos.reduce((s, u) => s + u.value, 0);
+    const confirmed = _regularUtxos.filter(u => u.height > 0).reduce((s,u) => s+u.value, 0);
     const unconf = _balance - confirmed;
     const balEl = document.getElementById('bal-bch');
     balEl.textContent = (_balance / 1e8).toFixed(8);
@@ -4913,7 +6357,7 @@ async function refreshBalance() {
   if (_ethAddr) _refreshEthBalance();
   renderChainBalance();
   // Persist balances for desktop dashboard
-  try { localStorage.setItem('00_balances', JSON.stringify({ bch: _balance, btc: _btcBalance, eth: _ethBalance, xmr: _xmrBalance, ts: Date.now() })); } catch(e){}
+  _persistAllBalances();
   // Update widget/dashboard overview
   if(typeof wdRefresh==='function') wdRefresh(); else if(typeof window.wdForceRefresh==='function') window.wdForceRefresh();
   // Auto Stealth: detect new funds
@@ -5270,7 +6714,9 @@ function setFeeRate(rate, key) {
 
 function setMaxAmount() {
   const ccUtxos = _ccGetUtxos();
-  const pool = ccUtxos || _utxos;
+  // Exclude stealth UTXOs from max calculation
+  const _stAddrSet2 = new Set(_stealthUtxos.map(su => su.addr));
+  const pool = ccUtxos || _utxos.filter(u => !_stAddrSet2.has(u._addr));
   if (!pool.length) return;
   const poolBal = pool.reduce((s,u) => s+u.value, 0);
   const feeSats = Math.ceil(estimateTxSize(pool.length, 1) * _feeRate);
@@ -5301,7 +6747,10 @@ async function sendBCH() {
     const feeCheck = Math.ceil(estimateTxSize(selected.length, 1) * _feeRate);
     if (total < amtSats + feeCheck) { errEl.textContent = `// selected UTXOs insufficient (${(total/1e8).toFixed(8)} BCH) — add more or reduce amount`; return; }
   } else {
-    const sorted = [..._utxos].sort((a,b) => b.value - a.value);
+    // Exclude stealth UTXOs from auto-selection — they must be spent via Stealth send
+    const _stAddrSet = new Set(_stealthUtxos.map(su => su.addr));
+    const _regUtxos = _utxos.filter(u => !_stAddrSet.has(u._addr));
+    const sorted = [..._regUtxos].sort((a,b) => b.value - a.value);
     selected = []; total = 0;
     for (const u of sorted) {
       selected.push(u); total += u.value;
@@ -5640,10 +7089,21 @@ async function walletUnlock() {
   } catch { err.textContent = '// wrong password'; }
 }
 
-function walletGenKey() {
-  const priv = rand(32);
-  document.getElementById('import-seed').value = b2h(priv);
-  document.getElementById('import-seed').style.fontSize = '9px';
+async function walletGenKey() {
+  const btn = document.querySelector('[onclick="walletGenKey()"]');
+  if (btn) { btn.disabled = true; btn.textContent = '⚡ GENERATING...'; }
+  try {
+    const mnemonic = await generateMnemonic(128); // 12 words
+    document.getElementById('import-seed').value = mnemonic;
+    document.getElementById('import-seed').style.fontSize = '13px';
+  } catch (e) {
+    console.error('[GEN] mnemonic error:', e);
+    // Fallback: raw key
+    const priv = rand(32);
+    document.getElementById('import-seed').value = b2h(priv);
+    document.getElementById('import-seed').style.fontSize = '9px';
+  }
+  if (btn) { btn.disabled = false; btn.textContent = '⚡ GENERATE NEW KEY'; }
 }
 
 function showWalletImport() {
@@ -5674,7 +7134,7 @@ async function connectLedgerWallet() {
     document.getElementById('auth-unlock').style.display = 'none';
     document.getElementById('main-view').style.display   = 'flex';
     setInterval(updateClock, 1000); updateClock();
-    await _fvConnect();
+    if (!window._wsSharedWorkerAvailable) await _fvConnect();
 
     // Derive change=0 and change=1 levels, scan 50 indices each (gap limit 5)
     _fulcrumStatus('SCANNING ADDRESSES...', null);
@@ -5741,17 +7201,51 @@ async function bootApp(profile, pass) {
   _bchAddr    = pubHashToCashAddr(Array.from(_bchHash160));
   _myScript   = b2h(p2pkhScript(_bchHash160));
 
-  // Derive stealth keys: m/44'/145'/0'/2/0 (scan) + m/44'/145'/0'/2/1 (spend)
+  // Store account xpub for WizardConnect
   if (profile.acctPrivHex && profile.acctChainHex) {
-    const stChain = _bip32Child(h2b(profile.acctPrivHex), h2b(profile.acctChainHex), 2, false);
-    const scanChild = _bip32Child(stChain.priv, stChain.chain, 0, false);
-    const spendChild = _bip32Child(stChain.priv, stChain.chain, 1, false);
+    const _acctPrivBytes = h2b(profile.acctPrivHex);
+    _acctPubHex = b2h(secp256k1.getPublicKey(_acctPrivBytes, true));
+    _acctChainHex = profile.acctChainHex;
+  }
+
+  // Derive stealth keys: BIP352 style — m/352'/145'/0'
+  // spend: m/352'/145'/0'/0'/0  (hardened gate at /0')
+  // scan:  m/352'/145'/0'/1'/0  (hardened gate at /1')
+  // Compromising scan branch gives NO access to spend branch (even at xpub level)
+  if (profile.seedHex) {
+    // Path A: HD wallet (seed phrase) — BIP352 key derivation
+    const seed64 = h2b(profile.seedHex);
+    const bip352 = deriveBip352Node(seed64);  // m/352'/145'/0'
+    const spendBranch = _bip32Child(bip352.priv, bip352.chain, 0, true);   // /0' (HARDENED)
+    const scanBranch  = _bip32Child(bip352.priv, bip352.chain, 1, true);   // /1' (HARDENED)
+    const spendChild  = _bip32Child(spendBranch.priv, spendBranch.chain, 0, false);  // /0
+    const scanChild   = _bip32Child(scanBranch.priv, scanBranch.chain, 0, false);    // /0
     _stealthScanPriv = scanChild.priv;
     _stealthScanPub = secp256k1.getPublicKey(scanChild.priv, true);
     _stealthSpendPriv = spendChild.priv;
     _stealthSpendPub = secp256k1.getPublicKey(spendChild.priv, true);
     _stealthNostrPub = b2h(_stealthScanPub.slice(1)); // x-only for Nostr
+    // Store BIP352 xpubs for WizardConnect stealth path
+    _stealthScanXpub = { pub: b2h(secp256k1.getPublicKey(scanBranch.priv, true)), chain: b2h(scanBranch.chain) };
+    _stealthSpendXpub = { pub: b2h(secp256k1.getPublicKey(spendBranch.priv, true)), chain: b2h(spendBranch.chain) };
     _loadStealthUtxos();
+    window._stealthReady = true;
+    console.log('[STEALTH] keys derived via BIP352 m/352\'/145\'/0\' (scan: /1\'/0, spend: /0\'/0)');
+  } else if (_bchPriv32) {
+    // Path B: Raw key — SHA256 with domain separation (pattern Umbra)
+    // scanPriv = SHA256("bch-stealth-scan" || rawKey)
+    // spendPriv = SHA256("bch-stealth-spend" || rawKey)
+    const enc = new TextEncoder();
+    const scanSeed = concat(enc.encode('bch-stealth-scan'), _bchPriv32);
+    const spendSeed = concat(enc.encode('bch-stealth-spend'), _bchPriv32);
+    _stealthScanPriv = sha256(scanSeed);
+    _stealthScanPub = secp256k1.getPublicKey(_stealthScanPriv, true);
+    _stealthSpendPriv = sha256(spendSeed);
+    _stealthSpendPub = secp256k1.getPublicKey(_stealthSpendPriv, true);
+    _stealthNostrPub = b2h(_stealthScanPub.slice(1));
+    _loadStealthUtxos();
+    window._stealthReady = true;
+    console.log('[STEALTH] keys derived via SHA256 domain separation (raw key fallback)');
   }
 
   // Derive BTC key: m/44'/145'/0'/3/0
@@ -5777,11 +7271,60 @@ async function bootApp(profile, pass) {
     _xmrViewPriv = xmrViewKeyFromSpend(_xmrSpendPriv);
     _xmrViewPub = xmrPubFromPriv(_xmrViewPriv);
     _xmrAddr = xmrAddress(_xmrSpendPub, _xmrViewPub);
+    // Derive LTC key: m/44'/145'/0'/6/0
+    const ltcChain = _bip32Child(h2b(profile.acctPrivHex), h2b(profile.acctChainHex), 6, false);
+    const ltcNode = _bip32Child(ltcChain.priv, ltcChain.chain, 0, false);
+    _ltcPriv = ltcNode.priv;
+    _ltcPub33 = secp256k1.getPublicKey(_ltcPriv, true);
+    _ltcAddr = ltcP2pkhAddr(_ltcPub33);
+
+    // Derive XRP key: m/44'/145'/0'/7/0
+    const xrpChain2 = _bip32Child(h2b(profile.acctPrivHex), h2b(profile.acctChainHex), 7, false);
+    const xrpNode = _bip32Child(xrpChain2.priv, xrpChain2.chain, 0, false);
+    _xrpPriv = xrpNode.priv;
+    _xrpPub33 = secp256k1.getPublicKey(_xrpPriv, true);
+    _xrpAddr = xrpAddr(_xrpPub33);
+
+    // Derive SOL key: m/44'/145'/0'/8/0 (secp256k1 child → ed25519 seed)
+    const solChain2 = _bip32Child(h2b(profile.acctPrivHex), h2b(profile.acctChainHex), 8, false);
+    const solNode = _bip32Child(solChain2.priv, solChain2.chain, 0, false);
+    _solPriv = solNode.priv;
+    _solAddr = solAddr(_solPriv);
+
+    // Derive TRX key: m/44'/145'/0'/9/0
+    const trxChain2 = _bip32Child(h2b(profile.acctPrivHex), h2b(profile.acctChainHex), 9, false);
+    const trxNode = _bip32Child(trxChain2.priv, trxChain2.chain, 0, false);
+    _trxPriv = trxNode.priv;
+    _trxPub33 = secp256k1.getPublicKey(_trxPriv, true);
+    _trxAddr = tronAddr(_trxPub33);
+
+    // Derive XLM key: m/44'/145'/0'/10/0 (secp256k1 child → ed25519 seed)
+    const xlmChain2 = _bip32Child(h2b(profile.acctPrivHex), h2b(profile.acctChainHex), 10, false);
+    const xlmNode = _bip32Child(xlmChain2.priv, xlmChain2.chain, 0, false);
+    _xlmPriv = xlmNode.priv;
+    _xlmAddr = xlmAddr(_xlmPriv);
+
     console.log('[BOOT] BTC addr:', _btcAddr);
     console.log('[BOOT] ETH addr:', _ethAddr);
     console.log('[BOOT] XMR addr:', _xmrAddr || 'NOT DERIVED');
+    console.log('[BOOT] LTC addr:', _ltcAddr);
+    console.log('[BOOT] XRP addr:', _xrpAddr);
+    console.log('[BOOT] SOL addr:', _solAddr);
+    console.log('[BOOT] TRX addr:', _trxAddr);
+    console.log('[BOOT] XLM addr:', _xlmAddr);
+    console.log('[BOOT] BNB/AVAX addr:', _ethAddr, '(=ETH)');
+    // _hasHdTree is a getter based on _acctPubHex (line 7749)
+    console.log('[BOOT] HD tree ready, _hasHdTree:', window._hasHdTree);
   } else {
-    console.warn('[BOOT] No acctPrivHex/acctChainHex — BTC, ETH, XMR keys NOT derived');
+    console.warn('[BOOT] No acctPrivHex/acctChainHex — multi-chain keys NOT derived');
+    // Hide stealth BCH — not safe without HD tree
+    const sbchRow = document.getElementById('wd-sbch');
+    if (sbchRow) sbchRow.style.display = 'none';
+    // Hide stealth tab in send modal (phone wrap)
+    const stealthTab = document.getElementById('tab-stealth');
+    if (stealthTab) stealthTab.style.display = 'none';
+    const stealthPane = document.getElementById('pane-stealth');
+    if (stealthPane) stealthPane.style.display = 'none';
   }
 
   document.getElementById('auth-import').style.display = 'none';
@@ -5795,8 +7338,19 @@ async function bootApp(profile, pass) {
   }
 
   setInterval(updateClock, 1000); updateClock();
+  console.log('[BOOT] reaching connection phase, SharedWorker:', !!window._wsSharedWorkerAvailable);
   try {
-    await _fvConnect();
+    if (window._wsSharedWorkerAvailable) {
+      // Wait for SharedWorker BCH connection to be ready (max 10s)
+      for (let _w = 0; _w < 20; _w++) {
+        const st = window._wsStatus ? window._wsStatus('bch') : null;
+        if (st && st.connected) break;
+        await new Promise(r => setTimeout(r, 500));
+      }
+      console.log('[BOOT] SharedWorker BCH connected:', window._wsStatus?.('bch')?.connected);
+    } else {
+      await _fvConnect();
+    }
     // Scan HD-derived addresses if account node available
     if (profile.acctPrivHex && profile.acctChainHex) {
       await scanHdAddresses(h2b(profile.acctPrivHex), h2b(profile.acctChainHex));
@@ -5806,25 +7360,41 @@ async function bootApp(profile, pass) {
   } catch(e) {
     if (!window._wsSharedWorkerAvailable) _fulcrumStatus('CONNECT FAILED', false);
     console.warn('[WALLET] boot connect error:', e.message);
+    // Still try refreshBalance even if connect failed (cached data + SharedWorker fallback)
+    try { _registerStealthAddresses(); await refreshBalance(); } catch(e2) { console.warn('[WALLET] fallback refresh failed:', e2.message); }
   }
-  // Connect BTC Electrum + fetch ETH balance + XMR
-  if (_btcAddr) _btcConnectWithFallback();
-  if (_ethAddr) _refreshEthBalance();
-  if (_xmrAddr) _refreshXmrBalance();
-  // Connect Nostr for stealth notifications
-  if (_stealthNostrPub) nostrConnect();
-  // Init Auto Stealth Mode
-  _cjInitSession();
-  _updateAutoStealthUI();
-  _cjPrevUtxoSet = _cjSnapshotUtxos();
-  // Auto-start pipeline if ON and mixable UTXOs exist
-  if (_autoStealth && _balance >= CJ_MIN_SATS && _utxos.some(u => !_cjProcessedUtxos.has(u.txid + ':' + u.vout))) {
-    startPrivacyPipeline();
-  }
-
-  // ── Periodic lightweight balance poll (every 10s) ──
+  // ── Periodic timers (set FIRST, before anything that might crash) ──
   if (window._balancePollTimer) clearInterval(window._balancePollTimer);
   window._balancePollTimer = setInterval(_quickBalanceCheck, 10000);
+  if (window._stealthPollTimer) clearInterval(window._stealthPollTimer);
+  window._stealthPollTimer = setInterval(_stealthPeriodicScan, 60000);
+
+  // Fetch chain tip heights for confirmation counting
+  setTimeout(() => { _fetchBchTip(); if (_btcAddr) _fetchBtcTip(); }, 2000);
+  // Prune spent stealth UTXOs
+  setTimeout(() => _pruneSpentStealthUtxos(), 4000);
+  // Prune spent stealth UTXOs every hour to prevent localStorage bloat
+  setInterval(() => _pruneSpentStealthUtxos(), 3600000);
+  // Connect BTC Electrum + fetch all chain balances
+  try { if (_btcAddr) _btcConnectWithFallback(); } catch(e) { console.warn('[BOOT] BTC connect error:', e.message); }
+  try { if (_ethAddr) _refreshEthBalance(); } catch(e) { console.warn('[BOOT] ETH balance error:', e.message); }
+  try { if (_xmrAddr) _refreshXmrBalance(); } catch(e) { console.warn('[BOOT] XMR balance error:', e.message); }
+  // Fetch new coin balances + TX history via chains.js
+  try { _chainsRefreshNewCoins(); } catch(e) { console.warn('[BOOT] chains refresh error:', e.message); }
+  // Fetch stablecoin balances (ERC-20 multi-chain)
+  try { _refreshStableBalances(); } catch(e) { console.warn('[BOOT] stablecoin error:', e.message); }
+  // Connect Nostr for stealth notifications
+  try { if (_stealthNostrPub) nostrConnect(); } catch(e) { console.warn('[BOOT] nostr error:', e.message); }
+  // Init Auto Stealth Mode
+  try {
+    _cjInitSession();
+    _updateAutoStealthUI();
+    _cjPrevUtxoSet = _cjSnapshotUtxos();
+    // Auto-start pipeline if ON and mixable UTXOs exist
+    if (_autoStealth && _balance >= CJ_MIN_SATS && _utxos.some(u => !_cjProcessedUtxos.has(u.txid + ':' + u.vout))) {
+      startPrivacyPipeline();
+    }
+  } catch(e) { console.warn('[BOOT] autostealth error:', e.message); }
   // Immediate refresh when user returns to tab
   document.addEventListener('visibilitychange', function() {
     if (!document.hidden && _bchAddr) _quickBalanceCheck();
@@ -5960,7 +7530,7 @@ window._walletBoot = async function() {
         await bootApp(profile, pass);
         return;
       }
-    } catch { /* session expired or invalid — show password prompt */ }
+    } catch(bootErr) { console.error('[WALLET] boot error caught:', bootErr); /* session expired or invalid — show password prompt */ }
     document.getElementById('auth-unlock').style.display = 'flex';
   } else {
     document.getElementById('auth-import').style.display = 'flex';
@@ -6085,8 +7655,9 @@ async function openExportKeys() {
       { label: 'XMR SPEND', path: "m/44'/145'/0'/5/0", val: _b2hSafe(_xmrSpendPriv) },
       { label: 'XMR VIEW', path: 'Derived from spend key', val: _b2hSafe(_xmrViewPriv) },
       { label: 'XMR ADDRESS', path: _xmrAddr || '—', val: _xmrAddr || '' },
-      { label: 'STEALTH SCAN', path: "m/44'/145'/0'/2/0", val: _b2hSafe(_stealthScanPriv) },
-      { label: 'STEALTH SPEND', path: "m/44'/145'/0'/2/1", val: _b2hSafe(_stealthSpendPriv) },
+      { label: 'STEALTH SCAN', path: "m/44'/145'/0'/2'/0", val: _b2hSafe(_stealthScanPriv) },
+      { label: 'STEALTH SPEND', path: "m/44'/145'/0'/2'/1", val: _b2hSafe(_stealthSpendPriv) },
+      { label: 'STEALTH PAYCODE', path: 'stealth:scan_pub+spend_pub', val: (_stealthScanPub && _stealthSpendPub) ? 'stealth:' + b2h(_stealthScanPub) + b2h(_stealthSpendPub) : '' },
     ];
 
     const body = document.getElementById('keys-modal-body');
@@ -6143,7 +7714,7 @@ Object.assign(window, {
   toggleAsInfoPopover, openPipelineModal, closePipelineModal,
   toggleCoinControl, ccSelectAll, ccClearAll, _ccToggle, _renderCcList,
   updateSendSummary, copyAddr, closeSendSuccess, openExplorer,
-  sendStealth, stealthMax, copyStealthCode, stealthScanChain, cdStealthScan,
+  sendStealth, stealthMax, copyStealthCode, stealthScanChain, cdStealthScan, advancedStealthScan, cdAdvancedStealthScan,
   selectChain, renderChainBalance, xmrFullRescan,
   _QRCode: QRCode,
   _bcBroadcast: bcBroadcast,
@@ -6156,6 +7727,17 @@ Object.assign(window, {
   _secp256k1: secp256k1,
   _sha256: sha256,
   _ripemd160: ripemd160,
+  _refreshBalance: refreshBalance,
+  _refreshBtcBalance,
+  _refreshEthBalance,
+  _refreshXmrBalance,
+  _refreshLtcBalance,
+  _refreshBnbBalance,
+  _refreshAvaxBalance,
+  _refreshSolBalance,
+  _refreshTrxBalance,
+  _refreshXrpBalance,
+  _refreshXlmBalance,
   _stealthDerive: stealthDerive,
   _nostrPublish: nostrPublish,
   _nip04Encrypt: nip04Encrypt,
@@ -6167,11 +7749,15 @@ Object.assign(window, {
 });
 // ── Desktop bridge: expose wallet state via getters ──
 Object.defineProperties(window, {
+  _bchTipHeight: { get(){ return _bchTipHeight; } },
+  _btcTipHeight: { get(){ return _btcTipHeight; } },
   cdBchAddr:    { get(){ return _bchAddr; } },
   cdBtcAddr:    { get(){ return _btcAddr; } },
   cdEthAddr:    { get(){ return _ethAddr; } },
   cdUtxos:      { get(){ return _utxos; } },
   cdBtcUtxos:   { get(){ return _btcUtxos; } },
+  cdLtcUtxos:   { get(){ return _ltcUtxos; } },
+  cdLtcPriv:    { get(){ return _ltcPriv; } },
   cdBchPriv:    { get(){ return _bchPriv32; } },
   cdBtcPriv:    { get(){ return _btcPriv; } },
   cdEthPriv:    { get(){ return _ethPriv; } },
@@ -6185,6 +7771,18 @@ Object.defineProperties(window, {
   cdEthBalance: { get(){ return _ethBalance; } },
   cdXmrAddr:    { get(){ return _xmrAddr; } },
   cdXmrBalance: { get(){ return _xmrBalance; } },
+  cdLtcAddr:    { get(){ return _ltcAddr; } },
+  cdXrpAddr:    { get(){ return _xrpAddr; } },
+  cdSolAddr:    { get(){ return _solAddr; } },
+  cdTrxAddr:    { get(){ return _trxAddr; } },
+  cdXlmAddr:    { get(){ return _xlmAddr; } },
+  _ltcBalanceLoaded:  { get(){ return _ltcBalanceLoaded; } },
+  _bnbBalanceLoaded:  { get(){ return _bnbBalanceLoaded; } },
+  _avaxBalanceLoaded: { get(){ return _avaxBalanceLoaded; } },
+  _solBalanceLoaded:  { get(){ return _solBalanceLoaded; } },
+  _trxBalanceLoaded:  { get(){ return _trxBalanceLoaded; } },
+  _xrpBalanceLoaded:  { get(){ return _xrpBalanceLoaded; } },
+  _xlmBalanceLoaded:  { get(){ return _xlmBalanceLoaded; } },
   cdXmrSpendPriv: { get(){ return _xmrSpendPriv; } },
   cdXmrViewPriv:  { get(){ return _xmrViewPriv; } },
   cdStealthScanPriv:  { get(){ return _stealthScanPriv; } },
@@ -6199,6 +7797,17 @@ Object.defineProperties(window, {
   _btcBalanceLoaded:  { get(){ return _btcBalanceLoaded; } },
   _ethBalanceLoaded:  { get(){ return _ethBalanceLoaded; } },
   CJ_MIN_SATS:        { get(){ return CJ_MIN_SATS; } },
+  // WizardConnect helpers
+  _secp256k1:         { get(){ return secp256k1; } },
+  _sha256:            { get(){ return sha256; } },
+  _ripemd160:         { get(){ return ripemd160; } },
+  _nip04Encrypt:      { get(){ return nip04Encrypt; } },
+  _nip04Decrypt:      { get(){ return nip04Decrypt; } },
+  _makeNostrEvent:    { get(){ return makeNostrEvent; } },
+  _acctPubHex:        { get(){ return _acctPubHex; } },
+  _acctChainHex:      { get(){ return _acctChainHex; } },
+  _bip32ChildPub:     { get(){ return typeof _bip32ChildPub === 'function' ? _bip32ChildPub : null; } },
+  _hasHdTree:         { get(){ return !!_acctPubHex; } },
 });
 
 // ── Matrix Rain ────────────────────────────────────

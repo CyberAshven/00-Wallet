@@ -84,7 +84,9 @@
 #onion-desktop,
 #id-desktop,
 #mesh-desktop,
-#vault-desktop {
+#vault-desktop,
+#sub-desktop,
+#analyse-desktop {
   display: none !important;
 }
 
@@ -2185,6 +2187,49 @@ img.wd-acc-icon {
   gap: 40px;
 }
 
+/* Token sub-accounts (stablecoins under parent chain) */
+.wd-token {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 28px 12px 44px;
+  cursor: pointer;
+  transition: background .15s;
+  border-bottom: 1px solid var(--dt-border);
+  background: var(--dt-sidebar-hover);
+  opacity: 0.85;
+}
+.wd-token:hover {
+  opacity: 1;
+  background: var(--dt-border);
+}
+.wd-token .wd-acc-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wd-token-indent {
+  color: var(--dt-text-secondary);
+  font-size: 14px;
+  margin-right: 2px;
+  opacity: 0.4;
+}
+.wd-token-icon {
+  width: 28px !important;
+  height: 28px !important;
+}
+.wd-token .wd-acc-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+.wd-token .wd-acc-balance {
+  font-size: 13px;
+  min-width: 120px;
+}
+.wd-token .wd-acc-fiat {
+  font-size: 12px;
+}
+
 .wd-acc-balance {
   font-family: 'Inter', sans-serif;
   font-size: 15px;
@@ -2852,6 +2897,24 @@ img.wd-acc-icon {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
 }
+.cd-tx-conf {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #f5a623;
+  background: rgba(245,166,35,0.1);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.cd-tx-conf.confirmed {
+  color: var(--dt-accent);
+  background: rgba(0,255,65,0.08);
+}
 .cd-tx-amount.in { color: var(--dt-accent); }
 .cd-tx-amount.out { color: var(--dt-danger); }
 .cd-tx-amount.fusion { color: #627EEA; }
@@ -3135,7 +3198,9 @@ img.wd-acc-icon {
   display: flex;
   align-items: center;
 }
-.cd-amount-wrap .cd-form-input { padding-right: 60px; }
+.cd-amount-wrap .cd-form-input { padding-right: 60px; -moz-appearance: textfield; }
+.cd-amount-wrap .cd-form-input::-webkit-outer-spin-button,
+.cd-amount-wrap .cd-form-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .cd-max-btn {
   position: absolute;
   right: 14px;
@@ -3147,6 +3212,7 @@ img.wd-acc-icon {
   cursor: pointer;
   letter-spacing: .5px;
   transition: opacity .15s;
+  z-index: 2;
 }
 .cd-max-btn:hover { opacity: .7; }
 
@@ -3447,7 +3513,9 @@ img.wd-acc-icon {
 #onion-desktop,
 #id-desktop,
 #mesh-desktop,
-#vault-desktop {
+#vault-desktop,
+#sub-desktop,
+#analyse-desktop {
   display: block !important;
   position: fixed;
   top: 0;
@@ -3470,7 +3538,9 @@ img.wd-acc-icon {
 #onion-desktop ~ .phone-wrap,
 #id-desktop ~ .phone-wrap,
 #mesh-desktop ~ .phone-wrap,
-#vault-desktop ~ .phone-wrap {
+#vault-desktop ~ .phone-wrap,
+#sub-desktop ~ .phone-wrap,
+#analyse-desktop ~ .phone-wrap {
   display: none !important;
 }
 
@@ -5040,7 +5110,9 @@ select.dt-form-input {
   .desktop-sidebar:not(.expanded) ~ #onion-desktop,
   .desktop-sidebar:not(.expanded) ~ #id-desktop,
   .desktop-sidebar:not(.expanded) ~ #mesh-desktop,
-  .desktop-sidebar:not(.expanded) ~ #vault-desktop {
+  .desktop-sidebar:not(.expanded) ~ #vault-desktop,
+  .desktop-sidebar:not(.expanded) ~ #sub-desktop,
+  .desktop-sidebar:not(.expanded) ~ #analyse-desktop {
     left: 68px !important;
   }
 }

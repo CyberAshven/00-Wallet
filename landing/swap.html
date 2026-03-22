@@ -138,6 +138,10 @@
       #loading { display: none !important; }
       #rain, .scanlines, .vignette { display: none !important; }
     }
+    .dt-coin-opt:hover { background: var(--dt-bg); }
+    #dt-swap-dir-btn:hover { transform: rotate(180deg); border-color: var(--dt-accent); }
+    #dt-swap-coin-trigger:hover { opacity: 0.8; }
+    #dt-offer-bch:focus, #dt-offer-other:focus { outline: none; }
   </style>
   <link rel="stylesheet" href="desktop.css">
 </head>
@@ -199,26 +203,48 @@
 
       <!-- Post offer form -->
       <div class="dt-card">
-        <div style="display:flex;align-items:center;gap:8px"><div class="dt-card-title" style="margin:0">Post Offer</div><div onclick="toggleSwapPhases()" style="width:20px;height:20px;border-radius:50%;background:rgba(240,165,0,.15);color:#f0a500;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;font-style:italic" title="Swap phases">i</div></div>
-        <div class="dt-form-group">
-          <div class="dt-form-lbl">Side</div>
-          <select class="dt-form-input" id="dt-offer-side" onchange="dtSwapSideChange()">
-            <option value="sell_bch">Sell BCH → Get BTC</option>
-            <option value="buy_bch">Buy BCH → Pay BTC</option>
-          </select>
-        </div>
-        <div style="display:flex;gap:12px" id="dt-offer-fields">
-          <div class="dt-form-group" style="flex:1" id="dt-offer-left-wrap">
-            <div class="dt-form-lbl" id="dt-offer-left-lbl">BCH Amount</div>
-            <input class="dt-form-input" id="dt-offer-bch" type="number" step="0.00000001" placeholder="0.001" oninput="dtSwapInput('bch')">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><div class="dt-card-title" style="margin:0">Swap</div><div onclick="toggleSwapPhases()" style="width:20px;height:20px;border-radius:50%;background:rgba(240,165,0,.15);color:#f0a500;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;font-style:italic" title="Swap phases">i</div></div>
+
+        <div style="display:flex;gap:8px;align-items:stretch" id="dt-offer-fields">
+          <!-- LEFT: BCH -->
+          <div style="flex:1;background:var(--dt-bg);border-radius:12px;padding:14px" id="dt-offer-left-wrap">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <img src="icons/bch.png" style="width:24px;height:24px;border-radius:50%">
+              <span style="font-weight:700;font-size:14px;color:var(--dt-text)">BCH</span>
+            </div>
+            <input class="dt-form-input" id="dt-offer-bch" type="number" step="0.00000001" placeholder="0.00" style="margin:0;font-size:18px;font-weight:600;background:transparent;border:none;padding:0;color:var(--dt-text)" oninput="dtSwapInput('bch')">
+            <div style="font-size:11px;color:var(--dt-text-secondary);margin-top:4px" id="dt-offer-bch-fiat">≈ $0.00</div>
           </div>
-          <div class="dt-form-group" style="flex:1" id="dt-offer-right-wrap">
-            <div class="dt-form-lbl" id="dt-offer-right-lbl">BTC Amount</div>
-            <input class="dt-form-input" id="dt-offer-btc" type="number" step="0.00000001" placeholder="0.00003" oninput="dtSwapInput('btc')">
+
+          <!-- CENTER: swap direction -->
+          <div style="display:flex;align-items:center">
+            <button onclick="dtSwapSideChange()" style="width:36px;height:36px;border-radius:50%;border:2px solid var(--dt-border);background:var(--dt-card-bg);color:var(--dt-accent);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s" id="dt-swap-dir-btn" title="Swap direction">⇄</button>
+          </div>
+
+          <!-- RIGHT: Other coin -->
+          <div style="flex:1;background:var(--dt-bg);border-radius:12px;padding:14px" id="dt-offer-right-wrap">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;cursor:pointer;position:relative" id="dt-swap-coin-trigger" onclick="dtToggleCoinPicker()">
+              <img src="icons/btc.png" id="dt-swap-coin-icon" style="width:24px;height:24px;border-radius:50%">
+              <span style="font-weight:700;font-size:14px;color:var(--dt-text)" id="dt-swap-coin-label">BTC</span>
+              <span style="font-size:10px;color:var(--dt-text-secondary)">▾</span>
+            </div>
+            <input class="dt-form-input" id="dt-offer-other" type="number" step="0.00000001" placeholder="0.00" style="margin:0;font-size:18px;font-weight:600;background:transparent;border:none;padding:0;color:var(--dt-text)" oninput="dtSwapInput('other')">
+            <div style="font-size:11px;color:var(--dt-text-secondary);margin-top:4px" id="dt-offer-other-fiat">≈ $0.00</div>
+            <!-- Coin picker dropdown -->
+            <div id="dt-coin-picker" style="display:none;position:absolute;z-index:100;background:var(--dt-surface, #fff);border:1px solid var(--dt-border, #e0e0e0);border-radius:10px;padding:6px;box-shadow:0 8px 24px rgba(0,0,0,.2);min-width:140px;margin-top:4px;backdrop-filter:none">
+              <div class="dt-coin-opt" onclick="dtSelectCoin('btc')" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:background .15s"><img src="icons/btc.png" style="width:20px;height:20px;border-radius:50%"><span style="font-weight:600;font-size:13px">BTC</span><span style="flex:1"></span><span style="font-size:10px;color:var(--dt-text-secondary)">Bitcoin</span></div>
+              <div class="dt-coin-opt" onclick="dtSelectCoin('ltc')" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:background .15s"><img src="icons/ltc.png" style="width:20px;height:20px;border-radius:50%"><span style="font-weight:600;font-size:13px">LTC</span><span style="flex:1"></span><span style="font-size:10px;color:var(--dt-text-secondary)">Litecoin</span></div>
+              <div class="dt-coin-opt" onclick="dtSelectCoin('xmr')" style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:background .15s"><img src="icons/xmr.png" style="width:20px;height:20px;border-radius:50%"><span style="font-weight:600;font-size:13px">XMR</span><span style="flex:1"></span><span style="font-size:10px;color:var(--dt-text-secondary)">Monero</span></div>
+            </div>
           </div>
         </div>
-        <div style="font-size:11px;color:var(--dt-text-secondary);margin-bottom:4px" id="dt-offer-rate">Rate: —</div>
+
+        <div style="font-size:11px;color:var(--dt-text-secondary);margin-top:8px;margin-bottom:4px" id="dt-offer-rate">Rate: —</div>
         <div style="font-size:11px;color:var(--dt-accent);margin-bottom:12px" id="dt-market-rate"></div>
+        <select class="dt-form-input" id="dt-offer-side" onchange="dtSwapSideChange()" style="display:none">
+          <option value="sell_bch">Sell BCH → Get BTC</option>
+          <option value="buy_bch">Buy BCH → Pay BTC</option>
+        </select>
         <button class="dt-action-btn" onclick="dtPostOffer()">Post Offer →</button>
         <div class="dt-error" id="dt-offer-status"></div>
       </div>
@@ -284,56 +310,139 @@
 
   /* ── Input sync: auto-fill with market rate ─── */
   window.dtSwapInput=function(field){
-    var bchVal=document.getElementById('dt-offer-bch').value;
-    var btcVal=document.getElementById('dt-offer-btc').value;
-    var xmrEl=document.getElementById('dt-offer-xmr');
-    var xmrVal=xmrEl?xmrEl.value:'';
+    var bchEl=document.getElementById('dt-offer-bch');
+    var otherEl=document.getElementById('dt-offer-other');
+    var bchVal=bchEl?bchEl.value:'';
+    var otherVal=otherEl?otherEl.value:'';
+    // Auto-fill with market rate
+    if(window._marketRate && window._marketRate > 0){
+      if(field==='bch' && parseFloat(bchVal)>0 && otherEl){
+        otherEl.value=(parseFloat(bchVal)*window._marketRate).toFixed(8);
+        otherVal=otherEl.value;
+      } else if(field==='other' && parseFloat(otherVal)>0 && bchEl){
+        bchEl.value=(parseFloat(otherVal)/window._marketRate).toFixed(8);
+        bchVal=bchEl.value;
+      }
+    }
+    // Update fiat display
+    var prices={}; try{prices=JSON.parse(localStorage.getItem('00_dash_prices')||'{}');}catch(e){}
+    var pBch=prices.bch&&prices.bch.price||0;
+    var bchFiat=document.getElementById('dt-offer-bch-fiat');
+    var otherFiat=document.getElementById('dt-offer-other-fiat');
+    if(bchFiat) bchFiat.textContent='≈ $'+(parseFloat(bchVal||0)*pBch).toFixed(2);
+    var pair=window._activePair||'bch_btc';
+    var chain=pair.split('_')[1]||'btc';
+    var pOther=prices[chain]&&prices[chain].price||0;
+    if(otherFiat) otherFiat.textContent='≈ $'+(parseFloat(otherVal||0)*pOther).toFixed(2);
     // Sync to mobile inputs
     var mBch=document.getElementById('offer-bch');if(mBch)mBch.value=bchVal;
-    var mBtc=document.getElementById('offer-btc');if(mBtc)mBtc.value=btcVal;
-    var mXmr=document.getElementById('offer-xmr');if(mXmr)mXmr.value=xmrVal;
-    // Set last edited and trigger mobile rate calc
-    if(window.setLastEdited) window.setLastEdited(field);
-    if(window.updateRate) window.updateRate();
-    // Mirror back only the auto-filled field (not the one being typed)
-    setTimeout(function(){
-      if(field==='bch'&&mBtc) document.getElementById('dt-offer-btc').value=mBtc.value;
-      if(field==='btc'&&mBch) document.getElementById('dt-offer-bch').value=mBch.value;
-    },10);
+    var mBtc=document.getElementById('offer-btc');if(mBtc)mBtc.value=otherVal;
+    // Update rate display
+    var bch=parseFloat(bchVal)||0, other=parseFloat(otherVal)||0;
+    var rateEl=document.getElementById('dt-offer-rate');
+    if(rateEl && bch>0 && other>0){
+      rateEl.textContent='Rate: 1 BCH = '+(other/bch).toFixed(8)+' '+chain.toUpperCase();
+    }
   };
 
   /* ── Side change: swap field order ─── */
   window.dtSwapSideChange=function(){
-    var side=document.getElementById('dt-offer-side').value;
-    var container=document.getElementById('dt-offer-fields');
+    var sideEl=document.getElementById('dt-offer-side');
+    // Toggle side
+    if(sideEl.value==='sell_bch') sideEl.value='buy_bch';
+    else sideEl.value='sell_bch';
+    var isBuy=sideEl.value==='buy_bch';
+    // Use CSS order to swap visually (keeps button centered)
     var bchWrap=document.getElementById('dt-offer-left-wrap');
-    var btcWrap=document.getElementById('dt-offer-right-wrap');
-    var xmrWrap=document.getElementById('dt-offer-xmr-wrap');
-    var isXmr=window._activePair==='bch_xmr';
-    var rightWrap=isXmr?xmrWrap:btcWrap;
-    if(side==='sell_bch'){
-      container.insertBefore(bchWrap,rightWrap);
+    var swapBtn=document.getElementById('dt-swap-dir-btn').parentElement;
+    var rightWrap=document.getElementById('dt-offer-right-wrap');
+    if(isBuy){
+      bchWrap.style.order='3';
+      swapBtn.style.order='2';
+      rightWrap.style.order='1';
     } else {
-      container.insertBefore(rightWrap,bchWrap);
+      bchWrap.style.order='1';
+      swapBtn.style.order='2';
+      rightWrap.style.order='3';
     }
     // Sync side to mobile
     var mSide=document.getElementById('offer-side');
-    if(mSide){mSide.value=side;}
+    if(mSide){mSide.value=sideEl.value;}
     if(window.updateFieldOrder) window.updateFieldOrder();
   };
+
+  /* ── Coin picker toggle ─── */
+  window.dtToggleCoinPicker=function(){
+    var picker=document.getElementById('dt-coin-picker');
+    if(!picker)return;
+    picker.style.display=picker.style.display==='none'?'block':'none';
+  };
+
+  /* ── Select coin from picker ─── */
+  window.dtSelectCoin=function(coin){
+    // Update icon + label
+    var icon=document.getElementById('dt-swap-coin-icon');
+    var label=document.getElementById('dt-swap-coin-label');
+    var ticker=coin.toUpperCase();
+    if(icon) icon.src='icons/'+coin+'.png';
+    if(label) label.textContent=ticker;
+    // Hide picker
+    var picker=document.getElementById('dt-coin-picker');
+    if(picker) picker.style.display='none';
+    // Switch pair
+    var pair='bch_'+coin;
+    if(window.switchPair) window.switchPair(pair);
+    // Update side select
+    var dtSide=document.getElementById('dt-offer-side');
+    if(dtSide){
+      if(coin==='xmr'){
+        dtSide.innerHTML='<option value="sell_bch">Sell BCH → Get '+ticker+'</option>';
+      } else {
+        dtSide.innerHTML='<option value="sell_bch">Sell BCH → Get '+ticker+'</option><option value="buy_bch">Buy BCH → Pay '+ticker+'</option>';
+      }
+    }
+    // Clear amounts
+    var otherInp=document.getElementById('dt-offer-other');
+    if(otherInp){otherInp.value='';otherInp.placeholder='0.00';}
+    var bchInp=document.getElementById('dt-offer-bch');
+    if(bchInp) bchInp.value='';
+    // Update balance display for the selected coin
+    var balEl=document.getElementById('dt-btc-bal');
+    if(balEl){
+      var mobileBalEl=document.getElementById(coin+'-balance');
+      if(mobileBalEl) balEl.textContent=mobileBalEl.textContent;
+      else balEl.textContent='0.00000000';
+    }
+    // Update fiat displays
+    var bchFiat=document.getElementById('dt-offer-bch-fiat');
+    var otherFiat=document.getElementById('dt-offer-other-fiat');
+    if(bchFiat) bchFiat.textContent='≈ $0.00';
+    if(otherFiat) otherFiat.textContent='≈ $0.00';
+    var rateEl=document.getElementById('dt-offer-rate');
+    if(rateEl) rateEl.textContent='Rate: —';
+    // Re-fetch market rate for new coin
+    if(window.fetchMarketRate) window.fetchMarketRate();
+  };
+
+  // Close picker on outside click
+  document.addEventListener('click',function(e){
+    var picker=document.getElementById('dt-coin-picker');
+    var trigger=document.getElementById('dt-swap-coin-trigger');
+    if(picker&&picker.style.display!=='none'&&trigger&&!trigger.contains(e.target)&&!picker.contains(e.target)){
+      picker.style.display='none';
+    }
+  });
 
   /* ── Post offer — syncs to mobile and calls window.postOffer ─── */
   window.dtPostOffer=function(){
     var side=document.getElementById('dt-offer-side').value;
     var bch=document.getElementById('dt-offer-bch').value;
-    var btc=document.getElementById('dt-offer-btc').value;
-    var xmrEl=document.getElementById('dt-offer-xmr');
-    var xmr=xmrEl?xmrEl.value:'';
+    var otherEl=document.getElementById('dt-offer-other');
+    var otherVal=otherEl?otherEl.value:'';
     // Sync to mobile
     var mSide=document.getElementById('offer-side');if(mSide)mSide.value=side;
     var mBch=document.getElementById('offer-bch');if(mBch)mBch.value=bch;
-    var mBtc=document.getElementById('offer-btc');if(mBtc)mBtc.value=btc;
-    var mXmr=document.getElementById('offer-xmr');if(mXmr)mXmr.value=xmr;
+    var mBtc=document.getElementById('offer-btc');if(mBtc)mBtc.value=otherVal;
     if(window.postOffer)window.postOffer();
   };
 
@@ -349,7 +458,10 @@
 
     // Balances
     _mirrorText('bch-balance','dt-bch-bal');
-    _mirrorText('btc-balance','dt-btc-bal');
+    // Mirror the correct balance for the active pair
+    var activeCoin=(window._activePair||'bch_btc').split('_')[1]||'btc';
+    var mobileBalId=activeCoin+'-balance';
+    _mirrorText(mobileBalId,'dt-btc-bal');
     _mirrorText('xmr-balance','dt-xmr-bal');
 
     // Offer rate + market rate
@@ -544,7 +656,7 @@
     <div class="status-bar"><span id="clock">00:00</span><div class="status-icons"><span>⚡</span><span>▮▮▮</span></div></div>
 
     <div class="app-header">
-      <div class="app-title">00 Swap<span>BCH · BTC · XMR · ATOMIC</span></div>
+      <div class="app-title">00 Swap<span>BCH · BTC · LTC · XMR · ATOMIC</span></div>
       <div style="display:flex;gap:12px;align-items:center">
         <span class="header-icon" id="btn-refresh" title="Refresh">↻</span>
       </div>
@@ -583,6 +695,10 @@
           <div class="balance-row" id="btc-balance-row">
             <div class="balance-lbl btc">BTC BALANCE</div>
             <div class="balance-val btc" id="btc-balance">0.00000000</div>
+          </div>
+          <div class="balance-row" id="ltc-balance-row" style="display:none">
+            <div class="balance-lbl" style="color:#BFBBBB">LTC BALANCE</div>
+            <div class="balance-val" id="ltc-balance" style="color:#BFBBBB">0.00000000</div>
           </div>
         </div>
 
@@ -699,6 +815,7 @@ const _TESTNET = false;  // true = BTC testnet3 + BCH chipnet
 const _BCH_DEFAULTS = ['wss://bch.imaginary.cash:50004','wss://electroncash.de:50004','wss://bch.loping.net:50004'];
 const _BTC_DEFAULTS = ['wss://e2.keff.org:50004','wss://fulcrum.grey.pw:50004','wss://btc.electroncash.dk:50004','wss://electrum.petrkr.net:50004','wss://bitcoinserver.nl:50004','wss://mempool.8333.mobi:50004'];
 const _BTC_TESTNET_DEFAULTS = ['ws://localhost:60003'];
+const _LTC_DEFAULTS = ['wss://electrum-ltc.bysh.me:50004','wss://backup.electrum-ltc.org:443'];
 
 // User-configured endpoints from localStorage are always respected (users can run their own node + tunnel)
 // Only the DEFAULTS guarantee public, non-localhost endpoints
@@ -706,6 +823,7 @@ let _BCH_SERVERS = JSON.parse(localStorage.getItem('00_ep_fulcrum') || 'null') |
 let _BTC_SERVERS = _TESTNET
   ? (JSON.parse(localStorage.getItem('00_ep_btc_electrum_testnet') || 'null') || _BTC_TESTNET_DEFAULTS)
   : (JSON.parse(localStorage.getItem('00_ep_btc_electrum') || 'null') || _BTC_DEFAULTS);
+let _LTC_SERVERS = JSON.parse(localStorage.getItem('00_ep_ltc_electrum') || 'null') || _LTC_DEFAULTS;
 
 let _RELAYS = JSON.parse(localStorage.getItem('00_ep_relays') || 'null') || ['wss://relay.damus.io','wss://nos.lol','wss://relay.snort.social'];
 
@@ -714,8 +832,10 @@ const NOSTR_KIND_TAKE    = 4241;
 const NOSTR_KIND_LOCKED  = 4242;
 const NOSTR_KIND_CLAIMED = 4243;
 
-const MAKER_TIMEOUT_BLOCKS = 144;  // ~24h
+const MAKER_TIMEOUT_BLOCKS = 144;  // ~24h (BTC: 10min blocks)
 const TAKER_TIMEOUT_BLOCKS = 72;   // ~12h
+const LTC_MAKER_TIMEOUT_BLOCKS = 576;  // ~24h (LTC: 2.5min blocks)
+const LTC_TAKER_TIMEOUT_BLOCKS = 288;  // ~12h
 const P2SH_INPUT_VBYTES    = 280;
 const OFFER_TTL            = 1800; // 30 min
 const MIN_BCH_SATS         = 1000; // minimum 1000 sats BCH (~dust safety)
@@ -741,6 +861,7 @@ let _nostrSockets = [], _nostrConnected = false, _seenEvents = new Set();
 // Electrum connections
 let _bchWs = null, _bchConnected = false, _bchReqId = 1, _bchCbs = {};
 let _btcWs = null, _btcConnected = false, _btcReqId = 1, _btcCbs = {};
+let _ltcWs = null, _ltcConnected = false, _ltcReqId = 1, _ltcCbs = {};
 // Offers
 let _offers = [];   // [{id, side, bch_amt, btc_amt, maker_pub, stealth_code, ts}]
 let _myOffers = new Set();
@@ -760,7 +881,8 @@ let _xmrBalance = null;
 let _xmrWallet = null, _xmrWalletReady = false;
 let _xmrOffers = [], _myXmrOffers = new Set();
 let _xmrSwap = null;
-let _activePair = 'bch_btc'; window._activePair = 'bch_btc'; // 'bch_btc' | 'bch_xmr'
+let _activePair = 'bch_btc'; window._activePair = 'bch_btc'; // 'bch_btc' | 'bch_ltc' | 'bch_xmr'
+let _ltcAddr = '', _ltcPub = null, _ltcPriv = null, _ltcBalance = 0, _ltcUtxos = [];
 
 /* ══════════════════════════════════════════
    UTILITIES
@@ -896,6 +1018,14 @@ function btcP2pkhAddr(pubkey33) {
 function btcP2shAddr(redeemScript) {
   const hash = ripemd160(sha256(redeemScript));
   return base58Check(concat(new Uint8Array([_TESTNET ? 0xc4 : 0x05]), hash));
+}
+function ltcP2pkhAddr(pubkey33) {
+  const hash = ripemd160(sha256(pubkey33));
+  return base58Check(concat(new Uint8Array([0x30]), hash));
+}
+function ltcP2shAddr(redeemScript) {
+  const hash = ripemd160(sha256(redeemScript));
+  return base58Check(concat(new Uint8Array([0x32]), hash));
 }
 
 /* ══════════════════════════════════════════
@@ -1133,6 +1263,78 @@ function buildBtcRefundTx(htlcTxid, htlcVout, htlcValue, redeemScript, locktime,
     serializeScriptPush(redeemScript)
   );
   return b2h(serializeTx(1, locktime, inputs, outputs));
+}
+
+/* ══════════════════════════════════════════
+   LTC HTLC TX BUILDERS (same sighash as BTC)
+   ══════════════════════════════════════════ */
+// LTC transactions are identical to BTC — same format, same sighash, same opcodes
+// Only difference: address prefix (0x30 P2PKH, 0x32 P2SH) and Electrum servers
+const buildLtcHtlcFundTx  = buildBtcHtlcFundTx;   // same UTXO format, same sighash
+const buildLtcClaimTx      = buildBtcClaimTx;       // same scriptSig structure
+const buildLtcRefundTx     = buildBtcRefundTx;      // same CLTV + sighash
+
+// Generic chain dispatcher — routes to the correct Electrum call
+function chainCall(chain) {
+  if (chain === 'bch') return bchCall;
+  if (chain === 'ltc') return ltcCall;
+  return btcCall;
+}
+function chainP2pkhAddr(chain, pub) {
+  if (chain === 'bch') return pubHashToCashAddr(Array.from(ripemd160(sha256(pub))));
+  if (chain === 'ltc') return ltcP2pkhAddr(pub);
+  return btcP2pkhAddr(pub);
+}
+function chainP2shAddr(chain, script) {
+  if (chain === 'bch') { const h = ripemd160(sha256(script)); return scriptHashToCashAddr(Array.from(h)); }
+  if (chain === 'ltc') return ltcP2shAddr(script);
+  return btcP2shAddr(script);
+}
+function chainBuildFund(chain) {
+  if (chain === 'bch') return buildBchHtlcFundTx;
+  return buildBtcHtlcFundTx;  // works for BTC and LTC
+}
+function chainBuildClaim(chain) {
+  if (chain === 'bch') return buildBchClaimTx;
+  return buildBtcClaimTx;
+}
+function chainBuildRefund(chain) {
+  if (chain === 'bch') return buildBchRefundTx;
+  return buildBtcRefundTx;
+}
+function chainMakerTimeout(chain) {
+  if (chain === 'ltc') return LTC_MAKER_TIMEOUT_BLOCKS;
+  return MAKER_TIMEOUT_BLOCKS;
+}
+function chainTakerTimeout(chain) {
+  if (chain === 'ltc') return LTC_TAKER_TIMEOUT_BLOCKS;
+  return TAKER_TIMEOUT_BLOCKS;
+}
+function chainAddr(chain) {
+  if (chain === 'bch') return _bchAddr;
+  if (chain === 'ltc') return _ltcAddr;
+  return _btcAddr;
+}
+function chainUtxos(chain) {
+  if (chain === 'bch') return _bchUtxos;
+  if (chain === 'ltc') return _ltcUtxos;
+  return _btcUtxos;
+}
+function chainPriv(chain) {
+  if (chain === 'bch') return null; // BCH uses per-UTXO keys
+  if (chain === 'ltc') return _ltcPriv;
+  return _btcPriv;
+}
+function chainRefreshBalance(chain) {
+  if (chain === 'bch') return refreshBchBalance();
+  if (chain === 'ltc') return refreshLtcBalance();
+  return refreshBtcBalance();
+}
+// Get the "other" chain in a BCH↔X pair
+function otherChain(pair) {
+  if (pair === 'bch_ltc') return 'ltc';
+  if (pair === 'bch_xmr') return 'xmr';
+  return 'btc';
 }
 
 /* ══════════════════════════════════════════
@@ -1419,12 +1621,60 @@ let _bchServerIdx = 0, _btcServerIdx = 0;
 const _bchIdxRef = { v: 0 };
 const _btcIdxRef = { v: 0 };
 
-let bchCall, btcCall, bchConnect, btcConnect;
+let bchCall, btcCall, ltcCall, bchConnect, btcConnect, ltcConnect;
 
 if (window._wsSharedWorkerAvailable) {
   /* ── SharedWorker persistent connections ── */
   bchCall = (method, params) => window._fvCall(method, params);
   btcCall = (method, params) => window._btcCall(method, params);
+  // LTC uses litecoinspace REST API instead of Electrum WSS
+  ltcCall = async (method, params) => {
+    const ltcApi = 'https://litecoinspace.org/api';
+    if (method === 'blockchain.transaction.broadcast') {
+      const r = await fetch(`${ltcApi}/tx`, { method: 'POST', body: params[0] });
+      const txid = await r.text();
+      if (/^[0-9a-f]{64}$/.test(txid)) return txid;
+      throw new Error(txid);
+    }
+    if (method === 'blockchain.scripthash.listunspent') {
+      // scripthash can't be used with REST — need the P2SH address
+      // If _swap has htlcAddr, use that; otherwise try stored HTLC addr
+      const sh = params[0];
+      let addr = params[1]; // optional address override
+      if (!addr && _swap && _swap.ltcHtlcAddr) addr = _swap.ltcHtlcAddr;
+      if (!addr && _swap && _swap.myLtcHtlcAddr) addr = _swap.myLtcHtlcAddr;
+      if (!addr) {
+        // Try to find address via script hash lookup on litecoinspace
+        // Fallback: use the swap's known HTLC address
+        console.warn('[LTC] listunspent called with scripthash but no address available');
+        return [];
+      }
+      const r = await fetch(`${ltcApi}/address/${addr}/utxo`);
+      const utxos = await r.json();
+      return utxos.map(u => ({ tx_hash: u.txid, tx_pos: u.vout, value: u.value, height: u.status?.block_height || 0 }));
+    }
+    if (method === 'blockchain.headers.subscribe') {
+      const r = await fetch(`${ltcApi}/blocks/tip/height`);
+      const h = parseInt(await r.text());
+      return { height: h };
+    }
+    if (method === 'blockchain.transaction.get') {
+      const txid = params[0];
+      const verbose = params[1] === true;
+      if (verbose) {
+        // Return tx info with confirmations
+        const r = await fetch(`${ltcApi}/tx/${txid}`);
+        const tx = await r.json();
+        const tipR = await fetch(`${ltcApi}/blocks/tip/height`);
+        const tipH = parseInt(await tipR.text());
+        const confs = tx.status?.confirmed ? (tipH - tx.status.block_height + 1) : 0;
+        return { confirmations: confs, txid: txid, blockhash: tx.status?.block_hash || '' };
+      }
+      const r = await fetch(`${ltcApi}/tx/${txid}/hex`);
+      return await r.text();
+    }
+    throw new Error('LTC: unsupported method ' + method);
+  };
 
   bchConnect = () => {
     window._wsOnStatus('bch', (connected, server) => {
@@ -1458,6 +1708,42 @@ if (window._wsSharedWorkerAvailable) {
         if(label) label.textContent = 'BTC: reconnecting…';
       }
     });
+  };
+
+  ltcConnect = () => {
+    // LTC uses direct WebSocket (no SharedWorker support yet)
+    const _ltcIdxRef = { v: 0 };
+    const _connectLtcDirect = (attempt) => {
+      attempt = attempt || 0;
+      if (attempt >= _LTC_SERVERS.length) { setTimeout(() => _connectLtcDirect(0), 8000); return; }
+      const url = _LTC_SERVERS[(attempt) % _LTC_SERVERS.length];
+      try {
+        const ws = new WebSocket(url);
+        const timeout = setTimeout(() => { try { ws.close(); } catch {} }, 6000);
+        ws.onopen = () => {
+          clearTimeout(timeout);
+          _ltcWs = ws; _ltcConnected = true;
+          const dot = $('#ltc-dot'), label = $('#ltc-label');
+          if(dot){dot.classList.add('on'); dot.classList.remove('err');}
+          if(label) label.textContent = 'LTC: ' + new URL(url).hostname;
+          refreshLtcBalance();
+        };
+        ws.onmessage = e => {
+          try {
+            const msg = JSON.parse(e.data);
+            if (msg.id && _ltcCbs[msg.id]) { _ltcCbs[msg.id](msg.result, msg.error); delete _ltcCbs[msg.id]; }
+          } catch {}
+        };
+        ws.onerror = () => { clearTimeout(timeout); };
+        ws.onclose = () => {
+          clearTimeout(timeout);
+          _ltcConnected = false;
+          const dot = $('#ltc-dot'); if(dot) dot.classList.remove('on');
+          setTimeout(() => _connectLtcDirect(0), 3000);
+        };
+      } catch { _connectLtcDirect(attempt + 1); }
+    };
+    _connectLtcDirect(0);
   };
 
 } else {
@@ -1569,6 +1855,33 @@ if (window._wsSharedWorkerAvailable) {
       _btcWs.send(JSON.stringify({ jsonrpc: '2.0', id, method, params }));
     });
   };
+
+  ltcConnect = () => {
+    const _ltcIdxRef = { v: 0 };
+    _connectWithFallback(_LTC_SERVERS, _ltcIdxRef, '#ltc-dot', '#ltc-label', 'LTC',
+      (ws, url) => {
+        ws._opened = true;
+        _ltcWs = ws;
+        _ltcConnected = true;
+        refreshLtcBalance();
+      },
+      ltcConnect,
+      e => {
+        try {
+          const msg = JSON.parse(e.data);
+          if (msg.id && _ltcCbs[msg.id]) { _ltcCbs[msg.id](msg.result, msg.error); delete _ltcCbs[msg.id]; }
+        } catch {}
+      }
+    );
+  };
+
+  ltcCall = (method, params) => {
+    return new Promise((resolve, reject) => {
+      const id = _ltcReqId++;
+      _ltcCbs[id] = (result, err) => err ? reject(err) : resolve(result);
+      _ltcWs.send(JSON.stringify({ jsonrpc: '2.0', id, method, params }));
+    });
+  };
 }
 
 /* ══════════════════════════════════════════
@@ -1638,6 +1951,25 @@ async function refreshBtcBalance() {
   } catch (e) { console.error('[SWAP] BTC balance error:', e); }
 }
 
+function ltcAddrScriptHash(addr) {
+  const h = base58Decode(addr);
+  const script = new Uint8Array([0x76, 0xa9, 0x14, ...h, 0x88, 0xac]);
+  return b2h(sha256(script).reverse());
+}
+
+async function refreshLtcBalance() {
+  if (!_ltcConnected || !_ltcAddr) return;
+  try {
+    // Use litecoinspace REST directly for UTXOs
+    const r = await fetch('https://litecoinspace.org/api/address/' + _ltcAddr + '/utxo');
+    const utxos = await r.json();
+    _ltcUtxos = utxos.map(u => ({ txid: u.txid, vout: u.vout, value: u.value }));
+    _ltcBalance = _ltcUtxos.reduce((s, u) => s + u.value, 0);
+    const el = $('#ltc-balance');
+    if (el) el.textContent = satsToBch(_ltcBalance);
+  } catch (e) { console.error('[SWAP] LTC balance error:', e); }
+}
+
 /* ══════════════════════════════════════════
    AUTH
    ══════════════════════════════════════════ */
@@ -1660,8 +1992,8 @@ window.tryUnlock = async function(autoPass) {
       _acctPriv = h2b(_profile.acctPrivHex);
       _acctChain = h2b(_profile.acctChainHex);
 
-      // Session key: m/44'/145'/0'/2/0
-      const sessionChain = _bip32Child(_acctPriv, _acctChain, 2, false);
+      // Session key: m/44'/145'/0'/2'/0
+      const sessionChain = _bip32Child(_acctPriv, _acctChain, 2, true);
       const sessionNode = _bip32Child(sessionChain.priv, sessionChain.chain, 0, false);
       _sessionPriv = sessionNode.priv;
       if (secp256k1.getPublicKey(_sessionPriv, true)[0] === 0x03) {
@@ -1670,7 +2002,7 @@ window.tryUnlock = async function(autoPass) {
       }
       _sessionPub = b2h(secp256k1.getPublicKey(_sessionPriv, true).slice(1));
 
-      // Stealth spend key: m/44'/145'/0'/2/1
+      // Stealth spend key: m/44'/145'/0'/2'/1
       const spendNode = _bip32Child(sessionChain.priv, sessionChain.chain, 1, false);
       _stealthSpendPriv = spendNode.priv;
       if (secp256k1.getPublicKey(_stealthSpendPriv, true)[0] === 0x03) {
@@ -1686,9 +2018,17 @@ window.tryUnlock = async function(autoPass) {
       _btcPub33 = secp256k1.getPublicKey(_btcPriv, true);
       _btcAddr = btcP2pkhAddr(_btcPub33);
 
+      // LTC key: m/44'/145'/0'/6/0
+      const ltcChainNode = _bip32Child(_acctPriv, _acctChain, 6, false);
+      const ltcNode = _bip32Child(ltcChainNode.priv, ltcChainNode.chain, 0, false);
+      _ltcPriv = ltcNode.priv;
+      _ltcPub = secp256k1.getPublicKey(_ltcPriv, true);
+      _ltcAddr = ltcP2pkhAddr(_ltcPub);
+
       console.log('[SWAP] session pub:', _sessionPub.slice(0, 16) + '...');
       console.log('[SWAP] BCH addr:', _bchAddr);
       console.log('[SWAP] BTC addr:', _btcAddr);
+      console.log('[SWAP] LTC addr:', _ltcAddr);
     }
 
     // Derive XMR keys via BIP32 m/44'/145'/0'/5/0 (same path as wallet.html)
@@ -1781,18 +2121,32 @@ function nostrBroadcast(ev) {
    MARKET RATE + RATE DISPLAY
    ══════════════════════════════════════════ */
 async function fetchMarketRate() {
+  const coin = (window._activePair || 'bch_btc').split('_')[1] || 'btc';
+  const ticker = coin.toUpperCase();
   try {
-    const r = await fetch('https://api.kraken.com/0/public/Ticker?pair=BCHXBT');
-    const j = await r.json();
-    _marketRate = parseFloat(j.result?.BCHXBT?.c?.[0]) || null;
+    if (coin === 'btc') {
+      const r = await fetch('https://api.kraken.com/0/public/Ticker?pair=BCHXBT');
+      const j = await r.json();
+      _marketRate = parseFloat(j.result?.BCHXBT?.c?.[0]) || null;
+    } else {
+      // Use CryptoCompare for BCH/LTC, BCH/XMR etc.
+      // Returns how many [ticker] for 1 BCH (e.g. 1 BCH = 8.5 LTC)
+      const r = await fetch('https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms=' + ticker);
+      const j = await r.json();
+      _marketRate = j[ticker] || null;
+    }
   } catch(e) { _marketRate = null; }
+  _marketRateTicker = ticker;
+  window._marketRate = _marketRate;
   updateMarketDisplay();
 }
+let _marketRateTicker = 'BTC';
 function updateMarketDisplay() {
   const el = $('#market-rate');
   if (!el) return;
+  const ticker = _marketRateTicker || 'BTC';
   el.textContent = _marketRate
-    ? 'MARKET: 1 BCH ≈ ' + _marketRate.toFixed(8) + ' BTC'
+    ? 'MARKET: 1 BCH ≈ ' + _marketRate.toFixed(8) + ' ' + ticker
     : '';
 }
 function updateRate() {
@@ -1920,18 +2274,21 @@ function handleOffer(ev) {
     // Validate required fields and types
     if (!['sell_bch', 'buy_bch'].includes(offer.side)) return;
     if (typeof offer.bch_amt !== 'number' || offer.bch_amt <= 0) return;
-    if (typeof offer.btc_amt !== 'number' || offer.btc_amt <= 0) return;
+    // Accept both other_amt and btc_amt for backward compat
+    const otherAmt = offer.other_amt || offer.btc_amt;
+    if (typeof otherAmt !== 'number' || otherAmt <= 0) return;
+    offer.other_amt = otherAmt;
+    if (!offer.pair) offer.pair = 'bch_btc'; // default for old offers
     if (!isHex(offer.maker_pub, 64)) return;
     offer.id = ev.id;
     offer.pubkey = ev.pubkey;
     offer.ts = ev.created_at;
     // Deduplicate by ev.id
     if (_offers.find(o => o.id === offer.id)) return;
-    // Replace older offer from same pubkey (heartbeat re-broadcasts)
-    const existIdx = _offers.findIndex(o => o.pubkey === ev.pubkey);
+    // Replace older offer from same pubkey+pair (heartbeat re-broadcasts)
+    const existIdx = _offers.findIndex(o => o.pubkey === ev.pubkey && o.pair === offer.pair);
     if (existIdx >= 0) {
       if (_offers[existIdx].ts >= ev.created_at) return; // keep newer
-      // Update _myOffers set if this is our own offer
       if (_myOffers.has(_offers[existIdx].id)) {
         _myOffers.delete(_offers[existIdx].id);
         _myOffers.add(ev.id);
@@ -1992,27 +2349,32 @@ function renderOrderbook() {
     return;
   }
 
-  // BTC orderbook (existing logic)
+  // HTLC orderbook (BTC + LTC)
   const fresh = _offers.filter(o => (now - o.ts) < OFFER_TTL);
   _offers = fresh;
 
-  if (fresh.length === 0) {
+  // Filter by active pair
+  const pairOffers = fresh.filter(o => (o.pair || 'bch_btc') === _activePair);
+  const chain = otherChain(_activePair);
+  const ticker = chain.toUpperCase();
+
+  if (pairOffers.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'empty-state';
-    empty.textContent = 'NO OFFERS AVAILABLE';
+    empty.textContent = 'NO ' + ticker + ' OFFERS AVAILABLE';
     el.appendChild(empty);
     return;
   }
 
-  for (const o of fresh.sort((a, b) => b.ts - a.ts)) {
-    // Validate ID is safe hex before using
+  for (const o of pairOffers.sort((a, b) => b.ts - a.ts)) {
     if (!isHex(o.id, 64)) continue;
     const isMine = o.maker_pub === _sessionPub || o.pubkey === _sessionPub;
     const sideLabel = o.side === 'sell_bch' ? 'SELL' : 'BUY';
     const sideClass = o.side === 'sell_bch' ? 'sell' : 'buy';
     const ago = Math.floor((now - o.ts) / 60);
     const agoStr = ago < 1 ? '<1m' : ago + 'm';
-    const rate = o.btc_amt && o.bch_amt ? (o.btc_amt / o.bch_amt).toFixed(8) : '?';
+    const oAmt = o.other_amt || o.btc_amt;
+    const rate = oAmt && o.bch_amt ? (oAmt / o.bch_amt).toFixed(8) : '?';
     const pub8 = (o.maker_pub || o.pubkey || '').slice(0, 8);
 
     const item = document.createElement('div');
@@ -2023,7 +2385,7 @@ function renderOrderbook() {
     top.className = 'offer-top';
     const amounts = document.createElement('div');
     amounts.className = 'offer-amounts';
-    amounts.textContent = satsToBch(o.bch_amt) + ' BCH \u2194 ' + satsToBch(o.btc_amt) + ' BTC';
+    amounts.textContent = satsToBch(o.bch_amt) + ' BCH \u2194 ' + satsToBch(oAmt) + ' ' + ticker;
     const side = document.createElement('span');
     side.className = 'offer-side ' + sideClass;
     side.textContent = sideLabel;
@@ -2032,7 +2394,7 @@ function renderOrderbook() {
 
     const detail = document.createElement('div');
     detail.className = 'offer-detail';
-    detail.textContent = 'RATE: 1 BCH = ' + rate + ' BTC \u00b7 ' + agoStr + ' ago \u00b7 ' + pub8 + '...';
+    detail.textContent = 'RATE: 1 BCH = ' + rate + ' ' + ticker + ' \u00b7 ' + agoStr + ' ago \u00b7 ' + pub8 + '...';
 
     const actions = document.createElement('div');
     actions.className = 'offer-actions';
@@ -2065,9 +2427,12 @@ window.postOffer = async function() {
     return;
   }
   const side = $('#offer-side').value;
+  const chain = otherChain(_activePair); // 'btc' | 'ltc'
+  const ticker = chain.toUpperCase();
   const bchAmt = bchToSats($('#offer-bch').value);
-  const btcAmt = bchToSats($('#offer-btc').value);
-  if (bchAmt <= 0 || btcAmt <= 0) {
+  const otherInput = $('#offer-btc') || $('#offer-other');
+  const otherAmt = bchToSats(otherInput ? otherInput.value : '0');
+  if (bchAmt <= 0 || otherAmt <= 0) {
     $('#offer-status').textContent = '// enter valid amounts';
     return;
   }
@@ -2075,21 +2440,24 @@ window.postOffer = async function() {
     $('#offer-status').textContent = '// min BCH: ' + satsToBch(MIN_BCH_SATS) + ' (' + MIN_BCH_SATS + ' sats)';
     return;
   }
-  if (btcAmt < MIN_BTC_SATS) {
-    $('#offer-status').textContent = '// min BTC: ' + satsToBch(MIN_BTC_SATS) + ' (' + MIN_BTC_SATS + ' sats)';
+  if (otherAmt < MIN_BTC_SATS) {
+    $('#offer-status').textContent = '// min ' + ticker + ': ' + satsToBch(MIN_BTC_SATS) + ' (' + MIN_BTC_SATS + ' sats)';
     return;
   }
   // Check balance
+  const otherBalance = chain === 'ltc' ? _ltcBalance : _btcBalance;
   if (side === 'sell_bch' && _bchBalance < bchAmt) {
     $('#offer-status').textContent = '// insufficient BCH balance';
     return;
   }
-  if (side === 'buy_bch' && _btcBalance < btcAmt) {
-    $('#offer-status').textContent = '// insufficient BTC balance';
+  if (side === 'buy_bch' && otherBalance < otherAmt) {
+    $('#offer-status').textContent = '// insufficient ' + ticker + ' balance';
     return;
   }
   const offer = {
-    side, bch_amt: bchAmt, btc_amt: btcAmt,
+    pair: _activePair,
+    side, bch_amt: bchAmt, other_amt: otherAmt,
+    btc_amt: otherAmt, // backward compat for BTC offers
     maker_pub: _sessionPub,
     stealth_code: _stealthCode,
     ts: Math.floor(Date.now() / 1000)
@@ -2099,7 +2467,7 @@ window.postOffer = async function() {
   _myOffers.add(ev.id);
   handleOffer(ev); // Add to local orderbook
   $('#offer-status').textContent = '// offer posted';
-  showToast('OFFER POSTED', 'success');
+  showToast('OFFER POSTED (' + ticker + ')', 'success');
 };
 
 /* ── Cancel own offer ── */
@@ -2195,16 +2563,22 @@ window.takeOffer = async function(offerId) {
 
   const makerPub = offer.maker_pub || offer.pubkey;
 
+  // Determine chain from offer pair
+  const chain = otherChain(offer.pair || 'bch_btc');
+  const ticker = chain.toUpperCase();
+  const oAmt = offer.other_amt || offer.btc_amt;
+
   // Dust safety: reject offers with amounts below network minimums
   if (offer.bch_amt < MIN_BCH_SATS) { showToast('BCH AMOUNT TOO SMALL (min ' + MIN_BCH_SATS + ' sats)', 'error'); return; }
-  if (offer.btc_amt < MIN_BTC_SATS) { showToast('BTC AMOUNT TOO SMALL (min ' + MIN_BTC_SATS + ' sats)', 'error'); return; }
+  if (oAmt < MIN_BTC_SATS) { showToast(ticker + ' AMOUNT TOO SMALL (min ' + MIN_BTC_SATS + ' sats)', 'error'); return; }
 
   // Check balance: taker pays the opposite side
+  const otherBalance = chain === 'ltc' ? _ltcBalance : _btcBalance;
   if (offer.side === 'sell_bch') {
-    // Maker sells BCH, taker pays BTC
-    if (_btcBalance < offer.btc_amt) { showToast('INSUFFICIENT BTC', 'error'); return; }
+    // Maker sells BCH, taker pays other chain
+    if (otherBalance < oAmt) { showToast('INSUFFICIENT ' + ticker, 'error'); return; }
   } else {
-    // Maker buys BCH (sells BTC), taker pays BCH
+    // Maker buys BCH, taker pays BCH
     if (_bchBalance < offer.bch_amt) { showToast('INSUFFICIENT BCH', 'error'); return; }
   }
 
@@ -2227,6 +2601,7 @@ window.takeOffer = async function(offerId) {
   // Initialize swap state
   _swap = {
     role: 'taker',
+    pair: offer.pair || _activePair,
     offer,
     makerPub,
     P_bch, P_btc, H_bch: b2h(H_bch), H_btc: b2h(H_btc),
@@ -2261,19 +2636,21 @@ async function handleTake(ev) {
     console.log('[SWAP] received take from', take.taker_pub.slice(0, 8));
 
     // Determine which chain we lock
+    const otherCh = otherChain(offer.pair || 'bch_btc');
+    const oAmt = offer.other_amt || offer.btc_amt;
     let lockChain, lockAmt, lockHash, claimChain, claimAmt, claimHash;
     if (offer.side === 'sell_bch') {
       // We sell BCH: lock BCH with H_bch
       lockChain = 'bch'; lockAmt = offer.bch_amt; lockHash = take.H_bch;
-      claimChain = 'btc'; claimAmt = offer.btc_amt; claimHash = take.H_btc;
+      claimChain = otherCh; claimAmt = oAmt; claimHash = take.H_btc;
     } else {
-      // We buy BCH (sell BTC): lock BTC with H_btc
-      lockChain = 'btc'; lockAmt = offer.btc_amt; lockHash = take.H_btc;
+      // We buy BCH (sell other): lock other chain with H_btc
+      lockChain = otherCh; lockAmt = oAmt; lockHash = take.H_btc;
       claimChain = 'bch'; claimAmt = offer.bch_amt; claimHash = take.H_bch;
     }
 
     // Get current block height for locktime
-    const blockCall = lockChain === 'bch' ? bchCall : btcCall;
+    const blockCall = chainCall(lockChain);
     const headerHex = await blockCall('blockchain.headers.subscribe', []);
     const currentHeight = headerHex.height || headerHex.block_height || 0;
     const locktime = currentHeight + MAKER_TIMEOUT_BLOCKS;
@@ -2284,16 +2661,20 @@ async function handleTake(ev) {
     const redeemScript = htlcScript(h2b(lockHash), takerPub33, myPub33, locktime);
 
     let txHex;
+    const utxos = chainUtxos(lockChain);
+    const changeAddr = chainAddr(lockChain);
     if (lockChain === 'bch') {
-      const privKeys = _bchUtxos.map(u => u._priv || _bchPriv);
-      txHex = buildBchHtlcFundTx(_bchUtxos, privKeys, redeemScript, lockAmt, _bchAddr, 1);
+      const privKeys = utxos.map(u => u._priv || _bchPriv);
+      txHex = buildBchHtlcFundTx(utxos, privKeys, redeemScript, lockAmt, changeAddr, 1);
     } else {
-      const privKeys = _btcUtxos.map(() => _btcPriv);
-      txHex = buildBtcHtlcFundTx(_btcUtxos, privKeys, redeemScript, lockAmt, _btcAddr, 2);
+      const priv = chainPriv(lockChain);
+      const privKeys = utxos.map(() => priv);
+      const buildFn = chainBuildFund(lockChain);
+      txHex = buildFn(utxos, privKeys, redeemScript, lockAmt, changeAddr, lockChain === 'ltc' ? 1 : 2);
     }
 
     // Broadcast
-    const broadcast = lockChain === 'bch' ? bchCall : btcCall;
+    const broadcast = chainCall(lockChain);
     const txid = await broadcast('blockchain.transaction.broadcast', [txHex]);
     console.log('[SWAP] maker locked', lockChain.toUpperCase(), 'HTLC:', txid);
 
@@ -2313,9 +2694,12 @@ async function handleTake(ev) {
     const lockEv = await makeEvent(_sessionPriv, NOSTR_KIND_LOCKED, encrypted, [['p', take.taker_pub]]);
     nostrBroadcast(lockEv);
 
+    // Compute HTLC P2SH address for monitoring
+    const htlcP2shAddr = chainP2shAddr(lockChain, redeemScript);
     // Set swap state
     _swap = {
       role: 'maker',
+      pair: offer.pair || _activePair,
       offer,
       takerPub: take.taker_pub,
       lockChain, lockAmt, lockHash,
@@ -2323,6 +2707,8 @@ async function handleTake(ev) {
       myHtlcTxid: txid,
       locktime,
       redeemScript: b2h(redeemScript),
+      htlcAddr: htlcP2shAddr,
+      ltcHtlcAddr: lockChain === 'ltc' ? htlcP2shAddr : undefined,
       state: 'MAKER_LOCKED',
       steps: ['TAKE RECEIVED', 'MY HTLC LOCKED', 'WAITING TAKER LOCK', 'WAITING TAKER CLAIM', 'CLAIM OTHER CHAIN', 'COMPLETE'],
       currentStep: 2,
@@ -2365,7 +2751,7 @@ async function handleLocked(ev) {
     _swap.makerLocktime = locked.locktime;
 
     // Verify maker's HTLC on-chain
-    const verifyCall = locked.lock_chain === 'bch' ? bchCall : btcCall;
+    const verifyCall = chainCall(locked.lock_chain);
     const txHex = await verifyCall('blockchain.transaction.get', [locked.maker_htlc_txid]);
 
     // Reconstruct expected HTLC and verify on-chain output matches
@@ -2429,7 +2815,7 @@ async function handleLocked(ev) {
     const myLockAmt = locked.claim_amt;
     const myLockHash = locked.claim_hash;
 
-    const myBlockCall = myLockChain === 'bch' ? bchCall : btcCall;
+    const myBlockCall = chainCall(myLockChain);
     const header = await myBlockCall('blockchain.headers.subscribe', []);
     const currentHeight = header.height || header.block_height || 0;
     const myLocktime = currentHeight + TAKER_TIMEOUT_BLOCKS;
@@ -2458,7 +2844,7 @@ async function handleLocked(ev) {
       txFund = buildBtcHtlcFundTx(_btcUtxos, privKeys, redeemScript, myLockAmt, _btcAddr, 2);
     }
 
-    const broadcastCall = myLockChain === 'bch' ? bchCall : btcCall;
+    const broadcastCall = chainCall(myLockChain);
     const myTxid = await broadcastCall('blockchain.transaction.broadcast', [txFund]);
     console.log('[SWAP] taker locked', myLockChain.toUpperCase(), ':', myTxid);
 
@@ -2559,7 +2945,7 @@ async function handleClaimed(ev) {
     console.log('[SWAP] taker claimed:', claimed.claim_txid, 'on', claimed.chain);
 
     // Get the claim TX to extract preimage
-    const fetchCall = claimed.chain === 'bch' ? bchCall : btcCall;
+    const fetchCall = chainCall(claimed.chain);
     const claimTxHex = await fetchCall('blockchain.transaction.get', [claimed.claim_txid]);
     const txInputs = parseTxInputs(claimTxHex);
 
@@ -2609,7 +2995,7 @@ async function handleClaimed(ev) {
     // Now claim taker's HTLC on the other chain — session keys for HTLC
     const takerPub33 = h2b('02' + _swap.takerPub);
     const myPub33 = h2b('02' + _sessionPub);
-    const claimCall = _swap.claimChain === 'bch' ? bchCall : btcCall;
+    const claimCall = chainCall(_swap.claimChain);
     const claimAddr = _swap.claimChain === 'bch' ? _bchAddr : _btcAddr;
     const claimPriv = _sessionPriv;
 
@@ -2742,7 +3128,7 @@ async function monitorTakerWaitMakerConfirm() {
   }
   // Check if maker HTLC has at least 1 confirmation
   const chain = _swap.lockChain;
-  const call = chain === 'bch' ? bchCall : btcCall;
+  const call = chainCall(chain);
   try {
     // Use verbose tx get to check confirmations
     const txHex = await call('blockchain.transaction.get', [_swap.makerHtlcTxid, true]);
@@ -2771,7 +3157,7 @@ async function monitorTakerLockRecovery() {
   }
 
   // 1. Check maker HTLC is confirmed
-  const verifyCall = _swap.lockChain === 'bch' ? bchCall : btcCall;
+  const verifyCall = chainCall(_swap.lockChain);
   try {
     const txData = await verifyCall('blockchain.transaction.get', [_swap.makerHtlcTxid, true]);
     const confs = txData.confirmations || 0;
@@ -2790,7 +3176,7 @@ async function monitorTakerLockRecovery() {
   const myLockAmt = _swap.claimAmt;
   const myLockHash = _swap.claimHash || _swap.lockHash;
 
-  const myBlockCall = myLockChain === 'bch' ? bchCall : btcCall;
+  const myBlockCall = chainCall(myLockChain);
   const header = await myBlockCall('blockchain.headers.subscribe', []);
   const currentHeight = header.height || header.block_height || 0;
   const myLocktime = currentHeight + TAKER_TIMEOUT_BLOCKS;
@@ -2808,14 +3194,17 @@ async function monitorTakerLockRecovery() {
 
   let txFund;
   try {
+    await chainRefreshBalance(myLockChain);
+    const utxos = chainUtxos(myLockChain);
+    const changeAddr = chainAddr(myLockChain);
     if (myLockChain === 'bch') {
-      await refreshBchBalance();
-      const privKeys = _bchUtxos.map(u => u._priv || _bchPriv);
-      txFund = buildBchHtlcFundTx(_bchUtxos, privKeys, redeemScript, myLockAmt, _bchAddr, 1);
+      const privKeys = utxos.map(u => u._priv || _bchPriv);
+      txFund = buildBchHtlcFundTx(utxos, privKeys, redeemScript, myLockAmt, changeAddr, 1);
     } else {
-      await refreshBtcBalance();
-      const privKeys = _btcUtxos.map(() => _btcPriv);
-      txFund = buildBtcHtlcFundTx(_btcUtxos, privKeys, redeemScript, myLockAmt, _btcAddr, 2);
+      const priv = chainPriv(myLockChain);
+      const privKeys = utxos.map(() => priv);
+      const buildFn = chainBuildFund(myLockChain);
+      txFund = buildFn(utxos, privKeys, redeemScript, myLockAmt, changeAddr, myLockChain === 'ltc' ? 1 : 2);
     }
   } catch(e) {
     console.error('[SWAP monitor] MAKER_LOCKED — build TX error:', e.message);
@@ -2824,7 +3213,7 @@ async function monitorTakerLockRecovery() {
   }
 
   // 3. Broadcast taker HTLC
-  const broadcastCall = myLockChain === 'bch' ? bchCall : btcCall;
+  const broadcastCall = chainCall(myLockChain);
   const myTxid = await broadcastCall('blockchain.transaction.broadcast', [txFund]);
   console.log('[SWAP monitor] taker locked (recovery)', myLockChain.toUpperCase(), ':', myTxid);
 
@@ -2850,7 +3239,7 @@ async function monitorTakerLockRecovery() {
   saveSwapState();
 
   // 5. Try to claim maker's HTLC immediately
-  const claimCall2 = _swap.lockChain === 'bch' ? bchCall : btcCall;
+  const claimCall2 = chainCall(_swap.lockChain);
   const htlcSh = p2shScriptHash(claimRedeemScript);
   const htlcUtxos = await claimCall2('blockchain.scripthash.listunspent', [htlcSh]);
   if (htlcUtxos.length === 0) {
@@ -2908,7 +3297,7 @@ async function monitorTakerWaitingConfirm() {
   }
 
   const claimRedeemScript = h2b(_swap.claimRedeemScriptHex);
-  const verifyCall = _swap.claimChainLock === 'bch' ? bchCall : btcCall;
+  const verifyCall = chainCall(_swap.claimChainLock);
   const htlcSh = p2shScriptHash(claimRedeemScript);
 
   const htlcUtxos = await verifyCall('blockchain.scripthash.listunspent', [htlcSh]);
@@ -2981,7 +3370,7 @@ async function monitorMakerRetryClaim() {
 
   const takerPub33 = h2b('02' + _swap.takerPub);
   const myPub33 = h2b('02' + _sessionPub);  // session pub for HTLC
-  const claimCallFn = _swap.claimChain === 'bch' ? bchCall : btcCall;
+  const claimCallFn = chainCall(_swap.claimChain);
   const claimAddr = _swap.claimChain === 'bch' ? _bchAddr : _btcAddr;
   const claimPriv = _sessionPriv;
   const otherPreimage = h2b(_swap.otherPreimage);
@@ -3061,7 +3450,7 @@ async function checkRefundEligibility() {
     const locktime = _swap.role === 'maker' ? _swap.locktime : _swap.myLocktime;
     if (!chain || !locktime) return;
 
-    const call = chain === 'bch' ? bchCall : btcCall;
+    const call = chainCall(chain);
     const header = await call('blockchain.headers.subscribe', []);
     const currentHeight = header.height || header.block_height || 0;
 
@@ -3084,7 +3473,7 @@ window.refundSwap = async function() {
     const chain = _swap.role === 'maker' ? _swap.lockChain : _swap.myLockChain;
     const redeemScript = h2b(_swap.role === 'maker' ? _swap.redeemScript : _swap.myRedeemScript);
     const locktime = _swap.role === 'maker' ? _swap.locktime : _swap.myLocktime;
-    const call = chain === 'bch' ? bchCall : btcCall;
+    const call = chainCall(chain);
     const addr = chain === 'bch' ? _bchAddr : _btcAddr;
     const priv = _sessionPriv;  // HTLC sender is session pub → sign with session priv
 
@@ -4103,11 +4492,14 @@ window.switchPair = function(pair) {
   _activePair = pair; window._activePair = pair;
   const pSel = $('#pair-select'); if (pSel) pSel.value = pair;
   const dtSel = $('#dt-pair-select'); if (dtSel) dtSel.value = pair;
-  const isBtc = pair === 'bch_btc';
-  const isXmr = pair === 'bch_xmr';
+  const coin = pair.split('_')[1] || 'btc';
+  const isBtc = coin === 'btc';
+  const isXmr = coin === 'xmr';
+  const isLtc = coin === 'ltc';
+  const isUtxo = isBtc || isLtc; // UTXO-based chains share the same swap UI
 
   // Toggle balance rows (phone)
-  const btcRow = $('#btc-balance-row'); if (btcRow) btcRow.style.display = isBtc ? '' : 'none';
+  const btcRow = $('#btc-balance-row'); if (btcRow) btcRow.style.display = isUtxo ? '' : 'none';
   const xmrRow = $('#xmr-balance-row'); if (xmrRow) xmrRow.style.display = isXmr ? '' : 'none';
 
   // Show SYNCING if WASM wallet not ready yet
@@ -4115,25 +4507,32 @@ window.switchPair = function(pair) {
     const xmrBal = $('#xmr-balance'); if (xmrBal) xmrBal.textContent = 'SYNCING...';
   }
 
-  // Toggle balance cards (desktop)
-  const dtBtcCard = $('#dt-btc-bal-card'); if (dtBtcCard) dtBtcCard.style.display = isBtc ? '' : 'none';
+  // Toggle balance cards (desktop) — show the right card for the selected coin
+  const dtBtcCard = $('#dt-btc-bal-card'); if (dtBtcCard) { dtBtcCard.style.display = isUtxo ? '' : 'none'; if (dtBtcCard.querySelector('.dt-form-lbl')) dtBtcCard.querySelector('.dt-form-lbl').textContent = coin.toUpperCase() + ' Balance'; }
   const dtXmrCard = $('#dt-xmr-bal-card'); if (dtXmrCard) dtXmrCard.style.display = isXmr ? '' : 'none';
+  // Toggle mobile balance rows
+  const btcBalRow = $('#btc-balance-row'); if (btcBalRow) btcBalRow.style.display = coin === 'btc' ? '' : 'none';
+  const ltcBalRow = $('#ltc-balance-row'); if (ltcBalRow) ltcBalRow.style.display = coin === 'ltc' ? '' : 'none';
+  // Refresh balance for the selected coin
+  if (coin === 'ltc') refreshLtcBalance();
+  else if (coin === 'btc') refreshBtcBalance();
 
-  // Toggle offer form fields
-  const btcWrap = $('#offer-right-wrap'); if (btcWrap) btcWrap.style.display = isBtc ? '' : 'none';
+  // Toggle offer form fields — always show right panel (new coin picker UI)
+  const btcWrap = $('#offer-right-wrap'); if (btcWrap) btcWrap.style.display = (isUtxo || isXmr) ? '' : 'none';
   const xmrWrap = $('#offer-xmr-wrap'); if (xmrWrap) xmrWrap.style.display = isXmr ? '' : 'none';
-  const dtBtcWrap = $('#dt-offer-right-wrap'); if (dtBtcWrap) dtBtcWrap.style.display = isBtc ? '' : 'none';
+  const dtBtcWrap = $('#dt-offer-right-wrap'); if (dtBtcWrap) dtBtcWrap.style.display = ''; // Always visible with new coin picker
   const dtXmrWrap = $('#dt-offer-xmr-wrap'); if (dtXmrWrap) dtXmrWrap.style.display = isXmr ? '' : 'none';
 
   // Update side options
   const sideEl = $('#offer-side');
   const dtSideEl = $('#dt-offer-side');
-  if (isBtc) {
-    if (sideEl) sideEl.innerHTML = '<option value="sell_bch">SELL BCH → GET BTC</option><option value="buy_bch">BUY BCH → PAY BTC</option>';
-    if (dtSideEl) dtSideEl.innerHTML = '<option value="sell_bch">Sell BCH → Get BTC</option><option value="buy_bch">Buy BCH → Pay BTC</option>';
+  const ticker = coin.toUpperCase();
+  if (isUtxo) {
+    if (sideEl) sideEl.innerHTML = '<option value="sell_bch">SELL BCH → GET '+ticker+'</option><option value="buy_bch">BUY BCH → PAY '+ticker+'</option>';
+    if (dtSideEl) dtSideEl.innerHTML = '<option value="sell_bch">Sell BCH → Get '+ticker+'</option><option value="buy_bch">Buy BCH → Pay '+ticker+'</option>';
   } else {
-    if (sideEl) { sideEl.innerHTML = '<option value="sell_bch">SELL BCH → GET XMR</option>'; sideEl.value = 'sell_bch'; }
-    if (dtSideEl) { dtSideEl.innerHTML = '<option value="sell_bch">Sell BCH → Get XMR</option>'; dtSideEl.value = 'sell_bch'; }
+    if (sideEl) { sideEl.innerHTML = '<option value="sell_bch">SELL BCH → GET '+ticker+'</option>'; sideEl.value = 'sell_bch'; }
+    if (dtSideEl) { dtSideEl.innerHTML = '<option value="sell_bch">Sell BCH → Get '+ticker+'</option>'; dtSideEl.value = 'sell_bch'; }
   }
 
   // Toggle connection bars
@@ -4192,6 +4591,10 @@ window.reconnectBtc = function() {
 function boot() {
   bchConnect();
   btcConnect();
+  // LTC uses REST API (litecoinspace) — no WSS needed
+  _ltcConnected = true;
+  const ltcDot = $('#ltc-dot'); if(ltcDot) ltcDot.classList.add('on');
+  const ltcLbl = $('#ltc-label'); if(ltcLbl) ltcLbl.textContent = 'litecoinspace.org';
   nostrConnect();
   loadSwapState();
   loadXmrSwapState();
@@ -4220,6 +4623,7 @@ function boot() {
   };
 
   // Market rate + periodic refresh
+  window.fetchMarketRate = fetchMarketRate;
   fetchMarketRate();
   setInterval(fetchMarketRate, 60000);
 

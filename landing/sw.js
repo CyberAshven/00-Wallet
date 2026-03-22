@@ -1,5 +1,5 @@
 // 0penw0rld Service Worker
-const CACHE = '0penw0rld-v402';
+const CACHE = '0penw0rld-v485';
 
 const APP_SHELL = [
   '/',
@@ -20,11 +20,15 @@ const APP_SHELL = [
   '/swap.html',
   '/onion.html',
   '/vault.html',
+  '/sub.html',
+  '/analyse.html',
   '/config.html',
   '/xmr-swap-crypto.js',
   '/xmr-rpc.js',
   '/swap-xmr.html',
+  '/chains.js',
   '/ledger.js',
+  '/wizardconnect.js',
   '/manifest.json',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
@@ -120,17 +124,31 @@ self.addEventListener('fetch', e => {
         )
     );
   } else {
-    // Cache first — app shell (HTML, icons, manifest)
-    e.respondWith(
-      caches.match(e.request, { ignoreSearch: true }).then(cached => {
-        if (cached) return needsCoi ? addCoiHeaders(cached) : cached;
-        return fetch(e.request).then(res => {
-          const clone = res.clone();
-          if (res.ok) caches.open(CACHE).then(c => c.put(e.request, clone));
-          return needsCoi ? addCoiHeaders(res) : res;
-        });
-      })
-    );
+    // HTML files: stale-while-revalidate (serve cache, update in background)
+    const isHtml = url.endsWith('.html') || url.endsWith('/') || url.endsWith('shell.js') || url.endsWith('desktop.css');
+    if (isHtml) {
+      e.respondWith(
+        caches.match(e.request, { ignoreSearch: true }).then(cached => {
+          const fetchPromise = fetch(e.request, { cache: 'no-cache' }).then(res => {
+            if (res.ok) { const clone = res.clone(); caches.open(CACHE).then(c => c.put(e.request, clone)); }
+            return needsCoi ? addCoiHeaders(res) : res;
+          }).catch(() => cached);
+          return cached ? (needsCoi ? addCoiHeaders(cached) : cached) : fetchPromise;
+        })
+      );
+    } else {
+      // Cache first — static assets (icons, manifest, CSS, JS)
+      e.respondWith(
+        caches.match(e.request, { ignoreSearch: true }).then(cached => {
+          if (cached) return needsCoi ? addCoiHeaders(cached) : cached;
+          return fetch(e.request).then(res => {
+            const clone = res.clone();
+            if (res.ok) caches.open(CACHE).then(c => c.put(e.request, clone));
+            return needsCoi ? addCoiHeaders(res) : res;
+          });
+        })
+      );
+    }
   }
 });
 

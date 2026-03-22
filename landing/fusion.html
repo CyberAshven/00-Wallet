@@ -967,8 +967,8 @@ async function tryUnlock(autoPass) {
       _acctChain = h2b(_profile.acctChainHex);
       _addrIndex = parseInt(localStorage.getItem('00_fusion_addr_idx') || '1');
       console.log('[FUSION] HD derivation ready, next index:', _addrIndex);
-      // Derive stealth keys: m/44'/145'/0'/2/0 (scan) + m/44'/145'/0'/2/1 (spend)
-      const stChain = _bip32Child(_acctPriv, _acctChain, 2, false);
+      // Derive stealth keys: m/44'/145'/0'/2'/0 (scan) + m/44'/145'/0'/2'/1 (spend)
+      const stChain = _bip32Child(_acctPriv, _acctChain, 2, true);
       const scanChild = _bip32Child(stChain.priv, stChain.chain, 0, false);
       const spendChild = _bip32Child(stChain.priv, stChain.chain, 1, false);
       _stealthScanPriv = scanChild.priv;

@@ -1040,14 +1040,14 @@ async function idImport() {
     const nostrPub   = secp256k1.getPublicKey(nostrPriv, true).slice(1);
     const bchPub33   = secp256k1.getPublicKey(bchPriv, true);
     const bchHash160 = ripemd160(sha256(bchPub33));
-    // Derive stealth keys: m/44'/145'/0'/2/0 (scan) + m/44'/145'/0'/2/1 (spend)
+    // Derive stealth keys: m/44'/145'/0'/2'/0 (scan) + m/44'/145'/0'/2'/1 (spend)
     let stealthScanHex = '', stealthSpendHex = '';
     try {
       let acct = bip32Master(seed64);
       acct = _bip32Child(acct.priv, acct.chain, 0x8000002c, true);
       acct = _bip32Child(acct.priv, acct.chain, 0x80000091, true);
       acct = _bip32Child(acct.priv, acct.chain, 0x80000000, true);
-      const stChain = _bip32Child(acct.priv, acct.chain, 2, false);
+      const stChain = _bip32Child(acct.priv, acct.chain, 2, true);
       const scanChild = _bip32Child(stChain.priv, stChain.chain, 0, false);
       const spendChild = _bip32Child(stChain.priv, stChain.chain, 1, false);
       stealthScanHex = b2h(secp256k1.getPublicKey(scanChild.priv, true));
@@ -1101,7 +1101,7 @@ async function bootApp(profile) {
           acct = _bip32Child(acct.priv, acct.chain, 0x8000002c, true);
           acct = _bip32Child(acct.priv, acct.chain, 0x80000091, true);
           acct = _bip32Child(acct.priv, acct.chain, 0x80000000, true);
-          const stChain = _bip32Child(acct.priv, acct.chain, 2, false);
+          const stChain = _bip32Child(acct.priv, acct.chain, 2, true);
           const scanChild = _bip32Child(stChain.priv, stChain.chain, 0, false);
           const spendChild = _bip32Child(stChain.priv, stChain.chain, 1, false);
           _stealthCode = 'stealth:' + b2h(secp256k1.getPublicKey(scanChild.priv, true)) + b2h(secp256k1.getPublicKey(spendChild.priv, true));
@@ -1166,7 +1166,7 @@ window._idBoot = async function() {
           acct = _bip32Child(acct.priv, acct.chain, 0x8000002c, true);
           acct = _bip32Child(acct.priv, acct.chain, 0x80000091, true);
           acct = _bip32Child(acct.priv, acct.chain, 0x80000000, true);
-          const stChain = _bip32Child(acct.priv, acct.chain, 2, false);
+          const stChain = _bip32Child(acct.priv, acct.chain, 2, true);
           const scanChild = _bip32Child(stChain.priv, stChain.chain, 0, false);
           const spendChild = _bip32Child(stChain.priv, stChain.chain, 1, false);
           stealthScanHex = b2h(secp256k1.getPublicKey(scanChild.priv, true));

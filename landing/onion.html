@@ -1398,8 +1398,8 @@ window.tryUnlock = async function(autoPass) {
       }
       console.log('[ONION] HD addresses scanned:', _hdAddresses.length);
     }
-    // Derive deterministic session key from seed: m/44'/145'/0'/2/0
-    const sessionChain = _bip32Child(_acctPriv, _acctChain, 2, false); // chain 2 = session/identity
+    // Derive deterministic session key from seed: m/44'/145'/0'/2'/0
+    const sessionChain = _bip32Child(_acctPriv, _acctChain, 2, true); // chain 2 = session/identity
     const sessionNode = _bip32Child(sessionChain.priv, sessionChain.chain, 0, false); // index 0
     _sessionPriv = sessionNode.priv;
     // Ensure even parity (02 prefix) so h2b('02'+xonly) always matches
@@ -1410,7 +1410,7 @@ window.tryUnlock = async function(autoPass) {
     _sessionPub = b2h(secp256k1.getPublicKey(_sessionPriv, true).slice(1));
     console.log('[ONION] session pub (deterministic):', _sessionPub.slice(0, 16) + '...');
 
-    // Derive stealth spend key: m/44'/145'/0'/2/1
+    // Derive stealth spend key: m/44'/145'/0'/2'/1
     const spendNode = _bip32Child(sessionChain.priv, sessionChain.chain, 1, false);
     _stealthSpendPriv = spendNode.priv;
     if (secp256k1.getPublicKey(_stealthSpendPriv, true)[0] === 0x03) {
