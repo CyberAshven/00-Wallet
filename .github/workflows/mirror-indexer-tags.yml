@@ -22,7 +22,7 @@ jobs:
               repo: 'BCH-Stealth-Protocol',
               per_page: 100,
             });
-            const indexerTags = upstream.data.filter(t => t.name.startsWith('indexer-v'));
+            const indexerTags = upstream.data.filter(t => t.name.startsWith('BCH-Pubkey-Indexer-v'));
 
             const existing = await github.rest.repos.listTags({
               owner: context.repo.owner,
