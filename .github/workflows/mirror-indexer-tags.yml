@@ -1,4 +1,4 @@
-name: Mirror indexer tags from BCH-Stealth-Protocol
+name: Mirror indexer tags and releases from BCH-Stealth-Protocol
 
 on:
   schedule:
@@ -6,48 +6,104 @@ on:
   workflow_dispatch:
 
 jobs:
-  mirror-tags:
+  mirror:
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - name: Mirror indexer tags
+      - name: Mirror tags and release assets
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const upstream = await github.rest.repos.listTags({
-              owner: '00-Protocol',
-              repo: 'BCH-Stealth-Protocol',
-              per_page: 100,
-            });
-            const indexerTags = upstream.data.filter(t => t.name.startsWith('BCH-Pubkey-Indexer-v'));
+            const UPSTREAM_OWNER = '00-Protocol';
+            const UPSTREAM_REPO = 'BCH-Stealth-Protocol';
 
-            const existing = await github.rest.repos.listTags({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              per_page: 100,
+            // Get all BCH-Pubkey-Indexer-v* tags from upstream
+            const upstreamTags = await github.rest.repos.listTags({
+              owner: UPSTREAM_OWNER, repo: UPSTREAM_REPO, per_page: 100,
             });
-            const existingNames = new Set(existing.data.map(t => t.name));
+            const indexerTags = upstreamTags.data.filter(t => t.name.startsWith('BCH-Pubkey-Indexer-v'));
 
+            // Get existing tags in this repo
+            const existingTags = await github.rest.repos.listTags({
+              owner: context.repo.owner, repo: context.repo.repo, per_page: 100,
+            });
+            const existingNames = new Set(existingTags.data.map(t => t.name));
+
+            // Get main SHA for tagging
             const main = await github.rest.repos.getBranch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              branch: 'main',
+              owner: context.repo.owner, repo: context.repo.repo, branch: 'main',
             });
             const mainSha = main.data.commit.sha;
 
             for (const tag of indexerTags) {
-              if (!existingNames.has(tag.name)) {
-                console.log(`Mirroring tag ${tag.name} -> ${mainSha}`);
+              const tagName = tag.name;
+
+              // Create tag if missing
+              if (!existingNames.has(tagName)) {
+                console.log(`Creating tag ${tagName}`);
                 await github.rest.git.createRef({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  ref: `refs/tags/${tag.name}`,
-                  sha: mainSha,
+                  owner: context.repo.owner, repo: context.repo.repo,
+                  ref: `refs/tags/${tagName}`, sha: mainSha,
                 });
-              } else {
-                console.log(`${tag.name} already exists, skipping`);
+              }
+
+              // Get upstream release for this tag
+              let upstreamRelease;
+              try {
+                const r = await github.rest.repos.getReleaseByTag({
+                  owner: UPSTREAM_OWNER, repo: UPSTREAM_REPO, tag: tagName,
+                });
+                upstreamRelease = r.data;
+              } catch (e) {
+                console.log(`No upstream release for ${tagName} yet, skipping`);
+                continue;
+              }
+
+              // Check if release already exists in this repo
+              let localRelease;
+              try {
+                const r = await github.rest.repos.getReleaseByTag({
+                  owner: context.repo.owner, repo: context.repo.repo, tag: tagName,
+                });
+                localRelease = r.data;
+                console.log(`Release ${tagName} already exists locally`);
+              } catch (e) {
+                // Create it
+                console.log(`Creating release ${tagName}`);
+                const r = await github.rest.repos.createRelease({
+                  owner: context.repo.owner, repo: context.repo.repo,
+                  tag_name: tagName,
+                  name: upstreamRelease.name,
+                  body: upstreamRelease.body,
+                });
+                localRelease = r.data;
+              }
+
+              // Mirror assets that don't exist locally yet
+              const localAssets = await github.rest.repos.listReleaseAssets({
+                owner: context.repo.owner, repo: context.repo.repo,
+                release_id: localRelease.id,
+              });
+              const localAssetNames = new Set(localAssets.data.map(a => a.name));
+
+              for (const asset of upstreamRelease.assets) {
+                if (localAssetNames.has(asset.name)) {
+                  console.log(`  ${asset.name} already mirrored`);
+                  continue;
+                }
+                console.log(`  Downloading ${asset.name} (${Math.round(asset.size/1024/1024)}MB)...`);
+                const response = await fetch(asset.browser_download_url);
+                const buffer = Buffer.from(await response.arrayBuffer());
+                await github.rest.repos.uploadReleaseAsset({
+                  owner: context.repo.owner, repo: context.repo.repo,
+                  release_id: localRelease.id,
+                  name: asset.name,
+                  data: buffer,
+                  headers: { 'content-type': asset.content_type, 'content-length': asset.size },
+                });
+                console.log(`  Uploaded ${asset.name}`);
               }
             }
